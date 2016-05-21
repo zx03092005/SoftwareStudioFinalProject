@@ -14,20 +14,16 @@ public class MainApplet extends PApplet {
 
 	int state = 0;
 	String msg;
-	private ControlP5 cp5;
-	private Ani ani;
 	private Minim minim;
 	private AudioPlayer bgMusic;
 	
 	public void setup() {
 		size(1000, 650);
 		msg = "state = " + String.valueOf(state);
-		Ani.init(this);
 		minim = new Minim(this);
 		//load a music to set the background music
 		bgMusic = minim.loadFile("BgMusic.mp3");
 		bgMusic.play();
-		cp5 = new ControlP5(this);
 	}
 
 	public void draw() {
