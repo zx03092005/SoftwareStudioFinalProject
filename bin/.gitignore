@@ -1,1 +1,8 @@
 /Client/
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Class Path #
+.classpath
