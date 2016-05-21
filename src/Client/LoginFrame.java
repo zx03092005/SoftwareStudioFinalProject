@@ -20,7 +20,6 @@ import javax.swing.UIManager;
 @SuppressWarnings("serial")
 public class LoginFrame extends JFrame /*implements Runnable */{
 
-	Socket socket;
 	PrintWriter writer;
 	BufferedReader reader;
 	
@@ -33,9 +32,13 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 	
 	int state = 0; // wait for server
 	
-	public LoginFrame() {
-		connect("127.0.0.1", 8000);
+	public LoginFrame(Socket socket) {
+		try {
+			writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		} catch (Exception e) {}
 		dialogContent();
+		//System.out.println("LF : " + socket.getInetAddress() + "->" + socket.getLocalPort());
 	}
 	
 	public void dialogContent() {
@@ -68,15 +71,7 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 			
 		} catch(Exception e) {}
 	}
-	
-	public void connect(String ip, int port) {
-		try {
-			socket = new Socket(ip, port);
-			writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		} catch (Exception e) {}
-	}
-	
+
 	/*public void run() {
 		//while(true) {
 			try {

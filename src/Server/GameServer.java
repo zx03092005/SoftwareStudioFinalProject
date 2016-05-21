@@ -1,6 +1,7 @@
 package Server;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -15,6 +16,7 @@ public class GameServer extends JFrame {
 	private ServerSocket serverSocket;
 	JTextArea ta = new JTextArea();
 	String userAccount, userPassword;
+	//private File[] fileList = new File("Brazil/dessert").listFiles();
 	// maybe not use
 	//private ConnectionThread[] connections = new ConnectionThread[2];
 	

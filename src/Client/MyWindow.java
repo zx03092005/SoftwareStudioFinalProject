@@ -1,23 +1,30 @@
 package Client;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class MyWindow extends JFrame {
 
-	MainApplet applet = new MainApplet();
+	Socket socket;
 	
 	public MyWindow() {
 		
-		MainApplet applet = new MainApplet();
+		connect("127.0.0.1", 8000);
+		
+		MainApplet applet = new MainApplet(socket);
 		applet.init();
 		applet.start();
 		applet.setFocusable(true);
 		
-		//Thread lt = new Thread(new LoginFrame());
-		//lt.start();
-		@SuppressWarnings("unused")
-		LoginFrame lf = new LoginFrame();
+		LoginFrame lf = new LoginFrame(socket);
 		
 		setLayout(null);
 		setResizable(false);
@@ -30,5 +37,11 @@ public class MyWindow extends JFrame {
 		} catch(Exception e) {}
 		
 	}
-
+	
+	public void connect(String ip, int port) {
+		try {
+			socket = new Socket(ip, port);
+		} catch (Exception e) {}
+	}
+	
 }
