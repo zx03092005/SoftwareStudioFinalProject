@@ -6,7 +6,6 @@ import controlP5.ControlP5;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import de.looksgood.ani.Ani;
-import main.java.Character;
 import processing.core.PApplet;
 
 @SuppressWarnings({ "serial", "unused" })

@@ -16,6 +16,7 @@ public class MyWindow extends JFrame {
 		
 		//Thread lt = new Thread(new LoginFrame());
 		//lt.start();
+		@SuppressWarnings("unused")
 		LoginFrame lf = new LoginFrame();
 		
 		setLayout(null);
