@@ -2,14 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/Minim/jl1.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/Minim/jsminim.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/Minim/minim.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/Minim/mp3spi1.9.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/Minim/tritonus_aos.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/Minim/tritonus_share.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/Ani/Ani.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/controlP5/controlP5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Wingsyu/Desktop/test/Libraries/Processing/core.jar"/>
+	<classpathentry kind="lib" path="/Final project/Libraries/Ani/Ani.jar"/>
+	<classpathentry kind="lib" path="/Final project/Libraries/Processing/core.jar"/>
+	<classpathentry kind="lib" path="/Final project/Libraries/Minim/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="/Final project/Libraries/Minim/jsminim.jar"/>
+	<classpathentry kind="lib" path="/Final project/Libraries/Minim/minim.jar"/>
+	<classpathentry kind="lib" path="/Final project/Libraries/Minim/mp3spi1.9.5.jar"/>
+	<classpathentry kind="lib" path="/Final project/Libraries/Minim/tritonus_aos.jar"/>
+	<classpathentry kind="lib" path="/Final project/Libraries/Minim/tritonus_share.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
