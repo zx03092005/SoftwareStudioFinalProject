@@ -20,7 +20,6 @@ public class MainApplet extends PApplet {
 	int state;
 	String msg;
 	PImage img;
-	@SuppressWarnings("unused")
 	private Ani ani;
 	BackGround bg;
 	Country country;

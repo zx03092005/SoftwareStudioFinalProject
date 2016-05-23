@@ -63,7 +63,7 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 			SwingUtilities.updateComponentTreeUI(userLogin);
 			
 			userLogin.setLayout(null);
-			userLogin.setBounds(0, 0, 400, 220);
+			userLogin.setBounds(483, 255, 400, 220);
 			userLogin.setVisible(true);
 			
 		} catch(Exception e) {}
