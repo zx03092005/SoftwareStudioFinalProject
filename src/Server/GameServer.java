@@ -1,7 +1,6 @@
 package Server;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -16,9 +15,6 @@ public class GameServer extends JFrame {
 	private ServerSocket serverSocket;
 	JTextArea ta = new JTextArea();
 	String userAccount, userPassword;
-	//private File[] fileList = new File("Brazil/dessert").listFiles();
-	// maybe not use
-	//private ConnectionThread[] connections = new ConnectionThread[2];
 	
 	public GameServer(int portNum) {
 		this.setResizable(false);
@@ -60,6 +56,7 @@ public class GameServer extends JFrame {
         else return false;
         
     }
+	
 	class ConnectionThread extends Thread {
 		private Socket socket;
 		private BufferedReader reader;
@@ -79,8 +76,6 @@ public class GameServer extends JFrame {
 				try {
 					GameServer.this.userAccount = this.reader.readLine();
 					GameServer.this.userPassword = this.reader.readLine();
-					//System.out.println(GameServer.this.userAccount);
-					//System.out.println(GameServer.this.userPassword);
 					if(GameServer.this.isPasswordCorrect(GameServer.this.userAccount, GameServer.this.userPassword)) 
 						sendMessage("LoginSuccess");
 					else 

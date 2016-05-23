@@ -30,15 +30,12 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 	JLabel passwordLabel = new JLabel("Password : ");
 	JDialog userLogin = new JDialog(this, "WELCOME!!!", true);
 	
-	int state = 0; // wait for server
-	
 	public LoginFrame(Socket socket) {
 		try {
 			writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		} catch (Exception e) {}
 		dialogContent();
-		//System.out.println("LF : " + socket.getInetAddress() + "->" + socket.getLocalPort());
 	}
 	
 	public void dialogContent() {
@@ -72,24 +69,6 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 		} catch(Exception e) {}
 	}
 
-	/*public void run() {
-		//while(true) {
-			try {
-				String test = reader.readLine().replace("\n", "");
-				//System.out.println(test);
-				if(test.equals("LoginSuccess")) {
-					userLogin.setVisible(false);
-					//break;
-				}
-				else {
-					account.setText("");
-					password.setText("");
-					JOptionPane.showMessageDialog(userLogin, "Please Try Again!", "ERROR", ERROR);
-				}
-			} catch (IOException e) {}
-		//}
-		//System.out.println("OK");
-	}*/
 	public void check() {
 		while(true) {
 			try {

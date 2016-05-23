@@ -1,12 +1,6 @@
 package Client;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 import javax.swing.*;
 
@@ -15,17 +9,18 @@ public class MyWindow extends JFrame {
 
 	Socket socket;
 	
+	@SuppressWarnings("unused")
 	public MyWindow() {
 		
 		connect("127.0.0.1", 8000);
+
+		LoginFrame lf = new LoginFrame(socket);
 		
 		MainApplet applet = new MainApplet(socket);
 		applet.init();
 		applet.start();
 		applet.setFocusable(true);
-		
-		LoginFrame lf = new LoginFrame(socket);
-		
+
 		setLayout(null);
 		setResizable(false);
 		setTitle("Final Project");		
@@ -43,5 +38,5 @@ public class MyWindow extends JFrame {
 			socket = new Socket(ip, port);
 		} catch (Exception e) {}
 	}
-	
+
 }
