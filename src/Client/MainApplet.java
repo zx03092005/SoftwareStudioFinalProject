@@ -173,6 +173,7 @@ public class MainApplet extends PApplet {
 				}
 			}
 		}
+		//state 4 time's up animation
 		else if(state == 4) {
 			background(255);
 			fill(0);
@@ -187,6 +188,7 @@ public class MainApplet extends PApplet {
 		else if(state == 6) {
 			
 		}
+		//feedback
 		// the end Animation and if you want to get more coin to unlocked 
 		// the new country you can type something like "Andy is nice person"
 		// And then Back to choose the next country you want to play
