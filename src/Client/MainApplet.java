@@ -58,17 +58,17 @@ public class MainApplet extends PApplet {
 
 	public void draw() {
 		if(state == 0) {
-			if(bg.chroma > 5 && bg.photo == 1) ani = Ani.to(bg, (float)2.0, "chroma", 10);
+			if(bg.chroma > 5 && bg.photo == 1) ani = Ani.to(bg, (float)0.1, "chroma", 10);
 			if(bg.chroma < 11 && bg.photo == 1) { 
 				bg.initChroma(); 
 				bg.photo = 2;
 			}
-			if(bg.chroma > 5 && bg.photo == 2) ani = Ani.to(bg, (float)2.0, "chroma", 10);
+			if(bg.chroma > 5 && bg.photo == 2) ani = Ani.to(bg, (float)0.1, "chroma", 10);
 			if(bg.chroma < 11 && bg.photo == 2) { 
 				bg.initChroma(); 
 				bg.photo = 3; 
 			}
-			if(bg.chroma > 5 && bg.photo == 3) ani = Ani.to(bg, (float)2.0, "chroma", 10);
+			if(bg.chroma > 5 && bg.photo == 3) ani = Ani.to(bg, (float)0.1, "chroma", 10);
 			if(bg.chroma < 11 && bg.photo == 3) { 
 				bg.initChroma(); 
 				this.state = 1; 
@@ -97,8 +97,9 @@ public class MainApplet extends PApplet {
 			if(!isDisplayed) {
 				for(k=0; k<countrys.size(); k++) {
 					c = countrys.get(k);
-					ani = Ani.to(c, (float)2.0, "x", countrysX[k]);
-					ani = Ani.to(c, (float)2.0, "y", countrysY[k]);
+					ani = Ani.to(c, (float)1.0, "x", countrysX[k]);
+					ani = Ani.to(c, (float)1.0, "y", countrysY[k]);
+					//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
 				}
 				isDisplayed = true;
 			}
