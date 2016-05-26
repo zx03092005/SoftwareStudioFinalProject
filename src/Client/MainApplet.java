@@ -145,12 +145,17 @@ public class MainApplet extends PApplet {
 					usOrNot = rand.nextInt(100); // decide to get US food or not
 					if (usOrNot%5 == 0 || usOrNot%5 == 1) { 
 						foodImg = loadImage(usFood.getFood());
+						ani = Ani.to(usFood, (float)1.0, "x", countrysX[k]);
+						ani = Ani.to(usFood, (float)1.0, "y", countrysY[k]);
 					}
 					else {
 						foodImg = loadImage(food.getFood());
+						ani = Ani.to(food, (float)1.0, "x", countrysX[k]);
+						ani = Ani.to(food, (float)1.0, "y", countrysY[k]);
 					}
 					foodSelected = true;
 				}
+				
 				image(foodImg, 500, 50, 150, 100);
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
