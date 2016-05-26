@@ -43,10 +43,18 @@ public class MainApplet extends PApplet {
 	private Minim minim;
 	private AudioPlayer bgMusic;
 	int usOrNot;
+	int choosefoodState = 0;
+	Bread bread;
+	ArrayList<Bread> breads;
+	int[] breadsX = new int[6];
+	int[] breadsY = new int[6];
+	boolean breadisDisplayed = false;
+	PImage breadImg;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
 		countrys = new ArrayList<Country>();
+		breads = new ArrayList<Bread>();
 	}
 	
 	public void setup() {
@@ -54,6 +62,7 @@ public class MainApplet extends PApplet {
 		Ani.init(this);
 		bg = new BackGround(this, 1, 220);
 		loadCountry();
+		loadBread();
 		smooth();
 	}
 
@@ -163,6 +172,33 @@ public class MainApplet extends PApplet {
 				else {
 					food.display();
 				}
+				if (choosefoodState == 0){
+					choosefoodState = 1;
+				}
+				else if (choosefoodState == 1){
+					Bread b;
+					if(!breadisDisplayed) {
+						for(k=0; k<breads.size(); k++) {
+							b = breads.get(k);
+							ani = Ani.to(b, (float)1.0, "x", breadsX[k]);
+							ani = Ani.to(b, (float)1.0, "y", breadsY[k]);
+							//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
+						}
+						breadisDisplayed = true;
+					}
+					for(Bread i : breads) i.display();
+					for(k=0; k<breads.size(); k++) {
+						b = breads.get(k);
+						if(isMouseInShape("RECT", b.x, b.y, b.width, b.height) && !mousePressed) {
+							b.width = 110;
+							b.height = 80;
+						}
+						else {
+							b.width = 100;
+							b.height = 75;
+						}
+					}
+				}
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
 					playState = 2;
@@ -224,6 +260,17 @@ public class MainApplet extends PApplet {
 			countrysY[i] = 50+n*390;
 			country = new Country(this, 400, 260, countryList[i].getName());
 			countrys.add(country);
+		}
+	}
+	
+	public void loadBread() {
+		for(int i=0; i<6; i++) {
+			breadsX[i] = 250+i*110;
+			breadsY[i] = (int)(350-0.3*(i-2.5)*(i-2.5)*80);
+			bread = new Bread(this);
+			breadImg = loadImage(bread.getBread(i));
+			bread.setImage(breadImg);
+			breads.add(bread);
 		}
 	}
 	

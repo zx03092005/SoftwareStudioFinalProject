@@ -32,8 +32,8 @@ public class Food {
 		Arrays.fill(isSelected, false);
 		isPassed = false;
 		this.parent = parent;
-		this.width = 150;
-		this.height = 100;
+		this.width = 200;
+		this.height = 150;
 		this.x = 500;
 		this.y = -50;
 	}
