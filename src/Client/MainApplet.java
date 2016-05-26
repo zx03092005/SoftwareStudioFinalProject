@@ -175,15 +175,14 @@ public class MainApplet extends PApplet {
 					text("Denied", 60, 105);
 					if (isMouseInShape("RECT",30,40,150,100) == true) {
 						accept = 1;
-					}
-					else if (isMouseInShape("RECT",100,40,150,100) == true) {
-						deny = 1;
-					}
-					if(accept==1) {
 						fill(0, 255, 0);
 						foodSelected = true;
 					}
-					else if (deny==1) {
+					else {
+						fill(255, 0, 0);
+					}
+					if (isMouseInShape("RECT",100,40,150,100) == true) {
+						deny = 1;
 						fill(0, 255, 0);
 						foodSelected = false;
 					}
