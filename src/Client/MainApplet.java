@@ -34,7 +34,7 @@ public class MainApplet extends PApplet {
 	boolean isDisplayed = false;
 	int xOffset = 0; 
 	int yOffset = 0;
-	Food food;
+	Food food, usFood;
 	Drink drink;
 	Snack snack;
 	PImage foodImg, snackImg, drinkImg;
@@ -42,6 +42,7 @@ public class MainApplet extends PApplet {
 	int playState = 1;
 	private Minim minim;
 	private AudioPlayer bgMusic;
+	int usOrNot;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -141,7 +142,13 @@ public class MainApplet extends PApplet {
 			ellipse(450, 500, 60, 60);
 			if(playState == 1) {
 				if(!foodSelected) {
-					foodImg = loadImage(food.getFood());
+					usOrNot = rand.nextInt(100); // decide to get US food or not
+					if (usOrNot%5 == 0 || usOrNot%5 == 1) { 
+						foodImg = loadImage(usFood.getFood());
+					}
+					else {
+						foodImg = loadImage(food.getFood());
+					}
 					foodSelected = true;
 				}
 				image(foodImg, 500, 50, 150, 100);
@@ -232,6 +239,7 @@ public class MainApplet extends PApplet {
 				countryLocked.x = 370;
 				countryLocked.y = 230;
 				food = new Food(this, countryLocked.name);
+				usFood = new Food(this, "United_States"); //add US's food
 				drink = new Drink(this, countryLocked.name);
 				snack = new Snack(this, countryLocked.name);
 				state = 3;
