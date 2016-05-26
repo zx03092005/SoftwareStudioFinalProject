@@ -173,7 +173,7 @@ public class MainApplet extends PApplet {
 				strokeWeight(5);
 				rect(100, 300, 150, 100);
 				//fill(0);
-				text("Accepted", 60, 105);
+				text("Accepted", 100, 300);
 				
 				if (isMouseInShape("RECT",30,40,150,100) == true) {
 					accept = 1;
@@ -183,7 +183,7 @@ public class MainApplet extends PApplet {
 					fill(255, 0, 0);
 				}
 				rect(350, 300, 150, 100);
-				text("Denied", 60, 105);
+				text("Denied", 350, 300);
 				if (isMouseInShape("RECT",100,40,150,100) == true) {
 					deny = 1;
 					fill(0, 255, 0);
