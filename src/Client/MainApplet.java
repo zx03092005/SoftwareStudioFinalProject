@@ -197,7 +197,7 @@ public class MainApplet extends PApplet {
 					else {
 						food.display(); 
 					}
-					if (choosefoodState == 0){
+					if (choosefoodState == 0){ 
 						choosefoodState = 1;
 					}
 					else if (choosefoodState == 1){
