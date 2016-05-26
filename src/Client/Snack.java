@@ -16,7 +16,7 @@ public class Snack {
 	String strSnack;
 	
 	public Snack(MainApplet parent, String country) {
-		snackList = new File(country + "/snack").listFiles();
+		snackList = new File(country + "/dessert").listFiles();
 		isSelected = new boolean[snackList.length];
 		Arrays.fill(isSelected, false);
 		isPassed = false;
