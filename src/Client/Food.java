@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
+import processing.core.PImage;
+
 public class Food {
 	
 	private File[] foodList;
@@ -17,6 +19,9 @@ public class Food {
 	Random rand = new Random();
 	MainApplet parent;
 	String strFood, strMaterial;
+	private PImage image;
+	int x, y;
+	int width, height;
 	
 	public Food(MainApplet parent, String country) {
 		foodList = new File(country + "/food").listFiles();
@@ -27,6 +32,10 @@ public class Food {
 		Arrays.fill(isSelected, false);
 		isPassed = false;
 		this.parent = parent;
+		this.width = 150;
+		this.height = 100;
+		this.x = 500;
+		this.y = 50;
 	}
 	
 	public String getFood() {
@@ -75,5 +84,11 @@ public class Food {
 		parent.fill(0);
 		parent.text("Food", 60, 105);
 	}
-	
+	public void setImage(PImage img) {
+		this.image = img;
+	}
+	public void display() {
+		parent.noTint();
+		parent.image(image, x, y, width, height);
+	}
 }

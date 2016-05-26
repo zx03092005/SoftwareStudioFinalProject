@@ -145,18 +145,21 @@ public class MainApplet extends PApplet {
 					usOrNot = rand.nextInt(100); // decide to get US food or not
 					if (usOrNot%5 == 0 || usOrNot%5 == 1) { 
 						foodImg = loadImage(usFood.getFood());
+						usFood.setImage(foodImg);
 						ani = Ani.to(usFood, (float)1.0, "x", 50);
 						ani = Ani.to(usFood, (float)1.0, "y", 50);
+						//usFood.display();
 					}
 					else {
 						foodImg = loadImage(food.getFood());
+						food.setImage(foodImg);
 						ani = Ani.to(food, (float)1.0, "x", 50);
 						ani = Ani.to(food, (float)1.0, "y", 50);
+						//food.display();
 					}
 					foodSelected = true;
 				}
-				
-				image(foodImg, 500, 50, 150, 100);
+				//image(foodImg, 500, 50, 150, 100);
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
 					playState = 2;
@@ -265,4 +268,6 @@ public class MainApplet extends PApplet {
 		}
 		return false;
 	}
+	
+
 }
