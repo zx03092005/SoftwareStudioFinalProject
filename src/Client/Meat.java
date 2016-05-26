@@ -22,7 +22,7 @@ public class Meat {
 		this.y = 100;
 	}
 	
-	public String getBread(int index) {
+	public String getMeat(int index) {
 		//TODO return what is in the burger
 		try {
 			strMaterial = meatList[index].getCanonicalPath();

@@ -21,7 +21,7 @@ public class OthersMaterial {
 		this.y = 100;
 	}
 	
-	public String getBread(int index) {
+	public String getOthers(int index) {
 		//TODO return what is in the burger
 		try {
 			strMaterial = othersList[index].getCanonicalPath();
