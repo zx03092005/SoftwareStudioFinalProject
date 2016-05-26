@@ -52,6 +52,7 @@ public class MainApplet extends PApplet {
 	PImage breadImg;
 	int accept;
 	int deny;
+	boolean foodisDisplayed = false;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -166,68 +167,66 @@ public class MainApplet extends PApplet {
 						//ani = Ani.to(food, (float)1.0, "x", 500);
 						ani = Ani.to(food, (float)1.0, "y", 50,Ani.BOUNCE_OUT);
 					}
-					stroke(0);
-					strokeWeight(5);
-					rect(30, 40, 150, 100, 20);
-					fill(0);
-					text("Accepted", 60, 105);
-					rect(100, 40, 150, 100, 20);
-					text("Denied", 60, 105);
-					if (isMouseInShape("RECT",30,40,150,100) == true) {
-						accept = 1;
-						fill(0, 255, 0);
-						foodSelected = true;
-					}
-					else {
-						fill(255, 0, 0);
-					}
-					if (isMouseInShape("RECT",100,40,150,100) == true) {
-						deny = 1;
-						fill(0, 255, 0);
-						foodSelected = false;
-					}
-					else {
-						fill(255, 0, 0);
-					}
+					foodSelected = true;
 				}
-				if (foodSelected) {
-					if (usOrNot%5 == 0 || usOrNot%5 == 1){
-						usFood.display();
-					}
-					else {
-						food.display(); 
-					}
-					if (choosefoodState == 0){ 
-						choosefoodState = 1;
-					}
-					else if (choosefoodState == 1){
-						Bread b;
-						if(!breadisDisplayed) {
-							for(k=0; k<breads.size(); k++) {
-								b = breads.get(k);
-								ani = Ani.to(b, (float)1.0, "x", breadsX[k]);
-								ani = Ani.to(b, (float)1.0, "y", breadsY[k]);
-								//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
-							}
-							breadisDisplayed = true;
-						}
-						for(Bread i : breads) i.display();
+				stroke(0);
+				strokeWeight(5);
+				rect(30, 40, 150, 100, 20);
+				//fill(0);
+				text("Accepted", 60, 105);
+				rect(100, 40, 150, 100, 20);
+				
+				if (isMouseInShape("RECT",30,40,150,100) == true) {
+					accept = 1;
+					fill(0, 255, 0);
+				}
+				else {
+					fill(255, 0, 0);
+				}
+				if (isMouseInShape("RECT",100,40,150,100) == true) {
+					deny = 1;
+					fill(0, 255, 0);
+				}
+				else {
+					fill(255, 0, 0);
+				}
+				text("Denied", 60, 105);
+				if (usOrNot%5 == 0 || usOrNot%5 == 1){
+					usFood.display();
+				}
+				else {
+					food.display(); 
+				}
+				if (choosefoodState == 0){ 
+					choosefoodState = 1;
+				}
+				else if (choosefoodState == 1){
+					Bread b;
+					if(!breadisDisplayed) {
 						for(k=0; k<breads.size(); k++) {
 							b = breads.get(k);
-							if(isMouseInShape("RECT", b.x, b.y, b.width, b.height) && !mousePressed) {
-								b.width = 110;
-								b.height = 80;
-							}
-							else {
-								b.width = 100;
-								b.height = 75;
-							}
+							ani = Ani.to(b, (float)1.0, "x", breadsX[k]);
+							ani = Ani.to(b, (float)1.0, "y", breadsY[k]);
+							//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
+						}
+						breadisDisplayed = true;
+					}
+					for(Bread i : breads) i.display();
+					for(k=0; k<breads.size(); k++) {
+						b = breads.get(k);
+						if(isMouseInShape("RECT", b.x, b.y, b.width, b.height) && !mousePressed) {
+							b.width = 110;
+							b.height = 80;
+						}
+						else {
+							b.width = 100;
+							b.height = 75;
 						}
 					}
-					if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
-						food.isPassed = true;
-						playState = 2;
-					}
+				}
+				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
+					food.isPassed = true;
+					playState = 2;
 				}
 			}
 			else if(playState == 2) {
