@@ -171,10 +171,9 @@ public class MainApplet extends PApplet {
 				}
 				stroke(0);
 				strokeWeight(5);
-				rect(30, 40, 150, 100, 20);
+				rect(100, 300, 150, 100);
 				//fill(0);
 				text("Accepted", 60, 105);
-				rect(100, 40, 150, 100, 20);
 				
 				if (isMouseInShape("RECT",30,40,150,100) == true) {
 					accept = 1;
@@ -183,6 +182,8 @@ public class MainApplet extends PApplet {
 				else {
 					fill(255, 0, 0);
 				}
+				rect(350, 300, 150, 100);
+				text("Denied", 60, 105);
 				if (isMouseInShape("RECT",100,40,150,100) == true) {
 					deny = 1;
 					fill(0, 255, 0);
@@ -190,7 +191,7 @@ public class MainApplet extends PApplet {
 				else {
 					fill(255, 0, 0);
 				}
-				text("Denied", 60, 105);
+				
 				if (usOrNot%5 == 0 || usOrNot%5 == 1){
 					usFood.display();
 				}
