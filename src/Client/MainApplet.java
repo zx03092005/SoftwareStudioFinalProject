@@ -190,6 +190,7 @@ public class MainApplet extends PApplet {
 					if (isMouseInShape("RECT",270,300,200,100) == true) {
 						fill(0, 255, 0);
 						if (mousePressed) {
+							accept = 1;
 							choosefoodState = 1;
 						}
 					}
@@ -339,11 +340,13 @@ public class MainApplet extends PApplet {
 				countryLocked.inRect = true;
 				countryLocked.x = 370;
 				countryLocked.y = 230;
-				food = new Food(this, countryLocked.name);
-				usFood = new Food(this, "United_States"); //add US's food
-				drink = new Drink(this, countryLocked.name);
-				snack = new Snack(this, countryLocked.name);
-				state = 3;
+				if (accept == 0){
+					food = new Food(this, countryLocked.name);
+					usFood = new Food(this, "United_States"); //add US's food
+					drink = new Drink(this, countryLocked.name);
+					snack = new Snack(this, countryLocked.name);
+					state = 3;
+				}
 			}
 		}
 	}
