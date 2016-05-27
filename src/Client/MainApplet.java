@@ -169,34 +169,7 @@ public class MainApplet extends PApplet {
 					}
 					foodSelected = true;
 				}
-				stroke(50);
-				strokeWeight(5);
-				//fill(50);
 				
-				
-				if (isMouseInShape("RECT",270,300,200,100) == true && mousePressed) {
-					accept = 1;
-					fill(0, 255, 0);
-				}
-				else {
-					fill(255, 0, 0);
-				}
-				rect(270, 300, 200, 100);
-				fill(0);
-				text("Accepted", 285, 360);
-				
-				//fill(50);
-				
-				if (isMouseInShape("RECT",600,300,200,100) == true && mousePressed) {
-					deny = 1;
-					fill(0, 255, 0);
-				}
-				else {
-					fill(255, 0, 0);
-				}
-				rect(600, 300, 200, 100);
-				fill(0);
-				text("Denied", 630, 360);
 				
 				if (usOrNot%5 == 0 || usOrNot%5 == 1){
 					usFood.display();
@@ -205,7 +178,35 @@ public class MainApplet extends PApplet {
 					food.display(); 
 				}
 				if (choosefoodState == 0){ 
-						choosefoodState = 1;
+					stroke(50);
+					strokeWeight(5);
+					//fill(50);
+					
+					
+					if (isMouseInShape("RECT",270,300,200,100) == true && mousePressed) {
+						accept = 1;
+						fill(0, 255, 0);
+					}
+					else {
+						fill(255, 0, 0);
+					}
+					rect(270, 300, 200, 100);
+					fill(0);
+					text("Accepted", 285, 360);
+					
+					//fill(50);
+					
+					if (isMouseInShape("RECT",600,300,200,100) == true && mousePressed) {
+						deny = 1;
+						fill(0, 255, 0);
+					}
+					else {
+						fill(255, 0, 0);
+					}
+					rect(600, 300, 200, 100);
+					fill(0);
+					text("Denied", 630, 360);
+					//choosefoodState = 1;
 				}
 				else if (choosefoodState == 1){
 					Bread b;
