@@ -1,0 +1,174 @@
+{
+  "drink": [
+    {
+      "name": "Baby_Chino"
+    },
+    {
+      "name": "Frappe_Green_Tea"
+    },
+    {
+      "name": "Green_Tea_Latte"
+    },
+    {
+      "name": "Premium_Roast_Coffee"
+    },
+    {
+      "name": "Strawberry_Lemonade"
+    },
+  ],
+  "food": [
+    {
+      "name": "1955_Burger",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    },
+    {
+      "name": "Bacon_Tomato_Deluxe",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Bulgogi_Burger",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+    {
+      "name": "Deluxe_Shrimp_Burger",
+      "bread": "hamburger",
+      "meat": "shrimp",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+    {
+      "name": "Double_Deluxe_Shrimp_Burger",
+      "bread": "hamburger",
+      "meat": "shrimp",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+    {
+      "name": "Mega_Mac",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "true",
+      "tomato": "false",
+      "cheese": "true"
+    },
+    {
+      "name": "Shanghai_Angry_Burger",
+      "bread": "hamburger",
+      "meat": "spicy_crispy_chicken",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+    {
+      "name": "Spicy_Beef_Wrap",
+      "bread": "wrap",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+    {
+      "name": "Tomato_Cheeseburger",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Tomato_Scrambled_Egg_Muffin",
+      "bread": "english_muffin",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "true",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    }
+  ],
+  "dessert": [
+    {
+      "name": "Chicken_Fingers"
+    },
+    {
+      "name": "Chocolate_Cone"
+    },
+    {
+      "name": "Chocolate_Oreo_McFlurry"
+    },
+    {
+      "name": "Churros"
+    },
+    {
+      "name": "Oreo_Affogato"
+    },
+    {
+      "name": "Pineapple"
+    },
+    {
+      "name": "Strawberry_Oreo_McFlurry"
+    },
+  ]
+}
