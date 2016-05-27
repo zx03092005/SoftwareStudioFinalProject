@@ -1,0 +1,396 @@
+{
+  "drink": [
+    {
+      "name": "Bonaqa"
+    },
+	{
+      "name": "Cappuccino"
+    },
+	{
+      "name": "Capri_Sun"
+    },
+	{
+      "name": "Latte_Macchiato"
+    },
+	{
+      "name": "Lift_Apfelschorle"
+    },
+	{
+      "name": "Organic_Apple_Juice"
+    },
+	{
+      "name": "Organic_Milk"
+    },
+	{
+      "name": "Vio_Blue"
+    }
+  ],
+  "food": [
+	{
+      "name": "Croissant_Chocolate",
+      "bread": "croissants",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+	{
+      "name": "Mccroissant",
+      "bread": "croissants",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "true",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	{
+      "name": "Mcmuffin_Chicken_Bacon",
+      "bread": "english_muffin",
+      "meat": "chicken",
+      "vegetable": "false",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "true",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	{
+      "name": "Mcmuffin_Egg",
+      "bread": "english_muffin",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "true",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	{
+      "name": "Mcmuffin_Fresh_Chicken",
+      "bread": "english_muffin",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+	{
+      "name": "Mcmuffin_Sausage",
+      "bread": "english_muffin",
+      "meat": "pork",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+	{
+      "name": "Mctoast_Bacon",
+      "bread": "toast",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	{
+      "name": "Mctoast_Cheese",
+      "bread": "toast",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	{
+      "name": "Mctoast_Ham",
+      "bread": "toast",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "true",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	{
+      "name": "Mctoast_Chocolate",
+      "bread": "toast",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "true",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+	{
+      "name": "Scrambled_Eggs_Bacon",
+      "bread": "english_muffin",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "true",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+	{
+      "name": "Bacon_Clubhouse_Beef",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "true",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Bacon_Clubhouse_Chicken",
+      "bread": "hamburger",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "true",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Big_Tasty_Bacon",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "true",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Chicken_Burger",
+      "bread": "hamburger",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+    {
+      "name": "Chicken_Deluxe",
+      "bread": "hamburger",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "true",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Double_Chicken_Burger_Honey_Mustard",
+      "bread": "hamburger",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    },
+    {
+      "name": "Hamburger_Royal_Cheese",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "true",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Hamburger_Royal",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Mcveggie",
+      "bread": "hamburger",
+      "meat": "false",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Triple_Cheeseburger",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "true",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Veggie_Clubhouse",
+      "bread": "hamburger",
+      "meat": "false",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    }
+    {
+      "name": "McWrap_Chicken_Honey_Mustard",
+      "bread": "wrap",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    }
+    {
+      "name": "McWrap_Quinoa_Honey_Mustard",
+      "bread": "wrap",
+      "meat": "false",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    }
+    {
+      "name": "Snack_Wrap_Caesar",
+      "bread": "wrap",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    }
+  ],
+  "dessert": [
+	{
+      "name": "6_Spring_Rolls"
+	},
+	{
+      "name": "Fruit_Puree"
+	},
+	{
+      "name": "Mcflurry_Bounty"
+	},
+	{
+      "name": "Mcflurry_Schokolinsen"
+	},
+	{
+      "name": "Mcflurry_Snickers"
+	},
+	{
+      "name": "Mcflurry_Twix"
+	},
+	{
+      "name": "McSundae_Caramel"
+	},
+	{
+      "name": "McSundae_Chocolate"
+	},
+	{
+      "name": "Potato_Wedges"
+	},
+	{
+	  "name": "Big_Salad_Chicken"
+	},
+	{
+	  "name": "Big_Salad_Quinoa"
+	},
+	{
+	  "name": "Big_Salad"
+	},
+	{
+	  "name": "Snack_Salad_Classic"
+	}
+  ]
+}
