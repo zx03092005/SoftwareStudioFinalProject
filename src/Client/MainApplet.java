@@ -55,6 +55,7 @@ public class MainApplet extends PApplet {
 	boolean foodisDisplayed = false;
 	boolean isAmerica = false;
 	int orderState = 0;
+	int score = 0;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -154,6 +155,8 @@ public class MainApplet extends PApplet {
 			snack.snackRect();
 			drink.drinkRect();
 			ellipse(450, 500, 60, 60);
+			fill(0);
+			text(Integer.toString(score),900,70);
 			if(playState == 1) {
 				if(!foodSelected) {
 					usOrNot = rand.nextInt(100); // decide to get US food or not
@@ -178,7 +181,6 @@ public class MainApplet extends PApplet {
 					foodSelected = true;
 				}
 				
-				
 				if (isAmerica){
 					usFood.display();
 				}
@@ -196,7 +198,6 @@ public class MainApplet extends PApplet {
 							fill(0, 255, 0);
 							if (mousePressed) {
 								accept = 1;
-								orderState = 1;
 							}
 						}
 						else {
@@ -209,11 +210,9 @@ public class MainApplet extends PApplet {
 						//fill(50);
 						
 						if (isMouseInShape("RECT",600,300,200,100) == true) {
-							//deny = 1;
 							fill(0, 255, 0);
 							if (mousePressed) {
-								foodSelected = false;
-								
+								deny = 1;
 							}
 						}
 						else {
@@ -228,12 +227,26 @@ public class MainApplet extends PApplet {
 							if (isAmerica){
 								foodSelected = false;
 								accept = -1;
-								fill(0);
-								text("-10",500,400);
+								score -= 10;
 								orderState = 0;
 							}
 							else {
+								score += 10;
 								choosefoodState = 1;
+							}
+						}
+						if (deny == 1){
+							if (isAmerica){
+								score += 10;
+								foodSelected = false;
+								deny = 0;
+								orderState = 0;
+							}
+							else {
+								score -= 10;
+								foodSelected = false;
+								deny = 0;
+								orderState = 0;
 							}
 						}
 					}
@@ -367,6 +380,12 @@ public class MainApplet extends PApplet {
 					snack = new Snack(this, countryLocked.name);
 					state = 3;
 				}
+				else if (accept == 1){
+					orderState = 1;
+				}
+			}
+			if (deny == 1){
+				orderState = 1;
 			}
 		}
 	}
