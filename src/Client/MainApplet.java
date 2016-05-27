@@ -53,6 +53,8 @@ public class MainApplet extends PApplet {
 	int accept;
 	int deny;
 	boolean foodisDisplayed = false;
+	boolean isAmerica = false;
+	int orderState = 0;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -156,6 +158,7 @@ public class MainApplet extends PApplet {
 				if(!foodSelected) {
 					usOrNot = rand.nextInt(100); // decide to get US food or not
 					if (usOrNot%5 == 0 || usOrNot%5 == 1) { 
+						isAmerica = true;
 						usFood.x = 500;
 						usFood.y = -50;
 						foodImg = loadImage(usFood.getFood());
@@ -164,6 +167,7 @@ public class MainApplet extends PApplet {
 						ani = Ani.to(usFood, (float)1.0, "y", 50,Ani.BOUNCE_OUT);
 					}
 					else {
+						isAmerica = false;
 						food.x = 500;
 						food.y = -50;
 						foodImg = loadImage(food.getFood());
@@ -175,48 +179,64 @@ public class MainApplet extends PApplet {
 				}
 				
 				
-				if (usOrNot%5 == 0 || usOrNot%5 == 1){
+				if (isAmerica){
 					usFood.display();
 				}
 				else {
 					food.display(); 
 				}
 				if (choosefoodState == 0){ 
-					stroke(50);
-					strokeWeight(5);
-					//fill(50);
-					
-					
-					if (isMouseInShape("RECT",270,300,200,100) == true) {
-						fill(0, 255, 0);
-						if (mousePressed) {
-							accept = 1;
-							choosefoodState = 1;
+					if (orderState == 0){
+						stroke(50);
+						strokeWeight(5);
+						//fill(50);
+						
+						
+						if (isMouseInShape("RECT",270,300,200,100) == true) {
+							fill(0, 255, 0);
+							if (mousePressed) {
+								accept = 1;
+								orderState = 1;
+							}
+						}
+						else {
+							fill(255, 0, 0);
+						}
+						rect(270, 300, 200, 100);
+						fill(0);
+						text("Accepted", 285, 360);
+						
+						//fill(50);
+						
+						if (isMouseInShape("RECT",600,300,200,100) == true) {
+							//deny = 1;
+							fill(0, 255, 0);
+							if (mousePressed) {
+								foodSelected = false;
+								
+							}
+						}
+						else {
+							fill(255, 0, 0);
+						}
+						rect(600, 300, 200, 100);
+						fill(0);
+						text("Denied", 630, 360);
+					}
+					else if (orderState == 1){
+						if (accept == 1){
+							if (isAmerica){
+								foodSelected = false;
+								accept = -1;
+								fill(0);
+								text("-10",500,400);
+								orderState = 0;
+							}
+							else {
+								choosefoodState = 1;
+							}
 						}
 					}
-					else {
-						fill(255, 0, 0);
-					}
-					rect(270, 300, 200, 100);
-					fill(0);
-					text("Accepted", 285, 360);
-					
-					//fill(50);
-					
-					if (isMouseInShape("RECT",600,300,200,100) == true) {
-						//deny = 1;
-						fill(0, 255, 0);
-						if (mousePressed) {
-							foodSelected = false;
-							
-						}
-					}
-					else {
-						fill(255, 0, 0);
-					}
-					rect(600, 300, 200, 100);
-					fill(0);
-					text("Denied", 630, 360);
 					//choosefoodState = 1;
 				}
 				else if (choosefoodState == 1){
