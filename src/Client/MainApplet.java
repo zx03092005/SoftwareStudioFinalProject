@@ -13,6 +13,8 @@ import ddf.minim.Minim;
 import de.looksgood.ani.Ani;
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.data.JSONArray;
+import processing.data.JSONObject;
 
 @SuppressWarnings({ "serial", "unused" })
 public class MainApplet extends PApplet {
@@ -56,6 +58,10 @@ public class MainApplet extends PApplet {
 	boolean isAmerica = false;
 	int orderState = 0;
 	int score = 0;
+	JSONObject data;
+	JSONArray data_food, data_dessert, data_drink;
+	int selectedbread = -1;
+	int focusbread = -1;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -266,13 +272,20 @@ public class MainApplet extends PApplet {
 					for(Bread i : breads) i.display();
 					for(k=0; k<breads.size(); k++) {
 						b = breads.get(k);
-						if(isMouseInShape("RECT", b.x, b.y, b.width, b.height) && !mousePressed) {
+						if(isMouseInShape("RECT", b.x, b.y, b.width, b.height)) {
+							if (mousePressed){
+								focusbread = k;
+							}
 							b.width = 110;
 							b.height = 80;
 						}
 						else {
 							b.width = 100;
 							b.height = 75;
+						}
+						if (selectedbread == k){
+							fill(0);
+							text("choosed",b.x,b.y);
 						}
 					}
 				}
@@ -387,6 +400,14 @@ public class MainApplet extends PApplet {
 			if (deny == 1){
 				orderState = 1;
 			}
+			if (choosefoodState == 1){
+				if (selectedbread == focusbread){
+					selectedbread = -1;
+				}
+				else {
+					selectedbread = focusbread;
+				}
+			}
 		}
 	}
 	
@@ -404,5 +425,32 @@ public class MainApplet extends PApplet {
 		return false;
 	}
 	
-
+	public void loaddata(){
+		data = loadJSONObject(countryLocked.name+"/"+countryLocked.name+".json");
+		data_food = data.getJSONArray("food");
+		data_dessert = data.getJSONArray("dessert");
+		data_drink = data.getJSONArray("drink");
+		JSONObject temp = data_food.getJSONObject(food.getchoose());
+		String name = temp.getString("name");
+		food.name = name;
+		String bread = temp.getString("bread");
+		if (bread == "bagel"){
+			food.bread = 0;
+		}
+		else if (bread == "hamburger"){
+			food.bread = 1;
+		}
+		else if (bread == "croissants"){
+			food.bread = 2;
+		}
+		else if (bread == "english_muffin"){
+			food.bread = 3;
+		}
+		else if (bread == "toast"){
+			food.bread = 4;
+		}
+		else if (bread == "wrap"){
+			food.bread = 5;
+		}
+	}
 }

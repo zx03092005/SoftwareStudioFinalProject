@@ -10,9 +10,6 @@ import processing.core.PImage;
 public class Food {
 	
 	private File[] foodList;
-	//private File[] breadList;
-	//private File[] meatList;
-	//private File[] othersList;
 	private boolean[] isSelected;
 	boolean isPassed;
 	private int choose;
@@ -23,11 +20,11 @@ public class Food {
 	int x, y;
 	int width, height;
 	
+	String name;
+	int bread;
+	
 	public Food(MainApplet parent, String country) {
 		foodList = new File(country + "/food").listFiles();
-		//breadList = new File("material" + "/bread").listFiles();
-		//meatList = new File("material" + "/meat").listFiles();
-		//othersList = new File("material" + "others").listFiles();
 		isSelected = new boolean[foodList.length];
 		Arrays.fill(isSelected, false);
 		isPassed = false;
@@ -46,33 +43,9 @@ public class Food {
 		return strFood;
 	}
 	
-	public String getMaterial(int kind, int index) {
+	public int getchoose() {
 		//TODO return what is in the burger
-		/*if (kind == 1){
-			try {
-				strMaterial = breadList[index].getCanonicalPath();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else if (kind == 2){
-			try {
-				strMaterial = meatList[index].getCanonicalPath();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else {
-			try {
-				strMaterial = othersList[index].getCanonicalPath();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}*/
-		return strMaterial;
+		return choose;
 	}
 	
 	public void foodRect() {
