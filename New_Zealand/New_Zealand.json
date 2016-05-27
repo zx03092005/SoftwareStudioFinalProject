@@ -1,0 +1,282 @@
+{
+  "drink": [
+    {
+      "name": "Apple_Blackcurrant_Fruit_Drink"
+    },
+    {
+      "name": "CalciYum_Wicked_Chocolate_Milk"
+    },
+    {
+      "name": "Coke_Zero"
+    },
+    {
+      "name": "Frozen_Coke"
+    },
+    {
+      "name": "Frozen_Fanta_Sherbert_McFloat"
+    },
+    {
+      "name": "Frozen_Fanta_Sherbert"
+    },
+    {
+      "name": "Fuze_Tea_Peach_Flavoured"
+    },
+    {
+      "name": "Lime_Shake"
+    }
+    {
+      "name": "Sprite_Zero"
+    }
+    {
+      "name": "White_Tea"
+    }
+    {
+      "name": "Coffee_Frappe"
+    },
+  ],
+  "food": [
+    {
+      "name": "BLT_Bagel",
+      "bread": "bagel",
+      "meat": "false",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    },
+    {
+      "name": "Chicken_Bacon_Delxue",
+      "bread": "hamburger",
+      "meat": "crispy_chicken",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Chicken_McCheese",
+      "bread": "hamburger",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+    {
+      "name": "Chicken_McMuffin",
+      "bread": "english_muffin",
+      "meat": "chicken",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+    {
+      "name": "Chicken_n_Mayo",
+      "bread": "hamburger",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+    {
+      "name": "Crispy_Chicken_Aioli_McWrap",
+      "bread": "wrap",
+      "meat": "crispy_chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    },
+    {
+      "name": "Crispy_Chicken_Snack_Wrap",
+      "bread": "wrap",
+      "meat": "crispy_chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+    {
+      "name": "Grilled_Chicken_Aioli_McWrap",
+      "bread": "wrap",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    },
+    {
+      "name": "Grilled_Chicken_Snack_Wrap",
+      "bread": "wrap",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+    {
+      "name": "Kiwi_Angus_Burger",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "true",
+      "onion": "true",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Kiwi_Burger",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "true",
+      "onion": "true",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "Massive_McMuffin",
+      "bread": "english_muffin",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "true",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+    {
+      "name": "NYC_Benedict_Bagel",
+      "bread": "bagel",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "true",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+    {
+      "name": "The_Almighty_Angus",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "false",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "The_Boss",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+    {
+      "name": "The_Serious_Angus",
+      "bread": "hamburger",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "true",
+      "tomato": "true",
+      "cheese": "true"
+    },
+  ],
+  "dessert": [
+    {
+      "name": "100s_n_1000s_Salsa"
+    },
+    {
+      "name": "Bacon_Cheese_Sauce_Loaded_Fries"
+    },
+    {
+      "name": "Garden_Salad"
+    },
+    {
+      "name": "Georgie_Pie_Bacon_N_Egg"
+    },
+    {
+      "name": "Georgie_Pie_Steak_Mince_N_Cheese"
+    },
+    {
+      "name": "Kiwi_Big_Breakfast"
+    },
+    {
+      "name": "Loaded_Fries_Guacamole_Salsa"
+    },
+    {
+      "name": "Plain_Sundae"
+    },
+    {
+      "name": "Soft_Serve_with_Cadbury_Flake"
+    },
+    {
+      "name": "Toasted_Bagel_with_Strawberry_Jam"
+    },
+    {
+      "name": "Warm_Chicken_Salad"
+    },
+  ]
+}
