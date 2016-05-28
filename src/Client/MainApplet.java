@@ -333,7 +333,6 @@ public class MainApplet extends PApplet {
 						fill(255, 255, 255);
 						if (mousePressed) {
 							breadOK = 1;
-							choosefoodState = 2;
 						}
 					}
 					else {
@@ -396,7 +395,6 @@ public class MainApplet extends PApplet {
 						fill(255, 255, 255);
 						if (mousePressed) {
 							meatOK = 1;
-							choosefoodState = 2;
 						}
 					}
 					else {
@@ -406,6 +404,9 @@ public class MainApplet extends PApplet {
 					}
 					textSize(50);
 					text("OK",540,510);
+				}
+				else if (choosefoodState == 3){
+					
 				}
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
@@ -562,14 +563,36 @@ public class MainApplet extends PApplet {
 						selectedbread = focusbread;
 					}
 				}
-			}
-			if (choosefoodState == 2){
 				if (breadOK == 1){
 					breadOK = -1;
+					choosefoodState = 2;
 					if (selectedbread == food.bread){
 						score += 10;
 					}
 				}
+			}
+			if (choosefoodState == 2){
+				if (selectedmeat == focusmeat){
+					selectedmeat = -1;
+				}
+				else {
+					if (focusbread == -1) {
+						selectedmeat = prevmeat;
+					}
+					else {
+						selectedmeat = focusmeat;
+					}
+				}
+				if (meatOK == 1){
+					meatOK = -1;
+					choosefoodState = 3;
+					if (selectedmeat == food.meat){
+						score += 10;
+					}
+				}
+			}
+			if (choosefoodState == 3){
+				
 			}
 		}
 	}
@@ -616,6 +639,25 @@ public class MainApplet extends PApplet {
 		}
 		else if (bread.equals("wrap")){
 			food.bread = 5;
+		}
+		String meat = temp.getString("meat");
+		if (meat.equals("false")){
+			food.meat = 0;
+		}
+		else if (meat.equals("beef")){
+			food.meat = 1;
+		}
+		else if (bread.equals("chicken")){
+			food.meat = 2;
+		}
+		else if (bread.equals("fish")){
+			food.meat = 3;
+		}
+		else if (bread.equals("pork")){
+			food.meat = 4;
+		}
+		else if (bread.equals("shrimp")){
+			food.meat = 5;
 		}
 	}
 }

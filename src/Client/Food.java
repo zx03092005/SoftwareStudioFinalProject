@@ -22,6 +22,7 @@ public class Food {
 	
 	String name;
 	int bread;
+	int meat;
 	
 	public Food(MainApplet parent, String country) {
 		foodList = new File(country + "/food").listFiles();
