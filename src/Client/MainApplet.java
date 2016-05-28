@@ -78,6 +78,17 @@ public class MainApplet extends PApplet {
 	int prevmeat = -1;
 	int meatOK = 0;
 	
+	OthersMaterial other;
+	ArrayList<OthersMaterial> others;
+	int[] othersX = new int[8];
+	int[] othersY = new int[8];
+	boolean otherisDisplayed = false;
+	PImage otherImg;
+	int selectedother = -1;
+	int focusother = -1;
+	int prevother = -1;
+	int otherOK = 0;
+	
 	public MainApplet(Socket socket) {
 		state = 0;
 		countrys = new ArrayList<Country>();
@@ -92,6 +103,7 @@ public class MainApplet extends PApplet {
 		loadCountry();
 		loadBread();
 		loadMeat();
+		loadOther();
 		smooth();
 	}
 
@@ -413,6 +425,68 @@ public class MainApplet extends PApplet {
 					text("OK",540,510);
 				}
 				else if (choosefoodState == 3){
+					OthersMaterial o, ot;
+					if(!otherisDisplayed) {
+						for(k=0; k<others.size(); k++) {
+							o = others.get(k);
+							ani = Ani.to(o, (float)1.0, "x", othersX[k],Ani.BOUNCE_OUT);
+							ani = Ani.to(o, (float)1.0, "y", othersY[k],Ani.BOUNCE_OUT);
+							//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
+						}
+						otherisDisplayed = true;
+					}
+					for(OthersMaterial i : others) i.display();
+					for(k=0; k<others.size(); k++) {
+						o = others.get(k);
+						if(isMouseInShape("RECT", o.x, o.y, o.width, o.height)) {
+							if (mousePressed){
+								focusother = k;
+								prevother = k;
+							}
+							o.width = 110;
+							o.height = 80;
+						}
+						else {
+							int j, outside=1;
+							
+							if (mousePressed) {
+								for (j=0; j<others.size(); j++) {
+									ot = others.get(j);
+									if (isMouseInShape("RECT", ot.x, ot.y, ot.width, ot.height)) {
+										outside = 0;
+										break;
+									}
+								}
+								if (outside == 1) {
+									focusmeat = -1;
+								}
+							}
+							o.width = 100;
+							o.height = 75;
+						}
+						if (selectedother == k){
+							fill(0);
+							text("choosed",o.x,o.y);
+						}
+					}
+					noStroke();
+					if (isMouseInShape("RECT",500,450,150,80) == true) {
+						fill(51, 51, 255);
+						rect(500, 450, 150, 80, 20);
+						fill(255, 255, 255);
+						if (mousePressed) {
+							otherOK = 1;
+						}
+					}
+					else {
+						fill(255, 153, 51);
+						rect(500, 450, 150, 80, 20);
+						fill(255, 255, 255);
+					}
+					textSize(50);
+					text("OK",540,510);
+				}
+				else if (choosefoodState == 3){
 					
 				}
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
@@ -516,6 +590,18 @@ public class MainApplet extends PApplet {
 		}
 	}
 	
+	public void loadOther() {
+		for(int i=0; i<8; i++) {
+			othersX[i] = 250+i*110;
+			othersY[i] = (int)(350-0.3*(i-2.5)*(i-2.5)*80);
+			other = new OthersMaterial(this);
+			other.y = othersY[i];
+			otherImg = loadImage(other.getOthers(i));
+			other.setImage(otherImg);
+			others.add(other);
+		}
+	}
+	
 	public void mousePressed() {
 		if(state == 1) state = 2;
 
@@ -599,7 +685,45 @@ public class MainApplet extends PApplet {
 				}
 			}
 			if (choosefoodState == 3){
-				
+				if (selectedother == focusother){
+					selectedother = -1;
+				}
+				else {
+					if (focusother == -1) {
+						selectedother = prevother;
+					}
+					else {
+						selectedother = focusother;
+					}
+				}
+				if (otherOK == 1){
+					otherOK = -1;
+					//choosefoodState = ;
+					if (selectedother == food.bacon){
+						score += 10;
+					}
+					if (selectedother == food.cheese){
+						score += 10;
+					}
+					if (selectedother == food.cucumber){
+						score += 10;
+					}
+					if (selectedother == food.egg){
+						score += 10;
+					}
+					if (selectedother == food.ham){
+						score += 10;
+					}
+					if (selectedother == food.lettuce){
+						score += 10;
+					}
+					if (selectedother == food.onion){
+						score += 10;
+					}
+					if (selectedother == food.tamato){
+						score += 10;
+					}
+				}
 			}
 		}
 	}
