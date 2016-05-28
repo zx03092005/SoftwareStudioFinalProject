@@ -592,7 +592,7 @@ public class MainApplet extends PApplet {
 						text("choosed",o.x,o.y);
 					}
 					noStroke();
-					if (isMouseInShape("RECT",500,450,150,80) == true) {
+					if (isMouseInShape("RECT",500,500,150,80) == true) {
 						fill(51, 51, 255);
 						rect(500, 500, 150, 80, 20);
 						fill(255, 255, 255);
@@ -608,9 +608,6 @@ public class MainApplet extends PApplet {
 					textSize(50);
 					text("OK",540,560);
 				}
-				else if (choosefoodState == 3){
-					
-				}
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
 					playState = 2;
@@ -624,7 +621,7 @@ public class MainApplet extends PApplet {
 				image(snackImg, 500, 50, 150, 100);
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					snack.isPassed = true;
-					playState = 3;
+					playState = 2;
 					
 				}
 			}
@@ -901,6 +898,34 @@ public class MainApplet extends PApplet {
 						selectedtomato = focustomato;
 					}
 				}
+				if (otherOK == 1){
+					otherOK = -1;
+					playState = 2;
+					if (selectedbacon == food.bacon){
+						score += 3;
+					}
+					if (selectedcheese == food.cheese){
+						score += 3;
+					}
+					if (selectedcucumber == food.cucumber){
+						score += 3;
+					}
+					if (selectedegg == food.egg){
+						score += 3;
+					}
+					if (selectedham == food.ham){
+						score += 3;
+					}
+					if (selectedlettuce == food.lettuce){
+						score += 3;
+					}
+					if (selectedonion == food.onion){
+						score += 3;
+					}
+					if (selectedtomato == food.tamato){
+						score += 3;
+					}
+				}
 			}
 		}
 	}
@@ -972,56 +997,56 @@ public class MainApplet extends PApplet {
 		//others
 		String bacon = temp.getString("bacon");
 		if (bacon.equals("false")){
-			food.bacon = 0;
+			food.bacon = -1;
 		}
 		else if (bacon.equals("true")){
 			food.bacon = 1;
 		}
 		String cheese = temp.getString("cheese");
 		if (cheese.equals("false")){
-			food.cheese = 0;
+			food.cheese = -1;
 		}
 		else if (cheese.equals("true")){
 			food.cheese = 1;
 		}
 		String cucumber = temp.getString("cucumber");
 		if (cucumber.equals("false")){
-			food.cucumber = 0;
+			food.cucumber = -1;
 		}
 		else if (cucumber.equals("true")){
 			food.cucumber = 1;
 		}
 		String egg = temp.getString("egg");
 		if (egg.equals("false")){
-			food.egg = 0;
+			food.egg = -1;
 		}
 		else if (egg.equals("true")){
 			food.egg = 1;
 		}
 		String ham = temp.getString("ham");
 		if (ham.equals("false")){
-			food.ham = 0;
+			food.ham = -1;
 		}
 		else if (ham.equals("true")){
 			food.ham = 1;
 		}
 		String lettuce = temp.getString("vegetable");
 		if (lettuce.equals("false")){
-			food.lettuce = 0;
+			food.lettuce = -1;
 		}
 		else if (lettuce.equals("true")){
 			food.lettuce = 1;
 		}
 		String onion = temp.getString("onion");
 		if (onion.equals("false")){
-			food.onion = 0;
+			food.onion = -1;
 		}
 		else if (onion.equals("true")){
 			food.onion = 1;
 		}
 		String tamato = temp.getString("tomato");
 		if (tamato.equals("false")){
-			food.tamato = 0;
+			food.tamato = -1;
 		}
 		else if (tamato.equals("true")){
 			food.tamato = 1;
