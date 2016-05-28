@@ -196,6 +196,13 @@ public class MainApplet extends PApplet {
 				else {
 					food.display(); 
 				}
+				if (breadOK == -1){
+					Bread b;
+					b = breads.get(selectedbread);
+					b.x = 220;
+					b.y = 50;
+					b.display();
+				}
 				if (choosefoodState == 0){ 
 					if (orderState == 0){
 						noStroke();
@@ -323,9 +330,7 @@ public class MainApplet extends PApplet {
 					text("OK",540,510);
 				}
 				else if (choosefoodState == 2){
-					Bread b;
-					b = breads.get(selectedbread);
-					b.display();
+					
 				}
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
