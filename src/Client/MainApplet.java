@@ -94,6 +94,7 @@ public class MainApplet extends PApplet {
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
+		others = new ArrayList<OthersMaterial>();
 	}
 	
 	public void setup() {
@@ -472,7 +473,7 @@ public class MainApplet extends PApplet {
 					noStroke();
 					if (isMouseInShape("RECT",500,450,150,80) == true) {
 						fill(51, 51, 255);
-						rect(500, 450, 150, 80, 20);
+						rect(500, 500, 150, 80, 20);
 						fill(255, 255, 255);
 						if (mousePressed) {
 							otherOK = 1;
@@ -480,11 +481,11 @@ public class MainApplet extends PApplet {
 					}
 					else {
 						fill(255, 153, 51);
-						rect(500, 450, 150, 80, 20);
+						rect(500, 500, 150, 80, 20);
 						fill(255, 255, 255);
 					}
 					textSize(50);
-					text("OK",540,510);
+					text("OK",540,560);
 				}
 				else if (choosefoodState == 3){
 					
@@ -592,8 +593,14 @@ public class MainApplet extends PApplet {
 	
 	public void loadOther() {
 		for(int i=0; i<8; i++) {
-			othersX[i] = 250+i*110;
-			othersY[i] = (int)(350-0.3*(i-2.5)*(i-2.5)*80);
+			if (i<=3){
+				othersX[i] = 250+i*200;
+				othersY[i] = 250;
+			}
+			else {
+				othersX[i] = 250+(i-4)*200;
+				othersY[i] = 350;
+			}
 			other = new OthersMaterial(this);
 			other.y = othersY[i];
 			otherImg = loadImage(other.getOthers(i));
@@ -828,7 +835,7 @@ public class MainApplet extends PApplet {
 		else if (ham.equals("true")){
 			food.ham = 1;
 		}
-		String lettuce = temp.getString("lettuce");
+		String lettuce = temp.getString("vegetable");
 		if (lettuce.equals("false")){
 			food.lettuce = 0;
 		}
@@ -842,7 +849,7 @@ public class MainApplet extends PApplet {
 		else if (onion.equals("true")){
 			food.onion = 1;
 		}
-		String tamato = temp.getString("tamato");
+		String tamato = temp.getString("tomato");
 		if (tamato.equals("false")){
 			food.tamato = 0;
 		}
