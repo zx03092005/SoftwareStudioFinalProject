@@ -359,6 +359,7 @@ public class MainApplet extends PApplet {
 		}
 		// choose the favorite food and locate them in the 1st~3rd
 		else if(state == 6) {
+			///123
 			
 		}
 		//feedback
