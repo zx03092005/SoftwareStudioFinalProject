@@ -153,7 +153,7 @@ public class MainApplet extends PApplet {
 			}
 		}
 		else if(state == 3) {
-			background(220);
+			background(204, 230, 255);
 			fill(0);
 			textSize(40);
 			for(int i=0; i<2; i++) text("+", 90, 205+i*200);
@@ -195,37 +195,36 @@ public class MainApplet extends PApplet {
 				}
 				if (choosefoodState == 0){ 
 					if (orderState == 0){
-						stroke(50);
-						strokeWeight(5);
-						//fill(50);
-						
+						noStroke();
 						
 						if (isMouseInShape("RECT",270,300,200,100) == true) {
-							fill(0, 255, 0);
+							fill(51, 51, 255);
+							rect(270, 300, 200, 100, 20);
+							fill(255, 255, 255);
 							if (mousePressed) {
 								accept = 1;
 							}
 						}
 						else {
-							fill(255, 0, 0);
-						}
-						rect(270, 300, 200, 100);
-						fill(0);
-						text("Accepted", 285, 360);
-						
-						//fill(50);
-						
-						if (isMouseInShape("RECT",600,300,200,100) == true) {
 							fill(0, 255, 0);
+							rect(270, 300, 200, 100, 20);
+							fill(0);
+						}
+						text("Accepted", 285, 360);
+
+						if (isMouseInShape("RECT",600,300,200,100) == true) {
+							fill(51, 51, 255);
+							rect(600, 300, 200, 100, 20);
+							fill(255, 255, 255);
 							if (mousePressed) {
 								deny = 1;
 							}
 						}
 						else {
-							fill(255, 0, 0);
+							fill(255, 0, 102);
+							rect(600, 300, 200, 100, 20);
+							fill(0);
 						}
-						rect(600, 300, 200, 100);
-						fill(0);
 						text("Denied", 630, 360);
 					}
 					else if (orderState == 1){
