@@ -62,6 +62,7 @@ public class MainApplet extends PApplet {
 	JSONArray data_food, data_dessert, data_drink;
 	int selectedbread = -1;
 	int focusbread = -1;
+	int prevbread = -1;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -203,6 +204,7 @@ public class MainApplet extends PApplet {
 							fill(255, 255, 255);
 							if (mousePressed) {
 								accept = 1;
+								System.out.println("accept");
 							}
 						}
 						else {
@@ -258,7 +260,7 @@ public class MainApplet extends PApplet {
 					//choosefoodState = 1;
 				}
 				else if (choosefoodState == 1){
-					Bread b;
+					Bread b, br;
 					if(!breadisDisplayed) {
 						for(k=0; k<breads.size(); k++) {
 							b = breads.get(k);
@@ -274,11 +276,26 @@ public class MainApplet extends PApplet {
 						if(isMouseInShape("RECT", b.x, b.y, b.width, b.height)) {
 							if (mousePressed){
 								focusbread = k;
+								prevbread = k;
 							}
 							b.width = 110;
 							b.height = 80;
 						}
 						else {
+							int j, outside=1;
+							
+							if (mousePressed) {
+								for (j=0; j<breads.size(); j++) {
+									br = breads.get(j);
+									if (isMouseInShape("RECT", br.x, br.y, br.width, br.height)) {
+										outside = 0;
+										break;
+									}
+								}
+								if (outside == 1) {
+									focusbread = -1;
+								}
+							}
 							b.width = 100;
 							b.height = 75;
 						}
@@ -399,19 +416,25 @@ public class MainApplet extends PApplet {
 					snack = new Snack(this, countryLocked.name);
 					state = 3;
 				}
-				else if (accept == 1){
-					orderState = 1;
-				}
+			}
+			if (accept == 1){
+				orderState = 1;
 			}
 			if (deny == 1){
 				orderState = 1;
 			}
 			if (choosefoodState == 1){
+				//System.out.println("Release: "+selectedbread+" "+focusbread+" "+prevbread);
 				if (selectedbread == focusbread){
 					selectedbread = -1;
 				}
 				else {
-					selectedbread = focusbread;
+					if (focusbread == -1) {
+						selectedbread = prevbread;
+					}
+					else {
+						selectedbread = focusbread;
+					}
 				}
 			}
 		}
