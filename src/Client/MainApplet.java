@@ -218,6 +218,13 @@ public class MainApplet extends PApplet {
 					b.y = 50;
 					b.display();
 				}
+				if (meatOK == -1){
+					Meat m;
+					m = meats.get(selectedmeat);
+					m.x = 350;
+					m.y = 50;
+					m.display();
+				}
 				if (choosefoodState == 0){ 
 					if (orderState == 0){
 						noStroke();
