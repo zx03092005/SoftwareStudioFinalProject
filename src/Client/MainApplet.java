@@ -84,10 +84,9 @@ public class MainApplet extends PApplet {
 	int[] othersY = new int[8];
 	boolean otherisDisplayed = false;
 	PImage otherImg;
-	int selectedother0 = -1, selectedother1 = -1, selectedother2 = -1, selectedother3 = -1, selectedother4 = -1, selectedother5 = -1, selectedother6 = -1, selectedother7 = -1;
-	int focusother0 = -1, focusother1 = -1, focusother2 = -1, focusother3 = -1, focusother4 = -1, focusother5 = -1, focusother6 = -1, focusother7 = -1;
-	int prevother0 = -1, prevother1 = -1, prevother2 = -1, prevother3 = -1, prevother4 = -1, prevother5 = -1, prevother6 = -1, prevother7 = -1;
-	//int otherOK0 = -1, otherOK1 = -1, otherOK2 = -1, otherOK3 = -1, otherOK4 = -1, otherOK5 = -1, otherOK6 = -1, otherOK7 = -1;
+	int selectedbacon = -1, selectedcheese = -1, selectedcucumber = -1, selectedegg = -1, selectedham = -1, selectedlettuce = -1, selectedonion = -1, selectedtomato = -1;
+	int focusbacon = -1, focuscheese = -1, focuscucumber = -1, focusegg = -1, focusham = -1, focuslettuce = -1, focusonion = -1, focustomato = -1;
+	int prevbacon = -1, prevcheese = -1, prevcucumber = -1, prevegg = -1, prevham = -1, prevlettuce = -1, prevonion = -1, prevtomato = -1;
 	int otherOK = -1;
 	
 	public MainApplet(Socket socket) {
@@ -438,97 +437,89 @@ public class MainApplet extends PApplet {
 						otherisDisplayed = true;
 					}
 					for(OthersMaterial i : others) i.display();
-					for(k=0; k<others.size(); k++) {
+					for (k=0; k<meats.size(); k++){
 						o = others.get(k);
 						if(isMouseInShape("RECT", o.x, o.y, o.width, o.height)) {
 							if (mousePressed){
-								if (k == 0) {
-									focusother0 = k;
-									prevother0 = k;
-									focusother1 = -2;
-									focusother2 = -2;
-									focusother3 = -2;
-									focusother4 = -2;
-									focusother5 = -2;
-									focusother6 = -2;
-									focusother7 = -2;
+								if (k == 0){
+									focusbacon = 1;
+									focuscheese = -1;
+									focuscucumber = -1;
+									focusegg = -1;
+									focusham = -1;
+									focuslettuce = -1;
+									focusonion = -1;
+									focustomato = -1;
 								}
-								else if (k == 1) {
-									focusother1 = k;
-									prevother1 = k;
-									focusother0 = -2;
-									focusother2 = -2;
-									focusother3 = -2;
-									focusother4 = -2;
-									focusother5 = -2;
-									focusother6 = -2;
-									focusother7 = -2;
+								if (k == 1){
+									focusbacon = -1;
+									focuscheese = 1;
+									focuscucumber = -1;
+									focusegg = -1;
+									focusham = -1;
+									focuslettuce = -1;
+									focusonion = -1;
+									focustomato = -1;
 								}
-								else if (k == 2) {
-									focusother2 = k;
-									prevother2 = k;
-									focusother1 = -2;
-									focusother0 = -2;
-									focusother3 = -2;
-									focusother4 = -2;
-									focusother5 = -2;
-									focusother6 = -2;
-									focusother7 = -2;
+								if (k == 2){
+									focusbacon = -1;
+									focuscheese = -1;
+									focuscucumber = 1;
+									focusegg = -1;
+									focusham = -1;
+									focuslettuce = -1;
+									focusonion = -1;
+									focustomato = -1;
 								}
-								else if (k == 3) {
-									focusother3 = k;
-									prevother3 = k;
-									focusother1 = -2;
-									focusother2 = -2;
-									focusother0 = -2;
-									focusother4 = -2;
-									focusother5 = -2;
-									focusother6 = -2;
-									focusother7 = -2;
+								if (k == 3){
+									focusbacon = -1;
+									focuscheese = -1;
+									focuscucumber = -1;
+									focusegg = 1;
+									focusham = -1;
+									focuslettuce = -1;
+									focusonion = -1;
+									focustomato = -1;
 								}
-								else if (k == 4) {
-									focusother4 = k;
-									prevother4 = k;
-									focusother1 = -2;
-									focusother2 = -2;
-									focusother3 = -2;
-									focusother0 = -2;
-									focusother5 = -2;
-									focusother6 = -2;
-									focusother7 = -2;
+								if (k == 4){
+									focusbacon = -1;
+									focuscheese = -1;
+									focuscucumber = -1;
+									focusegg = -1;
+									focusham = 1;
+									focuslettuce = -1;
+									focusonion = -1;
+									focustomato = -1;
 								}
-								else if (k == 5) {
-									focusother5 = k;
-									prevother5 = k;
-									focusother1 = -2;
-									focusother2 = -2;
-									focusother3 = -2;
-									focusother4 = -2;
-									focusother0 = -2;
-									focusother6 = -2;
-									focusother7 = -2;
+								if (k == 5){
+									focusbacon = -1;
+									focuscheese = -1;
+									focuscucumber = -1;
+									focusegg = -1;
+									focusham = -1;
+									focuslettuce = 1;
+									focusonion = -1;
+									focustomato = -1;
 								}
-								else if (k == 6) {
-									focusother6 = k;
-									prevother6 = k;
-									focusother1 = -2;
-									focusother2 = -2;
-									focusother3 = -2;
-									focusother4 = -2;
-									focusother5 = -2;
-									focusother0 = -2;
-									focusother7 = -2;
+								if (k == 6){
+									focusbacon = -1;
+									focuscheese = -1;
+									focuscucumber = -1;
+									focusegg = -1;
+									focusham = -1;
+									focuslettuce = -1;
+									focusonion = 1;
+									focustomato = -1;
 								}
-								else if (k == 7) {
-									focusother7 = k;
-									prevother7 = k;
-									focusother1 = -2;
-									focusother2 = -2;
-									focusother3 = -2;
-									focusother4 = -2;
-									focusother5 = -2;
-									focusother6 = -2;
-									focusother0 = -2;
+								if (k == 7){
+									focusbacon = -1;
+									focuscheese = -1;
+									focuscucumber = -1;
+									focusegg = -1;
+									focusham = -1;
+									focuslettuce = -1;
+									focusonion = -1;
+									focustomato = 1;
 								}
 							}
 							o.width = 110;
@@ -538,7 +529,7 @@ public class MainApplet extends PApplet {
 							int j, outside=1;
 							
 							if (mousePressed) {
-								for (j=0; j<others.size(); j++) {
+								for (j=0; j<meats.size(); j++) {
 									ot = others.get(j);
 									if (isMouseInShape("RECT", ot.x, ot.y, ot.width, ot.height)) {
 										outside = 0;
@@ -546,51 +537,59 @@ public class MainApplet extends PApplet {
 									}
 								}
 								if (outside == 1) {
-									focusother0 = -1;
-									focusother1 = -1;
-									focusother2 = -1;
-									focusother3 = -1;
-									focusother4 = -1;
-									focusother5 = -1;
-									focusother6 = -1;
-									focusother7 = -1;
+									focusbacon = -1;
+									focuscheese = -1;
+									focuscucumber = -1;
+									focusegg = -1;
+									focusham = -1;
+									focuslettuce = -1;
+									focusonion = -1;
+									focustomato = -1;
 								}
 							}
 							o.width = 100;
 							o.height = 75;
 						}
-						if (selectedother0 == 0){
-							fill(0);
-							text("choosed",o.x,o.y);
-						}
-						else if (selectedother1 == 1){
-							fill(0);
-							text("choosed",o.x,o.y);
-						}
-						else if (selectedother2 == 2){
-							fill(0);
-							text("choosed",o.x,o.y);
-						}
-						else if (selectedother3 == 3){
-							fill(0);
-							text("choosed",o.x,o.y);
-						}
-						else if (selectedother4 == 4){
-							fill(0);
-							text("choosed",o.x,o.y);
-						}
-						else if (selectedother5 == 5){
-							fill(0);
-							text("choosed",o.x,o.y);
-						}
-						else if (selectedother6 == 6){
-							fill(0);
-							text("choosed",o.x,o.y);
-						}
-						else if (selectedother7 == 7){
-							fill(0);
-							text("choosed",o.x,o.y);
-						}
+					}
+					if (selectedbacon == 1){
+						o = others.get(0);
+						fill(0);
+						text("choosed",o.x,o.y);
+					}
+					if (selectedcheese == 1){
+						o = others.get(1);
+						fill(0);
+						text("choosed",o.x,o.y);
+					}
+					if (selectedcucumber == 1){
+						o = others.get(2);
+						fill(0);
+						text("choosed",o.x,o.y);
+					}
+					if (selectedegg == 1){
+						o = others.get(3);
+						fill(0);
+						text("choosed",o.x,o.y);
+					}
+					if (selectedham == 1){
+						o = others.get(4);
+						fill(0);
+						text("choosed",o.x,o.y);
+					}
+					if (selectedlettuce == 1){
+						o = others.get(5);
+						fill(0);
+						text("choosed",o.x,o.y);
+					}
+					if (selectedonion == 1){
+						o = others.get(6);
+						fill(0);
+						text("choosed",o.x,o.y);
+					}
+					if (selectedtomato == 1){
+						o = others.get(7);
+						fill(0);
+						text("choosed",o.x,o.y);
 					}
 					noStroke();
 					if (isMouseInShape("RECT",500,450,150,80) == true) {
@@ -814,128 +813,92 @@ public class MainApplet extends PApplet {
 				}
 			}
 			if (choosefoodState == 3){
-				if (selectedother0 == focusother0){
-					selectedother0 = -1;
+				if (selectedbacon == 1 && focusbacon == 1){
+					selectedbacon = -1;
 				}
 				else {
-					if (focusother0 == -1) {
-						selectedother0 = prevother0;
+					if (focusbacon == -1 && selectedbacon == 1) {
+						selectedbacon = 1;
 					}
 					else {
-						selectedother0 = focusother0;
+						selectedbacon = focusbacon;
 					}
 				}
-				
-				if (selectedother1 == focusother1){
-					selectedother1 = -1;
+				if (selectedcheese == 1 && focuscheese == 1){
+					selectedcheese = -1;
 				}
 				else {
-					if (focusother1 == -1) {
-						selectedother1 = prevother1;
+					if (focuscheese == -1 && selectedcheese == 1) {
+						selectedcheese = 1;
 					}
 					else {
-						selectedother1 = focusother1;
+						selectedcheese = focuscheese;
 					}
 				}
-				
-				if (selectedother2 == focusother2){
-					selectedother2 = -1;
+				if (selectedcucumber == 1 && focuscucumber == 1){
+					selectedcucumber = -1;
 				}
 				else {
-					if (focusother2 == -1) {
-						selectedother2 = prevother2;
+					if (focuscucumber == -1 && selectedcucumber == 1) {
+						selectedcucumber = 1;
 					}
 					else {
-						selectedother2 = focusother2;
+						selectedcucumber = focuscucumber;
 					}
 				}
-				
-				if (selectedother3 == focusother3){
-					selectedother3 = -1;
+				if (selectedegg == 1 && focusegg == 1){
+					selectedegg = -1;
 				}
 				else {
-					if (focusother3 == -1) {
-						selectedother3 = prevother3;
+					if (focusegg == -1 && selectedegg == 1) {
+						selectedegg = 1;
 					}
 					else {
-						selectedother3 = focusother3;
+						selectedegg = focusegg;
 					}
 				}
-				
-				if (selectedother4 == focusother4){
-					selectedother4 = -1;
+				if (selectedham == 1 && focusham == 1){
+					selectedham = -1;
 				}
 				else {
-					if (focusother4 == -1) {
-						selectedother4 = prevother4;
+					if (focusham == -1 && selectedham == 1) {
+						selectedham = 1;
 					}
 					else {
-						selectedother4 = focusother4;
+						selectedham = focusham;
 					}
 				}
-				
-				if (selectedother5 == focusother5){
-					selectedother5 = -1;
+				if (selectedlettuce == 1 && focuslettuce == 1){
+					selectedlettuce = -1;
 				}
 				else {
-					if (focusother5 == -1) {
-						selectedother5 = prevother5;
+					if (focuslettuce == -1 && selectedlettuce == 1) {
+						selectedlettuce = 1;
 					}
 					else {
-						selectedother5 = focusother5;
+						selectedlettuce = focuslettuce;
 					}
 				}
-				
-				if (selectedother6 == focusother6){
-					selectedother6 = -1;
+				if (selectedonion == 1 && focusonion == 1){
+					selectedonion = -1;
 				}
 				else {
-					if (focusother6 == -1) {
-						selectedother6 = prevother6;
+					if (focusonion == -1 && selectedonion == 1) {
+						selectedonion = 1;
 					}
 					else {
-						selectedother6 = focusother6;
+						selectedonion = focusonion;
 					}
 				}
-				
-				if (selectedother7 == focusother7){
-					selectedother7 = -1;
+				if (selectedtomato == 1 && focustomato == 1){
+					selectedtomato = -1;
 				}
 				else {
-					if (focusother7 == -1) {
-						selectedother7 = prevother7;
+					if (focustomato == -1 && selectedtomato == 1) {
+						selectedtomato = 1;
 					}
 					else {
-						selectedother7 = focusother7;
-					}
-				}
-				
-				if (otherOK == 1){
-					otherOK = -1;
-					//choosefoodState = ;
-					if (selectedother0 == food.bacon){
-						score += 10;
-					}
-					if (selectedother1 == food.cheese){
-						score += 10;
-					}
-					if (selectedother2 == food.cucumber){
-						score += 10;
-					}
-					if (selectedother3 == food.egg){
-						score += 10;
-					}
-					if (selectedother4 == food.ham){
-						score += 10;
-					}
-					if (selectedother5 == food.lettuce){
-						score += 10;
-					}
-					if (selectedother6 == food.onion){
-						score += 10;
-					}
-					if (selectedother7 == food.tamato){
-						score += 10;
+						selectedtomato = focustomato;
 					}
 				}
 			}
