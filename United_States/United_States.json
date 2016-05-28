@@ -341,192 +341,36 @@
   ],
   "dessert": [
     {
-      "name": "Chicken_McNuggets"
-    },
-    {
-      "name": "Premium_Bacon_Ranch_Salad_with_Buttermilk_Crispy_Chicken"
-    },
-    {
-      "name": "Premium_Bacon_Ranch_Salad_with_Grilled_Chicken"
-    },
-    {
-      "name": "Premium_Southwest_Salad_with_Buttermilk_Crispy_Chicken"
-    },
-    {
-      "name": "Premium_Southwest_Salad_with_Grilled_Chicken"
-    },
-    {
-      "name": "Side_Salad"
-    },
-    {
       "name": "Apple_Slices"
-    },
-    {
-      "name": "Baked_Apple_Pie"
-    },
-    {
-      "name": "Big_Breakfast_with_Hotcakes"
-    },
-    {
-      "name": "Big_Breakfast"
-    },
-    {
-      "name": "Cuties"
-    },
-    {
-      "name": "Fruit_'N_Yogurt_Parfait"
-    },
-    {
-      "name": "Fruit_and_Maple_Oatmeal"
-    },
-    {
-      "name": "Hash_Browns"
-    },
-    {
-      "name": "Hot_Caramel_Sundae"
-    },
-    {
-      "name": "Hot_Fudge_Sundae"
-    },
-    {
-      "name": "Hotcakes_and_Sausage"
     },
     {
       "name": "Hotcakes"
     },
     {
-      "name": "Kiddie_Cone"
-    },
-    {
-      "name": "McFlurry_with_M_M'S"
-    },
-    {
-      "name": "McFlurry_with_OREO_Cookies"
-    },
-    {
-      "name": "Soft_Baked_Chocolate_Chip_Cookie"
-    },
-    {
       "name": "Soft_Baked_Oatmeal_Raisin_Cookie"
-    },
-    {
-      "name": "Strawberry_and_Creme_Pie"
-    },
-    {
-      "name": "Strawberry_Sundae"
     },
     {
       "name": "Vanilla_Cone"
     },
     {
       "name": "World_Famous_Fries"
-    },
-    {
-      "name": "Yoplait_Go_GURT_Strawberry_Yogurt"
     }
   ],
   "drink":[
     {
-      "name": "1__Low_Fat_Milk_Jug"
-    },
-    {
-      "name": "Coca_Cola"
-    },
-    {
-      "name": "Dasani_Water"
-    },
-    {
-      "name": "Diet_Coke"
-    },
-    {
-      "name": "Diet_Dr_Pepper"
-    },
-    {
-      "name": "Dr_Pepper"
-    },
-    {
       "name": "Fat_Free_Chocolate_Milk_Jug"
-    },
-    {
-      "name": "Hi_C_Orange_Lavaburst"
-    },
-    {
-      "name": "Iced_Tea"
-    },
-    {
-      "name": "McCafe_Blueberry_Pomegranate_Smoothie"
-    },
-    {
-      "name": "McCafe_Caramel_Mocha"
-    },
-    {
-      "name": "McCafe_Chocolate_Shake"
     },
     {
       "name": "McCafe_Coffee"
     },
     {
-      "name": "McCafe_Frappe_Caramel"
-    },
-    {
-      "name": "McCafe_Frappe_Chocolate_Chip"
-    },
-    {
-      "name": "McCafe_Frappe_Mocha"
-    },
-    {
-      "name": "McCafe_Hot_Chocolate"
-    },
-    {
-      "name": "McCafe_Iced_Caramel_Mocha"
-    },
-    {
-      "name": "McCafe_Iced_Coffee"
-    },
-    {
       "name": "McCafe_Iced_Mocha"
-    },
-    {
-      "name": "McCafe_Latte"
-    },
-    {
-      "name": "McCafe_Mango_Pineapple_Smoothie"
-    },
-    {
-      "name": "McCafe_Mocha"
     },
     {
       "name": "McCafe_Shamrock_Shake"
     },
     {
-      "name": "McCafe_Strawberry_Banana_Smoothie"
-    },
-    {
-      "name": "McCafe_Strawberry_Shake"
-    },
-    {
-      "name": "McCafe_Vanilla_Shake"
-    },
-    {
-      "name": "McCafe_White_Chocolate_Mocha"
-    },
-    {
-      "name": "McCafe_White_Hot_Chocolate"
-    },
-    {
-      "name": "Minute_Maid_Apple_Juice_Box"
-    },
-    {
       "name": "Minute_Maid_Orange_Juice_Small_12_oz"
-    },
-    {
-      "name": "POWERade_Mountain_Berry_Blast"
-    },
-    {
-      "name": "Sprite"
-    },
-    {
-      "name": "Sweet_Tea"
     }
   ]
 }
