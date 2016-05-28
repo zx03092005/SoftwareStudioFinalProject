@@ -351,7 +351,7 @@ public class MainApplet extends PApplet {
 						fill(51, 51, 255);
 						rect(500, 450, 150, 80, 20);
 						fill(255, 255, 255);
-						if (mousePressed) {
+						if (mousePressed&&selectedbread>=0) {
 							breadOK = 1;
 						}
 					}
@@ -413,7 +413,7 @@ public class MainApplet extends PApplet {
 						fill(51, 51, 255);
 						rect(500, 450, 150, 80, 20);
 						fill(255, 255, 255);
-						if (mousePressed) {
+						if (mousePressed&&selectedmeat>=0) {
 							meatOK = 1;
 						}
 					}
