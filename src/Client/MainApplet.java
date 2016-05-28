@@ -340,8 +340,7 @@ public class MainApplet extends PApplet {
 			fill(0);
 			textSize(50);
 			text("State = 4", 500, 320);
-			if (mousePressed)
-				state=5;
+			
 		}
 		// end and calculate the score
 		else if(state == 5){
