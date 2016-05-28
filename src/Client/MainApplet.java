@@ -204,7 +204,6 @@ public class MainApplet extends PApplet {
 							fill(255, 255, 255);
 							if (mousePressed) {
 								accept = 1;
-								System.out.println("accept");
 							}
 						}
 						else {
