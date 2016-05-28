@@ -459,7 +459,7 @@ public class MainApplet extends PApplet {
 									}
 								}
 								if (outside == 1) {
-									focusmeat = -1;
+									focusother = -1;
 								}
 							}
 							o.width = 100;
