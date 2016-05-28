@@ -437,7 +437,7 @@ public class MainApplet extends PApplet {
 						otherisDisplayed = true;
 					}
 					for(OthersMaterial i : others) i.display();
-					for (k=0; k<meats.size(); k++){
+					for (k=0; k<others.size(); k++){
 						o = others.get(k);
 						if(isMouseInShape("RECT", o.x, o.y, o.width, o.height)) {
 							if (mousePressed){
@@ -529,7 +529,7 @@ public class MainApplet extends PApplet {
 							int j, outside=1;
 							
 							if (mousePressed) {
-								for (j=0; j<meats.size(); j++) {
+								for (j=0; j<others.size(); j++) {
 									ot = others.get(j);
 									if (isMouseInShape("RECT", ot.x, ot.y, ot.width, ot.height)) {
 										outside = 0;
