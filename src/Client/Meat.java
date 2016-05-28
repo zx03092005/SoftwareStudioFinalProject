@@ -18,7 +18,7 @@ public class Meat {
 		this.parent = parent;
 		this.width = 100;
 		this.height = 75;
-		this.x = 500;
+		this.x = 1000;
 		this.y = 100;
 	}
 	

@@ -44,14 +44,9 @@ public class MainApplet extends PApplet {
 	int playState = 1;
 	private Minim minim;
 	private AudioPlayer bgMusic;
+	
 	int usOrNot;
 	int choosefoodState = 0;
-	Bread bread;
-	ArrayList<Bread> breads;
-	int[] breadsX = new int[6];
-	int[] breadsY = new int[6];
-	boolean breadisDisplayed = false;
-	PImage breadImg;
 	int accept;
 	int deny;
 	boolean foodisDisplayed = false;
@@ -60,15 +55,34 @@ public class MainApplet extends PApplet {
 	int score = 0;
 	JSONObject data;
 	JSONArray data_food, data_dessert, data_drink;
+	
+	Bread bread;
+	ArrayList<Bread> breads;
+	int[] breadsX = new int[6];
+	int[] breadsY = new int[6];
+	boolean breadisDisplayed = false;
+	PImage breadImg;
 	int selectedbread = -1;
 	int focusbread = -1;
 	int prevbread = -1;
 	int breadOK = 0;
 	
+	Meat meat;
+	ArrayList<Meat> meats;
+	int[] meatsX = new int[6];
+	int[] meatsY = new int[6];
+	boolean meatisDisplayed = false;
+	PImage meatImg;
+	int selectedmeat = -1;
+	int focusmeat = -1;
+	int prevmeat = -1;
+	int meatOK = 0;
+	
 	public MainApplet(Socket socket) {
 		state = 0;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
+		meats = new ArrayList<Meat>();
 	}
 	
 	public void setup() {
@@ -77,6 +91,7 @@ public class MainApplet extends PApplet {
 		bg = new BackGround(this, 1, 220);
 		loadCountry();
 		loadBread();
+		loadMeat();
 		smooth();
 	}
 
@@ -330,7 +345,67 @@ public class MainApplet extends PApplet {
 					text("OK",540,510);
 				}
 				else if (choosefoodState == 2){
-					
+					Meat m, mr;
+					if(!meatisDisplayed) {
+						for(k=0; k<meats.size(); k++) {
+							m = meats.get(k);
+							ani = Ani.to(m, (float)1.0, "x", meatsX[k],ani.BOUNCE_OUT);
+							ani = Ani.to(m, (float)1.0, "y", meatsY[k],ani.BOUNCE_OUT);
+							//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
+						}
+						meatisDisplayed = true;
+					}
+					for(Meat i : meats) i.display();
+					for(k=0; k<meats.size(); k++) {
+						m = meats.get(k);
+						if(isMouseInShape("RECT", m.x, m.y, m.width, m.height)) {
+							if (mousePressed){
+								focusmeat = k;
+								prevmeat = k;
+							}
+							m.width = 110;
+							m.height = 80;
+						}
+						else {
+							int j, outside=1;
+							
+							if (mousePressed) {
+								for (j=0; j<meats.size(); j++) {
+									mr = meats.get(j);
+									if (isMouseInShape("RECT", mr.x, mr.y, mr.width, mr.height)) {
+										outside = 0;
+										break;
+									}
+								}
+								if (outside == 1) {
+									focusmeat = -1;
+								}
+							}
+							m.width = 100;
+							m.height = 75;
+						}
+						if (selectedmeat == k){
+							fill(0);
+							text("choosed",m.x,m.y);
+						}
+					}
+					noStroke();
+					if (isMouseInShape("RECT",500,450,150,80) == true) {
+						fill(51, 51, 255);
+						rect(500, 450, 150, 80, 20);
+						fill(255, 255, 255);
+						if (mousePressed) {
+							meatOK = 1;
+							choosefoodState = 2;
+						}
+					}
+					else {
+						fill(255, 153, 51);
+						rect(500, 450, 150, 80, 20);
+						fill(255, 255, 255);
+					}
+					textSize(50);
+					text("OK",540,510);
 				}
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
@@ -418,6 +493,18 @@ public class MainApplet extends PApplet {
 			breadImg = loadImage(bread.getBread(i));
 			bread.setImage(breadImg);
 			breads.add(bread);
+		}
+	}
+	
+	public void loadMeat() {
+		for(int i=0; i<6; i++) {
+			meatsX[i] = 250+i*110;
+			meatsY[i] = (int)(350-0.3*(i-2.5)*(i-2.5)*80);
+			meat = new Meat(this);
+			meat.y = meatsY[i];
+			meatImg = loadImage(meat.getMeat(i));
+			meat.setImage(meatImg);
+			meats.add(meat);
 		}
 	}
 	
