@@ -349,7 +349,12 @@ public class MainApplet extends PApplet {
 			int totalScore = 0; //add by qqhsuanwu
 			String msgTotalScore = String.valueOf(totalScore);
 			textSize(50);
-			text(msgTotalScore, 500, 320);
+			text("Total Score = "+msgTotalScore, 400, 220);
+
+			int totalMoney = 0; //add by qqhsuanwu
+			String msgTotalMoney = String.valueOf(totalMoney);
+			textSize(50);
+			text("Total Money = "+msgTotalMoney, 400, 420);
 			
 		}
 		// choose the favorite food and locate them in the 1st~3rd
@@ -389,6 +394,8 @@ public class MainApplet extends PApplet {
 	
 	public void mousePressed() {
 		if(state == 1) state = 2;
+
+		if(state == 4) state = 5;
 		if (isOver) {
 			countryLocked = overCountryAndNotPress;
 			xOffset = mouseX-countryLocked.x; 
