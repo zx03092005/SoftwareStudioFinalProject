@@ -1,0 +1,162 @@
+{
+  "drink": [
+    {
+      "name": "Apple_Juice"
+    },
+	  {
+      "name": "Iced_Frappes"
+    },
+	  {
+      "name": "Orange_Juice"
+    }
+  ],
+  "food": [
+	  {
+      "name": "Breakfast _Sandwich_Egg_and_Bacon",
+      "bread": "hamburger",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "true",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	  {
+      "name": "Breakfast _Sandwich_Pork _Deluxe",
+      "bread": "hamburger",
+      "meat": "pork",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	  {
+      "name": "Chikker",
+      "bread": "hamburger",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "false"
+    },
+	  {
+      "name": "Kaiser_Chicken_Premium",
+      "bread": "hamburger",
+      "meat": "chicken",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "false"
+    },
+	  {
+      "name": "Kaiser_Egg_Deluxe",
+      "bread": "hamburger",
+      "meat": "pork",
+      "vegetable": "true",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "true",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "true",
+      "cheese": "true"
+    },
+	  {
+      "name": "Mctoast_Bacon_and_Cheese",
+      "bread": "toast",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "true",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	  {
+      "name": "Mctoast_Ham_and_Cheese",
+      "bread": "toast",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "true",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	  {
+      "name": "Mctoast_Mushrooms_and_Cheese",
+      "bread": "toast",
+      "meat": "false",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	  {
+      "name": "McWrap_Breakfast_Pork_with_Mushrooms",
+      "bread": "wrap",
+      "meat": "pork",
+      "vegetable": "false",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "false",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    },
+	  {
+      "name": "McWrap_Oriental_with_Beef",
+      "bread": "wrap",
+      "meat": "beef",
+      "vegetable": "true",
+      "bacon": "false",
+      "ham": "false",
+      "egg": "false",
+      "onion": "true",
+      "cucumber": "false",
+      "tomato": "false",
+      "cheese": "true"
+    }
+  ],
+  "dessert": [
+	{
+      "name": "McFlurry_KitKat"
+	},
+	{
+      "name": "McFlurry_LION"
+	},
+	{
+      "name": "Musli_and_Yogurt"
+	},
+	{
+      "name": "Owocogurt"
+	},
+	{
+      "name": "Winnie_Mus_Banana_Apple_Carrot"
+	}
+  ]
+}
