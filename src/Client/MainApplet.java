@@ -349,8 +349,8 @@ public class MainApplet extends PApplet {
 					if(!meatisDisplayed) {
 						for(k=0; k<meats.size(); k++) {
 							m = meats.get(k);
-							ani = Ani.to(m, (float)1.0, "x", meatsX[k],ani.BOUNCE_OUT);
-							ani = Ani.to(m, (float)1.0, "y", meatsY[k],ani.BOUNCE_OUT);
+							ani = Ani.to(m, (float)1.0, "x", meatsX[k],Ani.BOUNCE_OUT);
+							ani = Ani.to(m, (float)1.0, "y", meatsY[k],Ani.BOUNCE_OUT);
 							//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
 						}
 						meatisDisplayed = true;
