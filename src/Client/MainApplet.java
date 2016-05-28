@@ -326,6 +326,13 @@ public class MainApplet extends PApplet {
 		}
 		// end and calculate the score
 		else if(state == 5){
+
+			background(255);
+			fill(0);
+			int totalScore = 0; //add by qqhsuanwu
+			String msgTotalScore = String.valueOf(totalScore);
+			textSize(50);
+			text(msgTotalScore, 500, 320);
 			
 		}
 		// choose the favorite food and locate them in the 1st~3rd
