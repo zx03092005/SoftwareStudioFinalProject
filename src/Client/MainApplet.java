@@ -84,10 +84,11 @@ public class MainApplet extends PApplet {
 	int[] othersY = new int[8];
 	boolean otherisDisplayed = false;
 	PImage otherImg;
-	int selectedother = -1;
-	int focusother = -1;
-	int prevother = -1;
-	int otherOK = 0;
+	int selectedother0 = -1, selectedother1 = -1, selectedother2 = -1, selectedother3 = -1, selectedother4 = -1, selectedother5 = -1, selectedother6 = -1, selectedother7 = -1;
+	int focusother0 = -1, focusother1 = -1, focusother2 = -1, focusother3 = -1, focusother4 = -1, focusother5 = -1, focusother6 = -1, focusother7 = -1;
+	int prevother0 = -1, prevother1 = -1, prevother2 = -1, prevother3 = -1, prevother4 = -1, prevother5 = -1, prevother6 = -1, prevother7 = -1;
+	//int otherOK0 = -1, otherOK1 = -1, otherOK2 = -1, otherOK3 = -1, otherOK4 = -1, otherOK5 = -1, otherOK6 = -1, otherOK7 = -1;
+	int otherOK = -1;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -441,8 +442,94 @@ public class MainApplet extends PApplet {
 						o = others.get(k);
 						if(isMouseInShape("RECT", o.x, o.y, o.width, o.height)) {
 							if (mousePressed){
-								focusother = k;
-								prevother = k;
+								if (k == 0) {
+									focusother0 = k;
+									prevother0 = k;
+									focusother1 = -2;
+									focusother2 = -2;
+									focusother3 = -2;
+									focusother4 = -2;
+									focusother5 = -2;
+									focusother6 = -2;
+									focusother7 = -2;
+								}
+								else if (k == 1) {
+									focusother1 = k;
+									prevother1 = k;
+									focusother0 = -2;
+									focusother2 = -2;
+									focusother3 = -2;
+									focusother4 = -2;
+									focusother5 = -2;
+									focusother6 = -2;
+									focusother7 = -2;
+								}
+								else if (k == 2) {
+									focusother2 = k;
+									prevother2 = k;
+									focusother1 = -2;
+									focusother0 = -2;
+									focusother3 = -2;
+									focusother4 = -2;
+									focusother5 = -2;
+									focusother6 = -2;
+									focusother7 = -2;
+								}
+								else if (k == 3) {
+									focusother3 = k;
+									prevother3 = k;
+									focusother1 = -2;
+									focusother2 = -2;
+									focusother0 = -2;
+									focusother4 = -2;
+									focusother5 = -2;
+									focusother6 = -2;
+									focusother7 = -2;
+								}
+								else if (k == 4) {
+									focusother4 = k;
+									prevother4 = k;
+									focusother1 = -2;
+									focusother2 = -2;
+									focusother3 = -2;
+									focusother0 = -2;
+									focusother5 = -2;
+									focusother6 = -2;
+									focusother7 = -2;
+								}
+								else if (k == 5) {
+									focusother5 = k;
+									prevother5 = k;
+									focusother1 = -2;
+									focusother2 = -2;
+									focusother3 = -2;
+									focusother4 = -2;
+									focusother0 = -2;
+									focusother6 = -2;
+									focusother7 = -2;
+								}
+								else if (k == 6) {
+									focusother6 = k;
+									prevother6 = k;
+									focusother1 = -2;
+									focusother2 = -2;
+									focusother3 = -2;
+									focusother4 = -2;
+									focusother5 = -2;
+									focusother0 = -2;
+									focusother7 = -2;
+								}
+								else if (k == 7) {
+									focusother7 = k;
+									prevother7 = k;
+									focusother1 = -2;
+									focusother2 = -2;
+									focusother3 = -2;
+									focusother4 = -2;
+									focusother5 = -2;
+									focusother6 = -2;
+									focusother0 = -2;
+								}
 							}
 							o.width = 110;
 							o.height = 80;
@@ -459,13 +546,48 @@ public class MainApplet extends PApplet {
 									}
 								}
 								if (outside == 1) {
-									focusother = -1;
+									focusother0 = -1;
+									focusother1 = -1;
+									focusother2 = -1;
+									focusother3 = -1;
+									focusother4 = -1;
+									focusother5 = -1;
+									focusother6 = -1;
+									focusother7 = -1;
 								}
 							}
 							o.width = 100;
 							o.height = 75;
 						}
-						if (selectedother == k){
+						if (selectedother0 == 0){
+							fill(0);
+							text("choosed",o.x,o.y);
+						}
+						else if (selectedother1 == 1){
+							fill(0);
+							text("choosed",o.x,o.y);
+						}
+						else if (selectedother2 == 2){
+							fill(0);
+							text("choosed",o.x,o.y);
+						}
+						else if (selectedother3 == 3){
+							fill(0);
+							text("choosed",o.x,o.y);
+						}
+						else if (selectedother4 == 4){
+							fill(0);
+							text("choosed",o.x,o.y);
+						}
+						else if (selectedother5 == 5){
+							fill(0);
+							text("choosed",o.x,o.y);
+						}
+						else if (selectedother6 == 6){
+							fill(0);
+							text("choosed",o.x,o.y);
+						}
+						else if (selectedother7 == 7){
 							fill(0);
 							text("choosed",o.x,o.y);
 						}
@@ -692,42 +814,127 @@ public class MainApplet extends PApplet {
 				}
 			}
 			if (choosefoodState == 3){
-				if (selectedother == focusother){
-					selectedother = -1;
+				if (selectedother0 == focusother0){
+					selectedother0 = -1;
 				}
 				else {
-					if (focusother == -1) {
-						selectedother = prevother;
+					if (focusother0 == -1) {
+						selectedother0 = prevother0;
 					}
 					else {
-						selectedother = focusother;
+						selectedother0 = focusother0;
 					}
 				}
+				
+				if (selectedother1 == focusother1){
+					selectedother1 = -1;
+				}
+				else {
+					if (focusother1 == -1) {
+						selectedother1 = prevother1;
+					}
+					else {
+						selectedother1 = focusother1;
+					}
+				}
+				
+				if (selectedother2 == focusother2){
+					selectedother2 = -1;
+				}
+				else {
+					if (focusother2 == -1) {
+						selectedother2 = prevother2;
+					}
+					else {
+						selectedother2 = focusother2;
+					}
+				}
+				
+				if (selectedother3 == focusother3){
+					selectedother3 = -1;
+				}
+				else {
+					if (focusother3 == -1) {
+						selectedother3 = prevother3;
+					}
+					else {
+						selectedother3 = focusother3;
+					}
+				}
+				
+				if (selectedother4 == focusother4){
+					selectedother4 = -1;
+				}
+				else {
+					if (focusother4 == -1) {
+						selectedother4 = prevother4;
+					}
+					else {
+						selectedother4 = focusother4;
+					}
+				}
+				
+				if (selectedother5 == focusother5){
+					selectedother5 = -1;
+				}
+				else {
+					if (focusother5 == -1) {
+						selectedother5 = prevother5;
+					}
+					else {
+						selectedother5 = focusother5;
+					}
+				}
+				
+				if (selectedother6 == focusother6){
+					selectedother6 = -1;
+				}
+				else {
+					if (focusother6 == -1) {
+						selectedother6 = prevother6;
+					}
+					else {
+						selectedother6 = focusother6;
+					}
+				}
+				
+				if (selectedother7 == focusother7){
+					selectedother7 = -1;
+				}
+				else {
+					if (focusother7 == -1) {
+						selectedother7 = prevother7;
+					}
+					else {
+						selectedother7 = focusother7;
+					}
+				}
+				
 				if (otherOK == 1){
 					otherOK = -1;
 					//choosefoodState = ;
-					if (selectedother == food.bacon){
+					if (selectedother0 == food.bacon){
 						score += 10;
 					}
-					if (selectedother == food.cheese){
+					if (selectedother1 == food.cheese){
 						score += 10;
 					}
-					if (selectedother == food.cucumber){
+					if (selectedother2 == food.cucumber){
 						score += 10;
 					}
-					if (selectedother == food.egg){
+					if (selectedother3 == food.egg){
 						score += 10;
 					}
-					if (selectedother == food.ham){
+					if (selectedother4 == food.ham){
 						score += 10;
 					}
-					if (selectedother == food.lettuce){
+					if (selectedother5 == food.lettuce){
 						score += 10;
 					}
-					if (selectedother == food.onion){
+					if (selectedother6 == food.onion){
 						score += 10;
 					}
-					if (selectedother == food.tamato){
+					if (selectedother7 == food.tamato){
 						score += 10;
 					}
 				}
