@@ -63,6 +63,7 @@ public class MainApplet extends PApplet {
 	int selectedbread = -1;
 	int focusbread = -1;
 	int prevbread = -1;
+	int breadOK = 0;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -184,6 +185,7 @@ public class MainApplet extends PApplet {
 						food.setImage(foodImg);
 						//ani = Ani.to(food, (float)1.0, "x", 500);
 						ani = Ani.to(food, (float)1.0, "y", 50,Ani.BOUNCE_OUT);
+						loadfooddata();
 					}
 					foodSelected = true;
 				}
@@ -256,7 +258,6 @@ public class MainApplet extends PApplet {
 							}
 						}
 					}
-					//choosefoodState = 1;
 				}
 				else if (choosefoodState == 1){
 					Bread b, br;
@@ -303,6 +304,28 @@ public class MainApplet extends PApplet {
 							text("choosed",b.x,b.y);
 						}
 					}
+					noStroke();
+					if (isMouseInShape("RECT",500,450,150,80) == true) {
+						fill(51, 51, 255);
+						rect(500, 450, 150, 80, 20);
+						fill(255, 255, 255);
+						if (mousePressed) {
+							breadOK = 1;
+							choosefoodState = 2;
+						}
+					}
+					else {
+						fill(255, 153, 51);
+						rect(500, 450, 150, 80, 20);
+						fill(255, 255, 255);
+					}
+					textSize(50);
+					text("OK",540,510);
+				}
+				else if (choosefoodState == 2){
+					Bread b;
+					b = breads.get(selectedbread);
+					b.display();
 				}
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
@@ -413,7 +436,7 @@ public class MainApplet extends PApplet {
 	
 	public void mouseReleased() {
 		if(countryLocked != null) {
-			if(isMouseInShape("RECT", 370, 230, 220, 150)) {
+			if(isMouseInShape("RECT", 370, 230, 220, 150)&&state == 2) {
 				countryLocked.inRect = true;
 				countryLocked.x = 370;
 				countryLocked.y = 230;
@@ -422,14 +445,17 @@ public class MainApplet extends PApplet {
 					usFood = new Food(this, "United_States"); //add US's food
 					drink = new Drink(this, countryLocked.name);
 					snack = new Snack(this, countryLocked.name);
+					loaddata();
 					state = 3;
 				}
 			}
-			if (accept == 1){
-				orderState = 1;
-			}
-			if (deny == 1){
-				orderState = 1;
+			if (choosefoodState == 0){
+				if (accept == 1){
+					orderState = 1;
+				}
+				if (deny == 1){
+					orderState = 1;
+				}
 			}
 			if (choosefoodState == 1){
 				//System.out.println("Release: "+selectedbread+" "+focusbread+" "+prevbread);
@@ -442,6 +468,14 @@ public class MainApplet extends PApplet {
 					}
 					else {
 						selectedbread = focusbread;
+					}
+				}
+			}
+			if (choosefoodState == 2){
+				if (breadOK == 1){
+					breadOK = -1;
+					if (selectedbread == food.bread){
+						score += 10;
 					}
 				}
 			}
@@ -467,26 +501,28 @@ public class MainApplet extends PApplet {
 		data_food = data.getJSONArray("food");
 		data_dessert = data.getJSONArray("dessert");
 		data_drink = data.getJSONArray("drink");
+	}
+	public void loadfooddata(){
 		JSONObject temp = data_food.getJSONObject(food.getchoose());
 		String name = temp.getString("name");
 		food.name = name;
 		String bread = temp.getString("bread");
-		if (bread == "bagel"){
+		if (bread.equals("bagel")){
 			food.bread = 0;
 		}
-		else if (bread == "hamburger"){
+		else if (bread.equals("hamburger")){
 			food.bread = 1;
 		}
-		else if (bread == "croissants"){
+		else if (bread.equals("croissants")){
 			food.bread = 2;
 		}
-		else if (bread == "english_muffin"){
+		else if (bread.equals("english_muffin")){
 			food.bread = 3;
 		}
-		else if (bread == "toast"){
+		else if (bread.equals("toast")){
 			food.bread = 4;
 		}
-		else if (bread == "wrap"){
+		else if (bread.equals("wrap")){
 			food.bread = 5;
 		}
 	}
