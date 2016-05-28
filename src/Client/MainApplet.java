@@ -628,6 +628,7 @@ public class MainApplet extends PApplet {
 		JSONObject temp = data_food.getJSONObject(food.getchoose());
 		String name = temp.getString("name");
 		food.name = name;
+		//bread
 		String bread = temp.getString("bread");
 		if (bread.equals("bagel")){
 			food.bread = 0;
@@ -647,6 +648,7 @@ public class MainApplet extends PApplet {
 		else if (bread.equals("wrap")){
 			food.bread = 5;
 		}
+		//meat
 		String meat = temp.getString("meat");
 		if (meat.equals("false")){
 			food.meat = 0;
@@ -665,6 +667,63 @@ public class MainApplet extends PApplet {
 		}
 		else if (bread.equals("shrimp")){
 			food.meat = 5;
+		}
+		//others
+		String bacon = temp.getString("bacon");
+		if (bacon.equals("false")){
+			food.bacon = 0;
+		}
+		else if (bacon.equals("true")){
+			food.bacon = 1;
+		}
+		String cheese = temp.getString("cheese");
+		if (cheese.equals("false")){
+			food.cheese = 0;
+		}
+		else if (cheese.equals("true")){
+			food.cheese = 1;
+		}
+		String cucumber = temp.getString("cucumber");
+		if (cucumber.equals("false")){
+			food.cucumber = 0;
+		}
+		else if (cucumber.equals("true")){
+			food.cucumber = 1;
+		}
+		String egg = temp.getString("egg");
+		if (egg.equals("false")){
+			food.egg = 0;
+		}
+		else if (egg.equals("true")){
+			food.egg = 1;
+		}
+		String ham = temp.getString("ham");
+		if (ham.equals("false")){
+			food.ham = 0;
+		}
+		else if (ham.equals("true")){
+			food.ham = 1;
+		}
+		String lettuce = temp.getString("lettuce");
+		if (lettuce.equals("false")){
+			food.lettuce = 0;
+		}
+		else if (lettuce.equals("true")){
+			food.lettuce = 1;
+		}
+		String onion = temp.getString("onion");
+		if (onion.equals("false")){
+			food.onion = 0;
+		}
+		else if (onion.equals("true")){
+			food.onion = 1;
+		}
+		String tamato = temp.getString("tamato");
+		if (tamato.equals("false")){
+			food.tamato = 0;
+		}
+		else if (tamato.equals("true")){
+			food.tamato = 1;
 		}
 	}
 }
