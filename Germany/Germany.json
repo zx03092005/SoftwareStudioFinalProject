@@ -1,16 +1,7 @@
 {
   "drink": [
-    {
-      "name": "Bonaqa"
-    },
-	  {
-      "name": "Cappuccino"
-    },
 	  {
       "name": "Capri_Sun"
-    },
-	  {
-      "name": "Latte_Macchiato"
     },
 	  {
       "name": "Lift_Apfelschorle"
@@ -161,41 +152,17 @@
 	  {
       "name": "6_Spring_Rolls"
 	  },
+    {
+      "name": "Big_Salad_Quinoa"
+    },
 	  {
       "name": "Fruit_Puree"
-	  },
-	  {
-      "name": "Mcflurry_Bounty"
-	  },
-	  {
-      "name": "Mcflurry_Schokolinsen"
-	  },
-	  {
-      "name": "Mcflurry_Snickers"
 	  },
 	  {
       "name": "Mcflurry_Twix"
 	  },
 	  {
-      "name": "McSundae_Caramel"
-	  },
-	  {
-      "name": "McSundae_Chocolate"
-	  },
-	  {
       "name": "Potato_Wedges"
-	  },
-	  {
-	  "name": "Big_Salad_Chicken"
-	  },
-	  {
-	  "name": "Big_Salad_Quinoa"
-	  },
-	  {
-	  "name": "Big_Salad"
-	  },
-	  {
-	  "name": "Snack_Salad_Classic"
 	  }
   ]
 }
