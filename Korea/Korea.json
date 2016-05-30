@@ -156,9 +156,6 @@
       "name": "Chocolate_Cone"
     },
     {
-      "name": "Chocolate_Oreo_McFlurry"
-    },
-    {
       "name": "Churros"
     },
     {
@@ -166,9 +163,6 @@
     },
     {
       "name": "Pineapple"
-    },
-    {
-      "name": "Strawberry_Oreo_McFlurry"
-    },
+    }
   ]
 }
