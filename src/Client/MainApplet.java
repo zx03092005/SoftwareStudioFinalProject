@@ -40,7 +40,7 @@ public class MainApplet extends PApplet {
 	Drink drink;
 	Snack snack;
 	PImage foodImg, snackImg, drinkImg;
-	boolean foodSelected = false, snackSelected = false, drinkSelected = false;
+	boolean foodSelected = false, drinkSelected = false;
 	int playState = 1;
 	private Minim minim;
 	private AudioPlayer bgMusic;
@@ -49,7 +49,6 @@ public class MainApplet extends PApplet {
 	int choosefoodState = 0;
 	int accept;
 	int deny;
-	boolean foodisDisplayed = false;
 	boolean isAmerica = false;
 	int orderState = 0;
 	int score = 0;
@@ -106,6 +105,7 @@ public class MainApplet extends PApplet {
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
 		others = new ArrayList<OthersMaterial>();
+		snacks = new ArrayList<Snack>();
 	}
 	
 	public void setup() {
@@ -116,7 +116,6 @@ public class MainApplet extends PApplet {
 		loadBread();
 		loadMeat();
 		loadOther();
-		//loadSnack();
 		smooth();
 	}
 
@@ -200,7 +199,7 @@ public class MainApplet extends PApplet {
 			textSize(40);
 			for(int i=0; i<2; i++) text("+", 90, 205+i*200);
 			food.foodRect();
-			//snack.snackRect();
+			snacks.get(0).snackRect();
 			drink.drinkRect();
 			ellipse(450, 500, 60, 60);
 			fill(0);
@@ -626,86 +625,71 @@ public class MainApplet extends PApplet {
 				}
 			}
 			else if(playState == 2) {
-				if(!snackSelected) {
-					//snackImg = loadImage(snack.getSnack());
-					snackSelected = true;
-					
-					Snack s, sn;
-					if(!snackisDisplayed) {
-						for(k=0; k<snacks.size(); k++) {
-							s = snacks.get(k);
-							ani = Ani.to(s, (float)1.0, "x", snacksX[k],Ani.BOUNCE_OUT);
-							ani = Ani.to(s, (float)1.0, "y", snacksY[k],Ani.BOUNCE_OUT);
-							//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
-						}
-						snackisDisplayed = true;
-					}
-					for(Snack i : snacks) i.display();
+				Snack s, sn;
+				if(!snackisDisplayed) {
 					for(k=0; k<snacks.size(); k++) {
 						s = snacks.get(k);
-						if(isMouseInShape("RECT", s.x, s.y, s.width, s.height)) {
-							if (mousePressed){
-								focussnack = k;
-								prevsnack = k;
-							}
-							s.width = 110;
-							s.height = 80;
-						}
-						else {
-							int j, outside=1;
-							
-							if (mousePressed) {
-								for (j=0; j<snacks.size(); j++) {
-									sn = snacks.get(j);
-									if (isMouseInShape("RECT", sn.x, sn.y, sn.width, sn.height)) {
-										outside = 0;
-										break;
-									}
-								}
-								if (outside == 1) {
-									focussnack = -1;
-								}
-							}
-							s.width = 100;
-							s.height = 75;
-						}
-						if (selectedsnack == k){
-							fill(0);
-							text("choosed",s.x,s.y);
-						}
+						ani = Ani.to(s, (float)1.0, "x", snacksX[k],Ani.BOUNCE_OUT);
+						ani = Ani.to(s, (float)1.0, "y", snacksY[k],Ani.BOUNCE_OUT);
+						//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
 					}
-					noStroke();
-					if (isMouseInShape("RECT",500,450,150,80) == true) {
-						fill(51, 51, 255);
-						rect(500, 450, 150, 80, 20);
-						fill(255, 255, 255);
-						if (mousePressed&&selectedsnack>=0) {
-							snackOK = 1;
+					snackisDisplayed = true;
+				}
+				for(Snack i : snacks) i.display();
+				for(k=0; k<snacks.size(); k++) {
+					s = snacks.get(k);
+					if(isMouseInShape("RECT", s.x, s.y, s.width, s.height)) {
+						if (mousePressed){
+							focussnack = k;
+							prevsnack = k;
 						}
+						s.width = 110;
+						s.height = 80;
 					}
 					else {
-						fill(255, 153, 51);
-						rect(500, 450, 150, 80, 20);
-						fill(255, 255, 255);
+						int j, outside=1;
+							
+						if (mousePressed) {
+							for (j=0; j<snacks.size(); j++) {
+								sn = snacks.get(j);
+								if (isMouseInShape("RECT", sn.x, sn.y, sn.width, sn.height)) {
+									outside = 0;
+									break;
+								}
+							}
+							if (outside == 1) {
+								focussnack = -1;
+							}
+						}
+						s.width = 100;
+						s.height = 75;
 					}
-					textSize(50);
-					text("OK",540,510);
-					
-					
-					
+					if (selectedsnack == k){
+						fill(0);
+						text("choosed",s.x,s.y);
+					}
 				}
-				//image(snackImg, 500, 50, 150, 100);
+				noStroke();
+				if (isMouseInShape("RECT",500,450,150,80) == true) {
+					fill(51, 51, 255);
+					rect(500, 450, 150, 80, 20);
+					fill(255, 255, 255);
+					if (mousePressed&&selectedsnack>=0) {
+						snackOK = 1;
+					}
+				}
+				else {
+					fill(255, 153, 51);
+					rect(500, 450, 150, 80, 20);
+					fill(255, 255, 255);
+				}
+				textSize(50);
+				text("OK",540,510);
+				
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					snack.isPassed = true;
 					playState = 2;
-					
-					
-					
 				}
-				
-				
-				
-				
 			}
 			else if(playState == 3){
 				if(!drinkSelected) {
@@ -1002,6 +986,7 @@ public class MainApplet extends PApplet {
 				if (otherOK == 1){
 					otherOK = -1;
 					playState = 2;
+					food.isPassed = true;
 					if (selectedbacon == food.bacon){
 						score += 3;
 					}
@@ -1043,6 +1028,7 @@ public class MainApplet extends PApplet {
 				if (snackOK == 1){
 					snackOK = -1;
 					playState = 3;
+					snacks.get(0).isPassed = true;
 					/*
 					if (selectedsnack == food.meat){
 						score += 10;
