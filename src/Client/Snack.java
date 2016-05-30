@@ -18,7 +18,6 @@ public class Snack {
 	private PImage image;
 	int x, y;
 	int width, height;
-	boolean isAmericanDessert;
 	
 	String name;
 	
