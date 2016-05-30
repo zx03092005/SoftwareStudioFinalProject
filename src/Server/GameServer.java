@@ -13,10 +13,12 @@ import javax.swing.*;
 public class GameServer extends JFrame {
 	
 	private ServerSocket serverSocket;
+	private TableWrite userData = new TableWrite(this);
 	JTextArea ta = new JTextArea();
 	String userAccount, userPassword;
 	
 	public GameServer(int portNum) {
+		userData.init();
 		this.setResizable(false);
 		this.setBounds(970, 430, 400, 300);
 		try {
@@ -45,18 +47,6 @@ public class GameServer extends JFrame {
 		}
 	}
 	
-	private boolean isPasswordCorrect(String account, String password) {
-        String correctPassword = "andy";
-        
-        //TODO load the user's info(password or ...) by account
-        
-        if (password.length() != correctPassword.length()) return false;
-        
-        if(password.equals(correctPassword)) return true;
-        else return false;
-        
-    }
-	
 	class ConnectionThread extends Thread {
 		private Socket socket;
 		private BufferedReader reader;
@@ -76,10 +66,15 @@ public class GameServer extends JFrame {
 				try {
 					GameServer.this.userAccount = this.reader.readLine();
 					GameServer.this.userPassword = this.reader.readLine();
-					if(GameServer.this.isPasswordCorrect(GameServer.this.userAccount, GameServer.this.userPassword)) 
+					//if(GameServer.this.isPasswordCorrect(GameServer.this.userAccount, GameServer.this.userPassword)) 
+					if(GameServer.this.userData.findUser(GameServer.this.userAccount, GameServer.this.userPassword)) {
 						sendMessage("LoginSuccess");
-					else 
+						ta.append("user : " + userAccount + " login successed\n");	
+					}
+					else {
 						sendMessage("LoginFailed");
+						ta.append("user : " + userAccount + " login failed\n");
+					}
 				} catch (Exception e) {}
 			}
 		}

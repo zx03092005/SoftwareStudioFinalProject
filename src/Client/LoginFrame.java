@@ -23,12 +23,22 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 	PrintWriter writer;
 	BufferedReader reader;
 	
-	JButton loginButton = new JButton("Log in");
+	JButton loginButton = new JButton("Sign in");
+	JButton registerButton = new JButton("Sign up");
 	JPasswordField password = new JPasswordField();
 	JTextField account = new JTextField();
 	JLabel accountLabel = new JLabel("Account : ");
 	JLabel passwordLabel = new JLabel("Password : ");
 	JDialog userLogin = new JDialog(this, "WELCOME!!!", true);
+	
+	JPasswordField regPassword = new JPasswordField();
+	JTextField regAccount = new JTextField();
+	JLabel regAccountLabel = new JLabel("Account : ");
+	JLabel regPasswordLabel = new JLabel("Password : ");
+	JButton confirmButton = new JButton("Verify");
+	JButton cancelButton = new JButton("Cancel");
+	JDialog regLogin = new JDialog(this, "Register", true);
+	int loginState = 0;
 	
 	public LoginFrame(Socket socket) {
 		try {
@@ -45,22 +55,57 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 			passwordLabel.setBounds(50, 70, 70, 50);
 			password.setBounds(120, 80, 200, 30);
 			password.setEchoChar('*');
-			loginButton.setBounds(165, 130, 70, 30);
+			loginButton.setBounds(120, 130, 70, 30);
 			loginButton.addActionListener(e -> {
 				writer.println(account.getText());
 				writer.println(String.valueOf(password.getPassword()));
 				writer.flush();
 				check();
 			});
-			
+			registerButton.setBounds(200, 130, 70, 30);
+			registerButton.addActionListener(e -> {
+				account.setText("");
+				password.setText("");
+				regAccount.setText("");
+				regPassword.setText("");
+				regLogin.setVisible(true);
+			});
 			userLogin.add(loginButton);
+			userLogin.add(registerButton);
 			userLogin.add(account);
 			userLogin.add(password);
 			userLogin.add(passwordLabel);
 			userLogin.add(accountLabel);
 			
+			regAccountLabel.setBounds(60, 30, 70, 50);
+			regAccount.setBounds(120, 40, 200, 30);
+			regPasswordLabel.setBounds(50, 70, 70, 50);
+			regPassword.setBounds(120, 80, 200, 30);
+			regPassword.setEchoChar('*');
+			confirmButton.setBounds(120, 130, 70, 30);
+			confirmButton.addActionListener(e -> {
+				loginState = 0;
+			});
+			cancelButton.setBounds(200, 130, 70, 30);
+			cancelButton.addActionListener(e -> {
+				regLogin.setVisible(false);
+			});
+			
+			
+			regLogin.add(confirmButton);
+			regLogin.add(cancelButton);
+			regLogin.add(regAccount);
+			regLogin.add(regPassword);
+			regLogin.add(regPasswordLabel);
+			regLogin.add(regAccountLabel);
+			
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 			SwingUtilities.updateComponentTreeUI(userLogin);
+			SwingUtilities.updateComponentTreeUI(regLogin);
+
+			regLogin.setLayout(null);
+			regLogin.setBounds(483, 255, 400, 220);
+			regLogin.setVisible(false);
 			
 			userLogin.setLayout(null);
 			userLogin.setBounds(483, 255, 400, 220);
@@ -82,6 +127,7 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 					userLogin.setVisible(false);
 					break;
 				}
+				
 			} catch (IOException e) {}
 		}
 	}
