@@ -5,15 +5,21 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
+import processing.core.PImage;
+
 public class Snack {
 	
 	private File[] snackList;
 	private boolean[] isSelected;
 	boolean isPassed;
-	private int choose;
 	Random rand = new Random();
 	MainApplet parent;
 	String strSnack;
+	private PImage image;
+	int x, y;
+	int width, height;
+	
+	String name;
 	
 	public Snack(MainApplet parent, String country) {
 		snackList = new File(country + "/dessert").listFiles();
@@ -21,14 +27,25 @@ public class Snack {
 		Arrays.fill(isSelected, false);
 		isPassed = false;
 		this.parent = parent;
+		this.width = 100;
+		this.height = 75;
+		this.x = 500;
+		this.y = 100;
 	}
 	
-	public String getSnack() {
-		while(isSelected[choose = rand.nextInt(snackList.length)]);
+	public String getSnack(int index) {
 		 try {
-			strSnack = snackList[choose].getCanonicalPath();
+			strSnack = snackList[index].getCanonicalPath();
 		} catch (IOException e) {}
 		return strSnack;
+	}
+	
+	public void setImage(PImage img) {
+		this.image = img;
+	}
+	public void display() {
+		parent.noTint();
+		parent.image(image, x, y, width, height);
 	}
 	
 	public void snackRect() {

@@ -89,6 +89,17 @@ public class MainApplet extends PApplet {
 	int prevbacon = -1, prevcheese = -1, prevcucumber = -1, prevegg = -1, prevham = -1, prevlettuce = -1, prevonion = -1, prevtomato = -1;
 	int otherOK = -1;
 	
+	//Snack snack;
+	ArrayList<Snack> snacks;
+	int[] snacksX = new int[5];
+	int[] snacksY = new int[5];
+	boolean snackisDisplayed = false;
+	//PImage snackImg;
+	int selectedsnack = -1;
+	int focussnack = -1;
+	int prevsnack = -1;
+	int snackOK = 0;
+	
 	public MainApplet(Socket socket) {
 		state = 0;
 		countrys = new ArrayList<Country>();
@@ -105,6 +116,7 @@ public class MainApplet extends PApplet {
 		loadBread();
 		loadMeat();
 		loadOther();
+		//loadSnack();
 		smooth();
 	}
 
@@ -188,7 +200,7 @@ public class MainApplet extends PApplet {
 			textSize(40);
 			for(int i=0; i<2; i++) text("+", 90, 205+i*200);
 			food.foodRect();
-			snack.snackRect();
+			//snack.snackRect();
 			drink.drinkRect();
 			ellipse(450, 500, 60, 60);
 			fill(0);
@@ -615,15 +627,85 @@ public class MainApplet extends PApplet {
 			}
 			else if(playState == 2) {
 				if(!snackSelected) {
-					snackImg = loadImage(snack.getSnack());
+					//snackImg = loadImage(snack.getSnack());
 					snackSelected = true;
+					
+					Snack s, sn;
+					if(!snackisDisplayed) {
+						for(k=0; k<snacks.size(); k++) {
+							s = snacks.get(k);
+							ani = Ani.to(s, (float)1.0, "x", snacksX[k],Ani.BOUNCE_OUT);
+							ani = Ani.to(s, (float)1.0, "y", snacksY[k],Ani.BOUNCE_OUT);
+							//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
+						}
+						snackisDisplayed = true;
+					}
+					for(Snack i : snacks) i.display();
+					for(k=0; k<snacks.size(); k++) {
+						s = snacks.get(k);
+						if(isMouseInShape("RECT", s.x, s.y, s.width, s.height)) {
+							if (mousePressed){
+								focussnack = k;
+								prevsnack = k;
+							}
+							s.width = 110;
+							s.height = 80;
+						}
+						else {
+							int j, outside=1;
+							
+							if (mousePressed) {
+								for (j=0; j<snacks.size(); j++) {
+									sn = snacks.get(j);
+									if (isMouseInShape("RECT", sn.x, sn.y, sn.width, sn.height)) {
+										outside = 0;
+										break;
+									}
+								}
+								if (outside == 1) {
+									focussnack = -1;
+								}
+							}
+							s.width = 100;
+							s.height = 75;
+						}
+						if (selectedsnack == k){
+							fill(0);
+							text("choosed",s.x,s.y);
+						}
+					}
+					noStroke();
+					if (isMouseInShape("RECT",500,450,150,80) == true) {
+						fill(51, 51, 255);
+						rect(500, 450, 150, 80, 20);
+						fill(255, 255, 255);
+						if (mousePressed&&selectedsnack>=0) {
+							snackOK = 1;
+						}
+					}
+					else {
+						fill(255, 153, 51);
+						rect(500, 450, 150, 80, 20);
+						fill(255, 255, 255);
+					}
+					textSize(50);
+					text("OK",540,510);
+					
+					
+					
 				}
-				image(snackImg, 500, 50, 150, 100);
+				//image(snackImg, 500, 50, 150, 100);
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					snack.isPassed = true;
 					playState = 2;
 					
+					
+					
 				}
+				
+				
+				
+				
 			}
 			else if(playState == 3){
 				if(!drinkSelected) {
@@ -727,6 +809,24 @@ public class MainApplet extends PApplet {
 		}
 	}
 	
+	public void loadSnack() {
+		for(int i=0; i<5; i++) {
+			if (i<=3){
+				snacksX[i] = 250+i*200;
+				snacksY[i] = 250;
+			}
+			else {
+				snacksX[i] = 250+(i-4)*200;
+				snacksY[i] = 350;
+			}
+			snack = new Snack(this, countryLocked.name);
+			snack.y = snacksY[i];
+			snackImg = loadImage(snack.getSnack(i));
+			snack.setImage(snackImg);
+			snacks.add(snack);
+		}
+	}
+	
 	public void mousePressed() {
 		if(state == 1) state = 2;
 
@@ -755,7 +855,8 @@ public class MainApplet extends PApplet {
 					food = new Food(this, countryLocked.name);
 					usFood = new Food(this, "United_States"); //add US's food
 					drink = new Drink(this, countryLocked.name);
-					snack = new Snack(this, countryLocked.name);
+					//snack = new Snack(this, countryLocked.name);
+					loadSnack();
 					loaddata();
 					state = 3;
 				}
@@ -794,7 +895,7 @@ public class MainApplet extends PApplet {
 					selectedmeat = -1;
 				}
 				else {
-					if (focusbread == -1) {
+					if (focusmeat == -1) {
 						selectedmeat = prevmeat;
 					}
 					else {
@@ -925,6 +1026,27 @@ public class MainApplet extends PApplet {
 					if (selectedtomato == food.tamato){
 						score += 3;
 					}
+				}
+			}
+			if (playState == 2) {
+				if (selectedsnack == focussnack){
+					selectedsnack = -1;
+				}
+				else {
+					if (focussnack == -1) {
+						selectedsnack = prevsnack;
+					}
+					else {
+						selectedsnack = focussnack;
+					}
+				}
+				if (snackOK == 1){
+					snackOK = -1;
+					playState = 3;
+					/*
+					if (selectedsnack == food.meat){
+						score += 10;
+					}*/
 				}
 			}
 		}
