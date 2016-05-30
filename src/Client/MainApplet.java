@@ -37,10 +37,10 @@ public class MainApplet extends PApplet {
 	int xOffset = 0; 
 	int yOffset = 0;
 	Food food, usFood;
-	Drink drink;
+	Drink drink, usdrink;
 	Snack snack,ussnack;
 	PImage foodImg, snackImg, drinkImg;
-	boolean foodSelected = false, drinkSelected = false;
+	boolean foodSelected = false;
 	int playState = 1;
 	private Minim minim;
 	private AudioPlayer bgMusic;
@@ -103,6 +103,19 @@ public class MainApplet extends PApplet {
 	int prevsnack = -1;
 	int snackOK = 0;
 	
+	ArrayList<Drink> drinks;
+	ArrayList<Drink> usdrinks;
+	int[] drinksX = new int[5];
+	int[] drinksY = new int[5];
+	int[] usdrinksX = new int[5];
+	int[] usdrinksY = new int[5];
+	boolean drinkisDisplayed = false;
+	PImage usdrinkImg;
+	int selecteddrink = -1;
+	int focusdrink = -1;
+	int prevdrink = -1;
+	int drinkOK = 0;
+	
 	public MainApplet(Socket socket) {
 		state = 0;
 		countrys = new ArrayList<Country>();
@@ -111,6 +124,8 @@ public class MainApplet extends PApplet {
 		others = new ArrayList<OthersMaterial>();
 		snacks = new ArrayList<Snack>();
 		ussnacks = new ArrayList<Snack>();
+		drinks = new ArrayList<Drink>();
+		usdrinks = new ArrayList<Drink>();
 	}
 	
 	public void setup() {
@@ -205,7 +220,7 @@ public class MainApplet extends PApplet {
 			for(int i=0; i<2; i++) text("+", 90, 205+i*200);
 			food.foodRect();
 			snacks.get(0).snackRect();
-			drink.drinkRect();
+			drinks.get(0).drinkRect();
 			ellipse(450, 500, 60, 60);
 			fill(0);
 			text(Integer.toString(score),900,70);
@@ -724,12 +739,90 @@ public class MainApplet extends PApplet {
 					playState = 2;
 				}
 			}
-			else if(playState == 3){
-				if(!drinkSelected) {
-					drinkImg = loadImage(drink.getDrink());
-					drinkSelected = true;
+			else if(playState == 3) {
+				Drink d, dr,usd,usdr;
+				if(!drinkisDisplayed) {
+					for(k=0; k<drinks.size(); k++) {
+						d = drinks.get(k);
+						usd = usdrinks.get(k);
+						ani = Ani.to(d, (float)1.0, "x", drinksX[k],Ani.BOUNCE_OUT);
+						ani = Ani.to(d, (float)1.0, "y", drinksY[k],Ani.BOUNCE_OUT);
+						ani = Ani.to(usd, (float)1.0, "x", usdrinksX[k],Ani.BOUNCE_OUT);
+						ani = Ani.to(usd, (float)1.0, "y", usdrinksY[k],Ani.BOUNCE_OUT);
+						//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
+					}
+					drinkisDisplayed = true;
 				}
-				image(drinkImg, 500, 50, 150, 100);
+				for(Drink i : drinks) i.display();
+				for(Drink i : usdrinks) i.display();
+				for(k=0; k<drinks.size(); k++) {
+					d = drinks.get(k);
+					usd = usdrinks.get(k);
+					if(isMouseInShape("RECT", d.x, d.y, d.width, d.height)) {
+						if (mousePressed){
+							focusdrink = k;
+							prevdrink = k;
+						}
+						d.width = 110;
+						d.height = 80;
+					}
+					else if (isMouseInShape("RECT", usd.x, usd.y, usd.width, usd.height)){
+						if (mousePressed){
+							focusdrink = k+5;
+							prevdrink = k+5;
+						}
+						usd.width = 110;
+						usd.height = 80;
+					}
+					else {
+						int j, outside=1;
+							
+						if (mousePressed) {
+							for (j=0; j<drinks.size(); j++) {
+								dr = drinks.get(j);
+								usdr = drinks.get(j);
+								if (isMouseInShape("RECT", dr.x, dr.y, dr.width, dr.height)) {
+									outside = 0;
+									break;
+								}
+								if (isMouseInShape("RECT", usdr.x, usdr.y, usdr.width, usdr.height)) {
+									outside = 0;
+									break;
+								}
+							}
+							if (outside == 1) {
+								focusdrink = -1;
+							}
+						}
+						d.width = 100;
+						d.height = 75;
+					}
+					if (selecteddrink == k){
+						fill(0);
+						text("choosed",d.x,d.y);
+					}
+					if ((selecteddrink-5) == k){
+						fill(0);
+						text("choosed",usd.x,usd.y);
+					}
+				}
+				noStroke();
+				if (isMouseInShape("RECT",500,450,150,80) == true) {
+					fill(51, 51, 255);
+					rect(500, 450, 150, 80, 20);
+					fill(255, 255, 255);
+					if (mousePressed&&selecteddrink>=0) {
+						drinkOK = 1;
+					}
+				}
+				else {
+					fill(255, 153, 51);
+					rect(500, 450, 150, 80, 20);
+					fill(255, 255, 255);
+				}
+				textSize(50);
+				text("OK",540,510);
+					
 				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					drink.isPassed = true;
 					state = 4;
@@ -858,6 +951,40 @@ public class MainApplet extends PApplet {
 			ussnacks.add(ussnack);
 		}
 	}
+	
+	public void loadDrink() {
+		for(int i=0; i<5; i++) {
+			drinksX[i] = 250+i*150;
+			if (i%3==1){
+				drinksY[i] = 100;
+			}
+			else {
+				drinksY[i] = 250;
+			}
+			drink = new Drink(this, countryLocked.name);
+			drink.y = drinksY[i];
+			drinkImg = loadImage(drink.getDrink(i));
+			drink.setImage(drinkImg);
+			drinks.add(drink);//
+		}
+	}
+	public void loadUsdrink(){
+		for (int i=0;i<5;i++){
+			usdrinksX[i] = 250+i*150;
+			if (i%3==1){
+				usdrinksY[i] = 250;
+			}
+			else {
+				usdrinksY[i] = 100;
+			}
+			usdrink = new Drink(this,"United_States");
+			usdrink.y = usdrinksY[i];
+			usdrinkImg = loadImage(usdrink.getDrink(i));
+			usdrink.setImage(usdrinkImg);
+			usdrinks.add(usdrink);
+		}
+	}
+	
 	public void mousePressed() {
 		if(state == 1) state = 2;
 
@@ -885,10 +1012,10 @@ public class MainApplet extends PApplet {
 				if (accept == 0){
 					food = new Food(this, countryLocked.name);
 					usFood = new Food(this, "United_States"); //add US's food
-					drink = new Drink(this, countryLocked.name);
-					//snack = new Snack(this, countryLocked.name);
 					loadSnack();
 					loadUssnack();
+					loadDrink();
+					loadUsdrink();
 					loaddata();
 					state = 3;
 				}
@@ -1078,6 +1205,30 @@ public class MainApplet extends PApplet {
 					playState = 3;
 					snacks.get(0).isPassed = true;
 					if (selectedsnack<5){
+						score += 20;
+					}
+					else {
+						score += 10;
+					}
+				}
+			}
+			if (playState == 3) {
+				if (selecteddrink == focusdrink){
+					selecteddrink = -1;
+				}
+				else {
+					if (focusdrink == -1) {
+						selecteddrink = prevdrink;
+					}
+					else {
+						selecteddrink = focusdrink;
+					}
+				}
+				if (drinkOK == 1){
+					drinkOK = -1;
+					state = 4;
+					drinks.get(0).isPassed = true;
+					if (selecteddrink<5){
 						score += 20;
 					}
 					else {
