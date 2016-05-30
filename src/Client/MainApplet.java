@@ -823,7 +823,7 @@ public class MainApplet extends PApplet {
 			snack.y = snacksY[i];
 			snackImg = loadImage(snack.getSnack(i));
 			snack.setImage(snackImg);
-			snacks.add(snack);
+			snacks.add(snack);//
 		}
 	}
 	
