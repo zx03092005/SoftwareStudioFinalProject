@@ -706,7 +706,7 @@ public class MainApplet extends PApplet {
 						if (mousePressed) {
 							for (j=0; j<snacks.size(); j++) {
 								sn = snacks.get(j);
-								ussn = snacks.get(j);
+								ussn = ussnacks.get(j);
 								if (isMouseInShape("RECT", sn.x, sn.y, sn.width, sn.height)) {
 									outside = 0;
 									break;
@@ -722,6 +722,8 @@ public class MainApplet extends PApplet {
 						}
 						s.width = 100;
 						s.height = 75;
+						uss.width = 100;
+						uss.height = 75;
 					}
 					if (selectedsnack == k){
 						image(chooseimg,s.x,s.y-30,50,50);
@@ -797,14 +799,14 @@ public class MainApplet extends PApplet {
 						if (mousePressed) {
 							for (j=0; j<drinks.size(); j++) {
 								dr = drinks.get(j);
-								usdr = drinks.get(j);
+								usdr = usdrinks.get(j);
 								if (isMouseInShape("RECT", dr.x, dr.y, dr.width, dr.height)) {
 									outside = 0;
-									break;
+									//break;
 								}
 								if (isMouseInShape("RECT", usdr.x, usdr.y, usdr.width, usdr.height)) {
 									outside = 0;
-									break;
+									//break;
 								}
 							}
 							if (outside == 1) {
@@ -813,8 +815,11 @@ public class MainApplet extends PApplet {
 						}
 						d.width = 100;
 						d.height = 75;
+						usd.width = 100;
+						usd.height = 75;
 					}
 					if (selecteddrink == k){
+						
 						image(chooseimg,d.x,d.y-30,50,50);
 						/*fill(0);
 						text("choosed",d.x,d.y);*/
