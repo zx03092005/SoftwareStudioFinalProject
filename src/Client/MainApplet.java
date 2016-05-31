@@ -1238,16 +1238,13 @@ public class MainApplet extends PApplet {
 			}
 			if (playState == 3) {
 				if (selecteddrink == focusdrink){
-					System.out.println("one");
 					selecteddrink = -1;
 				}
 				else {
 					if (focusdrink == -1) {
-						System.out.println("two");
 						selecteddrink = prevdrink;
 					}
 					else {
-						System.out.println("three");
 						selecteddrink = focusdrink;
 					}
 				}
