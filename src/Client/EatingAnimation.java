@@ -50,5 +50,8 @@ public class EatingAnimation {
 		parent.noTint();
 		parent.image(image, x, y, width, height);
 	}
+	public int getSize(){
+		return eatingAnimationList.length;
+	}
 
 }

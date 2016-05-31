@@ -875,12 +875,14 @@ public class MainApplet extends PApplet {
 			EatingAnimation e;
 
 			e = eatings.get(eatingindex);
-//			ani = Ani.to(e, (float)1000.0, "x", 10);
 			e.display();
 			eatingindex++;
 			delay(50);
 			
-			if (eatingindex==210) state =5;
+			if (eatingindex==eating.getSize()) state =5;
+			
+			
+			
 				
 			
 		}
@@ -984,7 +986,7 @@ public class MainApplet extends PApplet {
 	}
 
 	public void loadEatingAnimation() {
-		for(int i=0; i<211; i++) {
+		for(int i=0; i<eating.getSize(); i++) {
 			
 			eating = new EatingAnimation(this);
 			eatingImg = loadImage(eating.getEating(i));
