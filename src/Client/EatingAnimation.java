@@ -1,6 +1,7 @@
 package Client;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 
 import processing.core.PImage;
@@ -17,7 +18,12 @@ public class EatingAnimation {
 	int width, height;
 	
 	public EatingAnimation(MainApplet parent) {
-		eatingAnimationList = new File("eating_animation").listFiles();
+		eatingAnimationList = new File("eating_animation").listFiles(new FilenameFilter() {
+	        @Override
+	        public boolean accept(File dir, String name) {
+	            return !name.equals(".DS_Store");
+	        }
+	    });
 		this.parent = parent;
 		this.width = 1000;
 		this.height = 600;
