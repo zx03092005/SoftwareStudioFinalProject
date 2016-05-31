@@ -883,14 +883,15 @@ public class MainApplet extends PApplet {
 
 				// end and calculate the score
 				int totalScore = 0; //add by qqhsuanwu
+				totalScore = score;
 				String msgTotalScore = String.valueOf(totalScore);
-				textSize(50);
-				text("Total Score = "+msgTotalScore, 100, 100);
+				textSize(40);
+				text("Total Score = "+msgTotalScore, 80, 100);
 	
 				int totalMoney = 0; //add by qqhsuanwu
 				String msgTotalMoney = String.valueOf(totalMoney);
-				textSize(50);
-				text("Total Money = "+msgTotalMoney, 500, 100);
+				textSize(40);
+				text("Total Money = "+msgTotalMoney, 520, 100);
 			}
 			if (eatingindex==eating.getSize()){
 				state = 5;
