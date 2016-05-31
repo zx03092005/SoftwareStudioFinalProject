@@ -722,6 +722,8 @@ public class MainApplet extends PApplet {
 						}
 						s.width = 100;
 						s.height = 75;
+						uss.width = 100;
+						uss.height = 75;
 					}
 					if (selectedsnack == k){
 						image(chooseimg,s.x,s.y-30,50,50);
@@ -813,6 +815,8 @@ public class MainApplet extends PApplet {
 						}
 						d.width = 100;
 						d.height = 75;
+						usd.width = 100;
+						usd.height = 75;
 					}
 					if (selecteddrink == k){
 						image(chooseimg,d.x,d.y-30,50,50);
