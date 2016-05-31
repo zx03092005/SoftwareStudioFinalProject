@@ -5,3 +5,6 @@
 
 # Class Path #
 .classpath
+
+# useless mac data#
+.DS_Store

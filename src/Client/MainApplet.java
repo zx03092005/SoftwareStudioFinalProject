@@ -2,6 +2,7 @@ package Client;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -25,7 +26,12 @@ public class MainApplet extends PApplet {
 	private Ani ani;
 	BackGround bg;
 	Country country;
-	File[] countryList = new File("Country").listFiles();
+	File[] countryList = new File("Country").listFiles(new FilenameFilter() {
+        @Override
+        public boolean accept(File dir, String name) {
+            return !name.equals(".DS_Store");
+        }
+    });
 	ArrayList<Country> countrys;
 	int m = 0, n = 0, k;
 	int[] countrysX = new int[countryList.length];
