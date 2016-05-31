@@ -225,7 +225,7 @@ public class MainApplet extends PApplet {
 			food.foodRect();
 			snacks.get(0).snackRect();
 			drinks.get(0).drinkRect();
-			ellipse(450, 500, 60, 60);
+			//ellipse(450, 500, 60, 60);
 			fill(0);
 			text(Integer.toString(score),900,70);
 			if(playState == 1) {
@@ -661,10 +661,10 @@ public class MainApplet extends PApplet {
 					textSize(50);
 					text("OK",540,560);
 				}
-				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
+				/*if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
 					playState = 2;
-				}
+				}*/
 			}
 			else if(playState == 2) {
 				Snack s, sn,uss,ussn;
@@ -752,10 +752,10 @@ public class MainApplet extends PApplet {
 				textSize(50);
 				text("OK",540,510);
 				
-				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
+				/*if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					snack.isPassed = true;
 					playState = 2;
-				}
+				}*/
 			}
 			else if(playState == 3) {
 				Drink d, dr,usd,usdr;
@@ -843,10 +843,10 @@ public class MainApplet extends PApplet {
 				textSize(50);
 				text("OK",540,510);
 					
-				if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
+				/*if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					drink.isPassed = true;
 					state = 4;
-				}
+				}*/
 			}
 		}
 		//state 4 time's up animation
