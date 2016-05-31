@@ -248,11 +248,10 @@ public class MainApplet extends PApplet {
 						food.setImage(foodImg);
 						//ani = Ani.to(food, (float)1.0, "x", 500);
 						ani = Ani.to(food, (float)1.0, "y", 50,Ani.BOUNCE_OUT);
-						loadfooddata();
 					}
 					foodSelected = true;
 				}
-				
+				loadfooddata();
 				if (isAmerica){
 					usFood.display();
 					fill(0);
