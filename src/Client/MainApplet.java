@@ -986,12 +986,15 @@ public class MainApplet extends PApplet {
 	}
 
 	public void loadEatingAnimation() {
+
+		eating = new EatingAnimation(this);
 		for(int i=0; i<eating.getSize(); i++) {
 			
-			eating = new EatingAnimation(this);
 			eatingImg = loadImage(eating.getEating(i));
 			eating.setImage(eatingImg);
 			eatings.add(eating);
+
+			eating = new EatingAnimation(this);
 		}
 	}
 	public void loadUssnack(){
