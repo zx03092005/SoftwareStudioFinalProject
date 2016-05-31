@@ -54,6 +54,8 @@ public class MainApplet extends PApplet {
 	int score = 0;
 	JSONObject data;
 	JSONArray data_food, data_dessert, data_drink;
+	JSONObject usdata;
+	JSONArray usdata_food;
 	
 	Bread bread;
 	ArrayList<Bread> breads;
@@ -253,8 +255,10 @@ public class MainApplet extends PApplet {
 				
 				if (isAmerica){
 					usFood.display();
-					/*fill(0);
-					text(usFood.name, 500, 150);*/
+					fill(0);
+					textSize(25);
+					text(usFood.name, 500, 250);
+					textSize(40);
 				}
 				else {
 					food.display(); 
@@ -1271,14 +1275,19 @@ public class MainApplet extends PApplet {
 	
 	public void loaddata(){
 		data = loadJSONObject(countryLocked.name+"/"+countryLocked.name+".json");
+		usdata = loadJSONObject("United_States/United_States.json");
+		usdata_food = usdata.getJSONArray("food");
 		data_food = data.getJSONArray("food");
 		data_dessert = data.getJSONArray("dessert");
 		data_drink = data.getJSONArray("drink");
 	}
 	public void loadfooddata(){
 		JSONObject temp = data_food.getJSONObject(food.getchoose());
+		JSONObject temp1 = usdata_food.getJSONObject(usFood.getchoose());
 		String name = temp.getString("name");
 		food.name = name;
+		String name1 = temp1.getString("name");
+		usFood.name = name1;
 		//bread
 		String bread = temp.getString("bread");
 		if (bread.equals("bagel")){
