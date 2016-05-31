@@ -125,6 +125,12 @@ public class MainApplet extends PApplet {
 	int drinkOK = 0;
 	PImage chooseimg;
 	
+
+	EatingAnimation eating;
+	ArrayList<EatingAnimation> eatings;
+	PImage eatingImg;
+	int eatingindex = 0;
+	
 	public MainApplet(Socket socket) {
 		state = 0;
 		countrys = new ArrayList<Country>();
@@ -135,6 +141,7 @@ public class MainApplet extends PApplet {
 		ussnacks = new ArrayList<Snack>();
 		drinks = new ArrayList<Drink>();
 		usdrinks = new ArrayList<Drink>();
+		eatings = new ArrayList<EatingAnimation>() ;
 	}
 	
 	public void setup() {
@@ -147,6 +154,7 @@ public class MainApplet extends PApplet {
 		loadOther();
 		chooseimg = loadImage("okay.png");
 		smooth();
+		loadEatingAnimation();
 	}
 
 	public void draw() {
@@ -861,10 +869,19 @@ public class MainApplet extends PApplet {
 		}
 		//state 4 time's up animation
 		else if(state == 4) {
-			background(255);
+
+			background(204, 230, 255);
 			fill(0);
-			textSize(50);
-			text("State = 4", 500, 320);
+			EatingAnimation e;
+
+			e = eatings.get(eatingindex);
+//			ani = Ani.to(e, (float)1000.0, "x", 10);
+			e.display();
+			eatingindex++;
+			delay(50);
+			
+			if (eatingindex==210) state =5;
+				
 			
 		}
 		// end and calculate the score
@@ -963,6 +980,16 @@ public class MainApplet extends PApplet {
 			snackImg = loadImage(snack.getSnack(i));
 			snack.setImage(snackImg);
 			snacks.add(snack);//
+		}
+	}
+
+	public void loadEatingAnimation() {
+		for(int i=0; i<211; i++) {
+			
+			eating = new EatingAnimation(this);
+			eatingImg = loadImage(eating.getEating(i));
+			eating.setImage(eatingImg);
+			eatings.add(eating);
 		}
 	}
 	public void loadUssnack(){
