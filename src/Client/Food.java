@@ -44,6 +44,18 @@ public class Food {
 		} catch (IOException e) {}
 		return strFood;
 	}
+
+	public String getFood(int index) {
+		//TODO return what is in the burger
+		try {
+			strMaterial = foodList[index].getCanonicalPath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return strMaterial;
+	}
 	
 	public int getchoose() {
 		//TODO return what is in the burger
@@ -65,5 +77,10 @@ public class Food {
 	public void display() {
 		parent.noTint();
 		parent.image(image, x, y, width, height);
+	}
+
+	public int getSize(){
+		System.out.println("foods size = "+foodList.length);
+		return foodList.length;
 	}
 }

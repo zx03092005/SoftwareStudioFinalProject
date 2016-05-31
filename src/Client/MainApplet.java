@@ -42,7 +42,8 @@ public class MainApplet extends PApplet {
 	boolean isDisplayed = false;
 	int xOffset = 0; 
 	int yOffset = 0;
-	Food food, usFood;
+	Food food, usFood,food2 ;
+	ArrayList<Food> foods;
 	Drink drink, usdrink;
 	Snack snack,ussnack;
 	PImage foodImg, snackImg, drinkImg;
@@ -130,6 +131,7 @@ public class MainApplet extends PApplet {
 	ArrayList<EatingAnimation> eatings;
 	PImage eatingImg;
 	int eatingindex = 0;
+	int foodindex = 0;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -142,6 +144,7 @@ public class MainApplet extends PApplet {
 		drinks = new ArrayList<Drink>();
 		usdrinks = new ArrayList<Drink>();
 		eatings = new ArrayList<EatingAnimation>() ;
+		foods = new ArrayList<Food>();
 	}
 	
 	public void setup() {
@@ -894,6 +897,7 @@ public class MainApplet extends PApplet {
 				text("Total Money = "+msgTotalMoney, 520, 100);
 			}
 			if (eatingindex==eating.getSize()){
+				loadFood();
 				state = 5;
 			}
 			
@@ -905,7 +909,15 @@ public class MainApplet extends PApplet {
 			fill(0);
 			textSize(50);
 			text("State 5 ", 400, 420);
-			food.display();
+			System.out.println(foods.size()+"  hi");
+
+			Food f;
+
+			f = foods.get(foodindex);
+			f.display();
+			foodindex++;
+			delay(1000);
+			System.out.println("Foodindex"+ foodindex);
 			///123
 			
 		}
@@ -951,6 +963,7 @@ public class MainApplet extends PApplet {
 			meats.add(meat);
 		}
 	}
+
 	
 	public void loadOther() {
 		for(int i=0; i<8; i++) {
@@ -985,6 +998,26 @@ public class MainApplet extends PApplet {
 			snack.setImage(snackImg);
 			snacks.add(snack);//
 		}
+	}
+
+	public void loadFood() {
+		System.out.println("error");
+
+		food2 = new Food(this,countryLocked.name);
+
+		System.out.println("error111");
+		for(int i=0; i<food2.getSize(); i++) {
+			foodImg = loadImage(food2.getFood(0));
+			System.out.println("error222");
+			
+			food2.setImage(foodImg);
+			System.out.println("error333");
+			
+			foods.add(food2);
+			food2 = new Food(this,countryLocked.name);
+		}
+
+			System.out.println("error444");
 	}
 
 	public void loadEatingAnimation() {
