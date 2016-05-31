@@ -115,6 +115,7 @@ public class MainApplet extends PApplet {
 	int focusdrink = -1;
 	int prevdrink = -1;
 	int drinkOK = 0;
+	PImage chooseimg;
 	
 	public MainApplet(Socket socket) {
 		state = 0;
@@ -136,6 +137,7 @@ public class MainApplet extends PApplet {
 		loadBread();
 		loadMeat();
 		loadOther();
+		chooseimg = loadImage("okay.png");
 		smooth();
 	}
 
@@ -379,8 +381,9 @@ public class MainApplet extends PApplet {
 							b.height = 75;
 						}
 						if (selectedbread == k){
-							fill(0);
-							text("choosed",b.x,b.y);
+							image(chooseimg,b.x,b.y-30,50,50);
+							/*fill(0);
+							text("choosed",b.x,b.y);*/
 						}
 					}
 					noStroke();
@@ -441,8 +444,9 @@ public class MainApplet extends PApplet {
 							m.height = 75;
 						}
 						if (selectedmeat == k){
-							fill(0);
-							text("choosed",m.x,m.y);
+							image(chooseimg,m.x,m.y-30,50,50);
+							/*fill(0);
+							text("choosed",m.x,m.y);*/
 						}
 					}
 					noStroke();
@@ -590,43 +594,51 @@ public class MainApplet extends PApplet {
 					}
 					if (selectedbacon == 1){
 						o = others.get(0);
-						fill(0);
-						text("choosed",o.x,o.y);
+						image(chooseimg,o.x,o.y-30,50,50);
+						/*fill(0);
+						text("choosed",o.x,o.y);*/
 					}
 					if (selectedcheese == 1){
 						o = others.get(1);
-						fill(0);
-						text("choosed",o.x,o.y);
+						image(chooseimg,o.x,o.y-30,50,50);
+						/*fill(0);
+						text("choosed",o.x,o.y);*/
 					}
 					if (selectedcucumber == 1){
 						o = others.get(2);
-						fill(0);
-						text("choosed",o.x,o.y);
+						image(chooseimg,o.x,o.y-30,50,50);
+						/*fill(0);
+						text("choosed",o.x,o.y);*/
 					}
 					if (selectedegg == 1){
 						o = others.get(3);
-						fill(0);
-						text("choosed",o.x,o.y);
+						image(chooseimg,o.x,o.y-30,50,50);
+						/*fill(0);
+						text("choosed",o.x,o.y);*/
 					}
 					if (selectedham == 1){
 						o = others.get(4);
-						fill(0);
-						text("choosed",o.x,o.y);
+						image(chooseimg,o.x,o.y-30,50,50);
+						/*fill(0);
+						text("choosed",o.x,o.y);*/
 					}
 					if (selectedlettuce == 1){
 						o = others.get(5);
-						fill(0);
-						text("choosed",o.x,o.y);
+						image(chooseimg,o.x,o.y-30,50,50);
+						/*fill(0);
+						text("choosed",o.x,o.y);*/
 					}
 					if (selectedonion == 1){
 						o = others.get(6);
-						fill(0);
-						text("choosed",o.x,o.y);
+						image(chooseimg,o.x,o.y-30,50,50);
+						/*fill(0);
+						text("choosed",o.x,o.y);*/
 					}
 					if (selectedtomato == 1){
 						o = others.get(7);
-						fill(0);
-						text("choosed",o.x,o.y);
+						image(chooseimg,o.x,o.y-30,50,50);
+						/*fill(0);
+						text("choosed",o.x,o.y);*/
 					}
 					noStroke();
 					if (isMouseInShape("RECT",500,500,150,80) == true) {
@@ -709,12 +721,14 @@ public class MainApplet extends PApplet {
 						s.height = 75;
 					}
 					if (selectedsnack == k){
-						fill(0);
-						text("choosed",s.x,s.y);
+						image(chooseimg,s.x,s.y-30,50,50);
+						/*fill(0);
+						text("choosed",s.x,s.y);*/
 					}
 					if ((selectedsnack-5) == k){
-						fill(0);
-						text("choosed",uss.x,uss.y);
+						image(chooseimg,uss.x,uss.y-30,50,50);
+						/*fill(0);
+						text("choosed",uss.x,uss.y);*/
 					}
 				}
 				noStroke();
@@ -798,12 +812,14 @@ public class MainApplet extends PApplet {
 						d.height = 75;
 					}
 					if (selecteddrink == k){
-						fill(0);
-						text("choosed",d.x,d.y);
+						image(chooseimg,d.x,d.y-30,50,50);
+						/*fill(0);
+						text("choosed",d.x,d.y);*/
 					}
 					if ((selecteddrink-5) == k){
-						fill(0);
-						text("choosed",usd.x,usd.y);
+						image(chooseimg,usd.x,usd.y-30,50,50);
+						/*fill(0);
+						text("choosed",usd.x,usd.y);*/
 					}
 				}
 				noStroke();
