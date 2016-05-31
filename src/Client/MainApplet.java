@@ -879,31 +879,28 @@ public class MainApplet extends PApplet {
 			eatingindex++;
 			delay(50);
 			
-			if (eatingindex==eating.getSize()) state =5;
-			
-			
-			
-				
+			if (eatingindex>=eating.getSize()-30){
+
+				// end and calculate the score
+				int totalScore = 0; //add by qqhsuanwu
+				String msgTotalScore = String.valueOf(totalScore);
+				textSize(50);
+				text("Total Score = "+msgTotalScore, 400, 220);
+	
+				int totalMoney = 0; //add by qqhsuanwu
+				String msgTotalMoney = String.valueOf(totalMoney);
+				textSize(50);
+				text("Total Money = "+msgTotalMoney, 400, 420);
+			}
 			
 		}
-		// end and calculate the score
-		else if(state == 5){
-
-			background(255);
-			fill(0);
-			int totalScore = 0; //add by qqhsuanwu
-			String msgTotalScore = String.valueOf(totalScore);
-			textSize(50);
-			text("Total Score = "+msgTotalScore, 400, 220);
-
-			int totalMoney = 0; //add by qqhsuanwu
-			String msgTotalMoney = String.valueOf(totalMoney);
-			textSize(50);
-			text("Total Money = "+msgTotalMoney, 400, 420);
-			
-		}
+		
 		// choose the favorite food and locate them in the 1st~3rd
-		else if(state == 6) {
+		else if(state == 5) {
+			background(204, 230, 255);
+			fill(0);
+			textSize(50);
+			text("State 5 ", 400, 420);
 			///123
 			
 		}
@@ -911,7 +908,7 @@ public class MainApplet extends PApplet {
 		// the end Animation and if you want to get more coin to unlocked 
 		// the new country you can type something like "Andy is nice person"
 		// And then Back to choose the next country you want to play
-		else if(state == 7) {
+		else if(state == 6) {
 			
 		}
 	}
