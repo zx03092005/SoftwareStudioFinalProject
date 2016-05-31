@@ -8,3 +8,6 @@
 
 # useless mac data#
 .DS_Store
+
+# policy #
+java.policy.applet
