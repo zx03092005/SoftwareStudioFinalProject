@@ -3,8 +3,14 @@
     {
       "name": "Apple_Juice"
     },
+    {
+      "name": "Banana_Apple_Carrot"
+    },
 	  {
       "name": "Iced_Frappes"
+    },
+    {
+      "name": "Iced_Fruit_Smoothies"
     },
 	  {
       "name": "Orange_Juice"
