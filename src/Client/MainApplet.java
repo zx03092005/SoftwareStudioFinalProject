@@ -706,7 +706,7 @@ public class MainApplet extends PApplet {
 						if (mousePressed) {
 							for (j=0; j<snacks.size(); j++) {
 								sn = snacks.get(j);
-								ussn = snacks.get(j);
+								ussn = ussnacks.get(j);
 								if (isMouseInShape("RECT", sn.x, sn.y, sn.width, sn.height)) {
 									outside = 0;
 									break;
@@ -799,14 +799,14 @@ public class MainApplet extends PApplet {
 						if (mousePressed) {
 							for (j=0; j<drinks.size(); j++) {
 								dr = drinks.get(j);
-								usdr = drinks.get(j);
+								usdr = usdrinks.get(j);
 								if (isMouseInShape("RECT", dr.x, dr.y, dr.width, dr.height)) {
 									outside = 0;
-									break;
+									//break;
 								}
 								if (isMouseInShape("RECT", usdr.x, usdr.y, usdr.width, usdr.height)) {
 									outside = 0;
-									break;
+									//break;
 								}
 							}
 							if (outside == 1) {
@@ -819,6 +819,7 @@ public class MainApplet extends PApplet {
 						usd.height = 75;
 					}
 					if (selecteddrink == k){
+						
 						image(chooseimg,d.x,d.y-30,50,50);
 						/*fill(0);
 						text("choosed",d.x,d.y);*/
@@ -1237,13 +1238,16 @@ public class MainApplet extends PApplet {
 			}
 			if (playState == 3) {
 				if (selecteddrink == focusdrink){
+					System.out.println("one");
 					selecteddrink = -1;
 				}
 				else {
 					if (focusdrink == -1) {
+						System.out.println("two");
 						selecteddrink = prevdrink;
 					}
 					else {
+						System.out.println("three");
 						selecteddrink = focusdrink;
 					}
 				}
