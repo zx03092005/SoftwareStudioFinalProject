@@ -1,342 +1,82 @@
 {
   "food": [
     {
-      "name": "Artisan_Grilled_Chicken_Sandwich",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Artisan_Grilled_Chicken_Sandwich"
     },
     {
-      "name": "Bacon_Clubhouse_Burger",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Bacon_Clubhouse_Burger"
     },
     {
-      "name": "Bacon_Egg_and_Cheese_Bagel",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Bacon_Egg_and_Cheese_Bagel"
     },
     {
-      "name": "Bacon_Egg_and_Cheese_Biscuit",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Bacon_Egg_and_Cheese_Biscuit"
     },
     {
-      "name": "Bacon_Egg_and_Cheese_McGriddles",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Bacon_Egg_and_Cheese_McGriddles"
     },
     {
-      "name": "Bacon_Egg_McMuffin",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Bacon_Egg_McMuffin"
     },
     {
-      "name": "Big_Mac",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Big_Mac"
     },
     {
-      "name": "Cheeseburger",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Cheeseburger"
     },
     {
-      "name": "Double_Cheeseburger",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Double_Cheeseburger"
     },
     {
-      "name": "Double_Quarter_Pounder_with_Cheese",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Double_Quarter_Pounder_with_Cheese"
     },
     {
-      "name": "Egg_White_Delight_McMuffin",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Egg_White_Delight_McMuffin"
     },
     {
-      "name": "Filet_O_Fish",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Filet_O_Fish"
     },
     {
-      "name": "Hamburger",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Hamburger"
     },
     {
-      "name": "McChicken",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "McChicken"
     },
     {
-      "name": "McDouble",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "McDouble"
     },
     {
-      "name": "McRib",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "McRib"
     },
     {
-      "name": "Premium_Buttermilk_Crispy_Chicken_Deluxe_Sandwich",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Premium_Buttermilk_Crispy_Chicken_Deluxe_Sandwich"
     },
     {
-      "name": "Quarter_Pounder_with_Cheese",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Quarter_Pounder_with_Cheese"
     },
     {
-      "name": "Sausage_Biscuit_with_Egg",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Sausage_Biscuit_with_Egg"
     },
     {
-      "name": "Sausage_Biscuit",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Sausage_Biscuit"
     },
     {
-      "name": "Sausage_Burrito",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Sausage_Burrito"
     },
     {
-      "name": "Sausage_Egg_and_Cheese_McGriddles",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Sausage_Egg_and_Cheese_McGriddles"
     },
     {
-      "name": "Sausage_McGriddles",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Sausage_McGriddles"
     },
     {
-      "name": "Sausage_McMuffin_with_Egg",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Sausage_McMuffin_with_Egg"
     },
     {
-      "name": "Sausage_McMuffin",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Sausage_McMuffin"
     },
     {
-      "name": "Steak_Egg_and_Cheese_Biscuit",
-      "bread": "false",
-      "meat": "false",
-      "vegetable": "false",
-      "bacon": "false",
-      "ham": "false",
-      "egg": "false",
-      "onion": "false",
-      "cucumber": "false",
-      "tomato": "false",
-      "cheese": "false"
+      "name": "Steak_Egg_and_Cheese_Biscuit"
     }
   ],
   "dessert": [
