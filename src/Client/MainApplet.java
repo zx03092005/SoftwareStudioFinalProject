@@ -132,7 +132,7 @@ public class MainApplet extends PApplet {
 	int eatingindex = 0;
 	
 	public MainApplet(Socket socket) {
-		state = 0;
+		state = 4;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
@@ -885,12 +885,15 @@ public class MainApplet extends PApplet {
 				int totalScore = 0; //add by qqhsuanwu
 				String msgTotalScore = String.valueOf(totalScore);
 				textSize(50);
-				text("Total Score = "+msgTotalScore, 400, 220);
+				text("Total Score = "+msgTotalScore, 100, 100);
 	
 				int totalMoney = 0; //add by qqhsuanwu
 				String msgTotalMoney = String.valueOf(totalMoney);
 				textSize(50);
-				text("Total Money = "+msgTotalMoney, 400, 420);
+				text("Total Money = "+msgTotalMoney, 500, 100);
+			}
+			if (eatingindex==eating.getSize()){
+				state = 5;
 			}
 			
 		}
