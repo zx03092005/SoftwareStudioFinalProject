@@ -3,7 +3,7 @@
     {
       "name": "BigSpicy_Chicken_Wrap",
       "bread": "wrap",
-      "meat": "spicy_crispy_chicken",
+      "meat": "chicken",
       "vegetable": "true",
       "bacon": "false",
       "ham": "false",
@@ -81,7 +81,7 @@
     {
       "name": "McSpicy_Paneer",
       "bread": "hamburger",
-      "meat": "spicy_crispy_chicken",
+      "meat": "chicken",
       "vegetable": "true",
       "bacon": "false",
       "ham": "false",
