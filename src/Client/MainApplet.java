@@ -904,6 +904,7 @@ public class MainApplet extends PApplet {
 			fill(0);
 			textSize(50);
 			text("State 5 ", 400, 420);
+			food.display();
 			///123
 			
 		}
@@ -986,14 +987,11 @@ public class MainApplet extends PApplet {
 	}
 
 	public void loadEatingAnimation() {
-
 		eating = new EatingAnimation(this);
 		for(int i=0; i<eating.getSize(); i++) {
-			
 			eatingImg = loadImage(eating.getEating(i));
 			eating.setImage(eatingImg);
 			eatings.add(eating);
-
 			eating = new EatingAnimation(this);
 		}
 	}
