@@ -1046,25 +1046,16 @@ public class MainApplet extends PApplet {
 	}
 
 	public void loadFood() {
-		System.out.println("error");
 
 		food2 = new Food(this,countryLocked.name);
-
-		System.out.println("error111");
 		for(int i=0; i<food2.getSize(); i++) {
 			foodImg = loadImage(food2.getFood(i));
-			System.out.println("error222");
-			
 			food2.setImage(foodImg);
-			System.out.println("error333");
-			
 			foods.add(food2);
 			food2 = new Food(this,countryLocked.name);
 		}
 		foodsX = new float[foods.size()];
 		foodsY = new float[foods.size()];
-
-			System.out.println("error444");
 	}
 
 	public void loadEatingAnimation() {
@@ -1128,8 +1119,6 @@ public class MainApplet extends PApplet {
 	
 	public void mousePressed() {
 		if(state == 1) state = 2;
-
-		if(state == 4) state = 5;
 		if (isOver) {
 			countryLocked = overCountryAndNotPress;
 			xOffset = mouseX-countryLocked.x; 
