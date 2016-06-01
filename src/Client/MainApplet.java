@@ -9,6 +9,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Random;
+
+import controlP5.ControlFont;
+import controlP5.ControlP5;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import de.looksgood.ani.Ani;
@@ -47,6 +50,8 @@ public class MainApplet extends PApplet {
 	ArrayList<Food> foods;
 	float[] foodsX ;
 	float[] foodsY ;
+	ControlP5 cp5;
+	boolean addButton = false;
 	
 	Drink drink, usdrink;
 	Snack snack,ussnack;
@@ -155,32 +160,38 @@ public class MainApplet extends PApplet {
 		size(1000,650);
 		bgState1 = loadImage("bgState1.jpg");
 		Ani.init(this);
-		bg = new BackGround(this, 1, 220);
+		bg = new BackGround(this, 1, 255);
 		loadCountry();
 		loadBread();
 		loadMeat();
 		loadOther();
 		chooseimg = loadImage("okay.png");
+		cp5 = new ControlP5(this);
 		smooth();
 		loadEatingAnimation();
-		for(File f : countryList) System.out.println(f);
 	}
 
 	public void draw() {
 		if(state == 0) {
-			if(bg.chroma > 5 && bg.photo == 1) ani = Ani.to(bg, (float)0.1, "chroma", 10);
-			if(bg.chroma < 11 && bg.photo == 1) { 
+			if(bg.chroma > 5 && bg.photo == 1) ani = Ani.to(bg, (float)10.0, "chroma", 5);
+			if(bg.chroma < 6 && bg.photo == 1) { 
 				bg.initChroma(); 
 				bg.photo = 2;
 			}
-			if(bg.chroma > 5 && bg.photo == 2) ani = Ani.to(bg, (float)0.1, "chroma", 10);
+			if(bg.chroma > 5 && bg.photo == 2) ani = Ani.to(bg, (float)10.0, "chroma", 10);
 			if(bg.chroma < 11 && bg.photo == 2) { 
 				bg.initChroma(); 
 				bg.photo = 3; 
 			}
-			if(bg.chroma > 5 && bg.photo == 3) ani = Ani.to(bg, (float)0.1, "chroma", 10);
+			if(bg.chroma > 5 && bg.photo == 3) ani = Ani.to(bg, (float)10.0, "chroma", 10);
 			if(bg.chroma < 11 && bg.photo == 3) { 
 				bg.initChroma(); 
+				bg.photo = 4; 
+			}
+			if(bg.chroma > 5 && bg.photo == 4) ani = Ani.to(bg, (float)10.0, "chroma", 10);
+			if(bg.chroma < 11 && bg.photo == 4) { 
+				bg.chroma = 0;
+				bg.photo = 5;
 				this.state = 1; 
 			}
 			bg.display();
@@ -188,8 +199,20 @@ public class MainApplet extends PApplet {
 		else if(state == 1) {
 			noTint();
 			image(bgState1, 0, 0);
+			if(!addButton) {
+				//create button
+				cp5.addButton("buttonA").setLabel("Start").setPosition(300,550).setSize(200,50);
+				cp5.addButton("buttonB").setLabel("How").setPosition(700,550).setSize(200,50);
+				// set the Font of word in the button
+				ControlFont font = new ControlFont(createFont("Consolas",20,true),241);
+				cp5.getController("buttonA").getCaptionLabel().setFont(font).setSize(24);
+				cp5.getController("buttonB").getCaptionLabel().setFont(font).setSize(24);
+				addButton = true;
+			}
+			else cp5.show();
 		}
 		else if(state == 2) {
+			cp5.hide();
 			Country c;
 			background(255,255,153);
 			stroke(4);
@@ -237,6 +260,15 @@ public class MainApplet extends PApplet {
 			}
 		}
 		else if(state == 3) {
+			cp5.hide();
+			if(bg.chroma < 255 && bg.photo == 5) ani = Ani.to(bg, (float)4.0, "chroma", 254);
+			if(mousePressed) {
+				state = 1;
+				bg.chroma = 0;
+			}
+			bg.display();
+		}
+		else if(state == 4) {
 			background(204, 230, 255);
 			fill(0);
 			textSize(40);
@@ -873,7 +905,7 @@ public class MainApplet extends PApplet {
 			}
 		}
 		//state 4 time's up animation
-		else if(state == 4) {
+		else if(state == 5) {
 
 			background(204, 230, 255);
 			fill(0);
@@ -906,7 +938,7 @@ public class MainApplet extends PApplet {
 		}
 		
 		// choose the favorite food and locate them in the 1st~3rd
-		else if(state == 5) {
+		else if(state == 6) {
 			background(204, 230, 255);
 			fill(0);
 			textSize(50);
@@ -970,7 +1002,7 @@ public class MainApplet extends PApplet {
 		// the end Animation and if you want to get more coin to unlocked 
 		// the new country you can type something like "Andy is nice person"
 		// And then Back to choose the next country you want to play
-		else if(state == 6) {
+		else if(state == 7) {
 			
 		}
 	}
@@ -1122,7 +1154,6 @@ public class MainApplet extends PApplet {
 	}
 	
 	public void mousePressed() {
-		if(state == 1) state = 2;
 		if (isOver) {
 			countryLocked = overCountryAndNotPress;
 			xOffset = mouseX-countryLocked.x; 
@@ -1151,7 +1182,7 @@ public class MainApplet extends PApplet {
 					loadDrink();
 					loadUsdrink();
 					loaddata();
-					state = 3;
+					state = 4;
 				}
 			}
 			else {
@@ -1503,5 +1534,12 @@ public class MainApplet extends PApplet {
 		else if (tamato.equals("true")){
 			food.tamato = 1;
 		}
+	}
+	public void buttonA() {
+		this.state = 2;
+	}
+	// if press the buttonB(CLEAR) remove each node from the big circle
+	public void buttonB() {
+		this.state = 3;
 	}
 }
