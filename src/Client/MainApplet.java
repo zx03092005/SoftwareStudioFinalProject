@@ -34,8 +34,8 @@ public class MainApplet extends PApplet {
     });
 	ArrayList<Country> countrys;
 	int m = 0, n = 0, k;
-	int[] countrysX = new int[countryList.length];
-	int[] countrysY = new int[countryList.length];
+	float[] countrysX = new float[countryList.length];
+	float[] countrysY = new float[countryList.length];
 	Random rand	= new Random();
 	Country overCountryAndNotPress = null, countryLocked = null;
 	boolean isOver = false;
@@ -158,6 +158,7 @@ public class MainApplet extends PApplet {
 		chooseimg = loadImage("okay.png");
 		smooth();
 		loadEatingAnimation();
+		for(File f : countryList) System.out.println(f);
 	}
 
 	public void draw() {
@@ -187,7 +188,7 @@ public class MainApplet extends PApplet {
 		}
 		else if(state == 2) {
 			Country c;
-			background(rand.nextInt(255),rand.nextInt(255),rand.nextInt(255));
+			background(255,255,153);
 			stroke(4);
 			fill(127);
 			rect(370, 230, 220, 150, 20);
@@ -203,7 +204,6 @@ public class MainApplet extends PApplet {
 					c = countrys.get(k);
 					ani = Ani.to(c, (float)1.0, "x", countrysX[k]);
 					ani = Ani.to(c, (float)1.0, "y", countrysY[k]);
-					//ani = Ani.to(theTarget, theDuration, theFieldName, theEnd, theEasing)
 				}
 				isDisplayed = true;
 			}
@@ -931,11 +931,11 @@ public class MainApplet extends PApplet {
 	}
 	
 	public void loadCountry() {
+		float theta = 0;
 		for(int i=0; i<countryList.length; i++) {
-			m = (i>2) ? i-3 : i;
-			n = (i>2) ? 1 : 0;
-			countrysX[i] = 80+m*300;
-			countrysY[i] = 50+n*390;
+			countrysX[i] = 500 + 380 * cos(theta);
+			countrysY[i] = 300 + 300 * sin(theta);
+			theta += (TWO_PI / 6);
 			country = new Country(this, 400, 260, countryList[i].getName());
 			countrys.add(country);
 		}
