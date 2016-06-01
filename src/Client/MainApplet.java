@@ -200,9 +200,10 @@ public class MainApplet extends PApplet {
 				rect(countrysX[k]-10, countrysY[k]-10, c.width+20, c.height+20, 20);
 			}
 			if(!isDisplayed) {
-				for(Country i : countrys) {
-					ani = Ani.to(i, (float)1.5, "x", countrysX[k]);
-					ani = Ani.to(i, (float)1.5, "y", countrysY[k]);
+				for(k=0; k<countrys.size(); k++) {
+					c = countrys.get(k);
+					ani = Ani.to(c, (float)1.5, "x", countrysX[k]);
+					ani = Ani.to(c, (float)1.5, "y", countrysY[k]);
 				}
 				isDisplayed = true;
 			}
@@ -1097,7 +1098,7 @@ public class MainApplet extends PApplet {
 	
 	public void mouseReleased() {
 		if(countryLocked != null) {
-			if(isMouseInShape("RECT", 370, 230, 220, 150)&&state == 2) {
+			if(isMouseInShape("RECT", 490, 290, 220, 150)&&state == 2) {
 				countryLocked.inRect = true;
 				countryLocked.x = 370;
 				countryLocked.y = 230;
