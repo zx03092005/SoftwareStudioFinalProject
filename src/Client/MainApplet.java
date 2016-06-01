@@ -33,7 +33,7 @@ public class MainApplet extends PApplet {
         }
     });
 	ArrayList<Country> countrys;
-	int m = 0, n = 0, k;
+	int k;
 	float[] countrysX = new float[countryList.length];
 	float[] countrysY = new float[countryList.length];
 	Random rand	= new Random();
@@ -191,7 +191,7 @@ public class MainApplet extends PApplet {
 			background(255,255,153);
 			stroke(4);
 			fill(127);
-			rect(370, 230, 220, 150, 20);
+			rect(490, 290, 220, 150, 20);
 			for(k=0; k<countrys.size(); k++) {
 				c = countrys.get(k);
 				fill(127);
@@ -200,30 +200,28 @@ public class MainApplet extends PApplet {
 				rect(countrysX[k]-10, countrysY[k]-10, c.width+20, c.height+20, 20);
 			}
 			if(!isDisplayed) {
-				for(k=0; k<countrys.size(); k++) {
-					c = countrys.get(k);
-					ani = Ani.to(c, (float)1.0, "x", countrysX[k]);
-					ani = Ani.to(c, (float)1.0, "y", countrysY[k]);
+				for(Country i : countrys) {
+					ani = Ani.to(i, (float)1.5, "x", countrysX[k]);
+					ani = Ani.to(i, (float)1.5, "y", countrysY[k]);
 				}
 				isDisplayed = true;
 			}
 			for(Country i : countrys) i.display();
-			for(k=0; k<countrys.size(); k++) {
-				c = countrys.get(k);
-				if(isMouseInShape("RECT", c.x, c.y, c.img.width, c.img.height) && !mousePressed) {
+			for(Country i : countrys) {
+				if(isMouseInShape("RECT", i.x, i.y, i.img.width, i.img.height) && !mousePressed) {
 					noStroke();
 					fill(126, 32, 174);
-					rect(mouseX+10, mouseY-15, c.name.length()*14, 30, 100);
+					rect(mouseX+10, mouseY-15, i.name.length()*14, 30, 100);
 					fill(255, 255, 0);
 					textSize(16);
-					text(c.name, mouseX+25, mouseY+5);
-					c.width = 220;
-					c.height = 143;
-					overCountryAndNotPress = c;
+					text(i.name, mouseX+25, mouseY+5);
+					i.width = 220;
+					i.height = 143;
+					overCountryAndNotPress = i;
 				}
 				else {
-					c.width = 200;
-					c.height = 130;
+					i.width = 200;
+					i.height = 130;
 				}
 			}
 			for(Country i : countrys) {
@@ -936,7 +934,7 @@ public class MainApplet extends PApplet {
 			countrysX[i] = 500 + 380 * cos(theta);
 			countrysY[i] = 300 + 300 * sin(theta);
 			theta += (TWO_PI / 6);
-			country = new Country(this, 400, 260, countryList[i].getName());
+			country = new Country(this, 400, 260, countrysX[i], countrysY[i], countryList[i].getName());
 			countrys.add(country);
 		}
 	}
@@ -1113,6 +1111,10 @@ public class MainApplet extends PApplet {
 					loaddata();
 					state = 3;
 				}
+			}
+			else {
+				ani = Ani.to(countryLocked, 1.0f, "x", countryLocked.initX);
+				ani = Ani.to(countryLocked, 1.0f, "y", countryLocked.initY);
 			}
 			if (choosefoodState == 0){
 				if (accept == 1){

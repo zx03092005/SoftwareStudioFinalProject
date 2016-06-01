@@ -5,18 +5,19 @@ import processing.core.PImage;
 public class Country {
 
 	MainApplet parent;
-	int x, initX, y, initY;
+	int x, y;
+	float initX, initY;
 	String name;
 	PImage img;
 	int width, height;
 	boolean inRect = false;
 	
-	public Country(MainApplet parent, int x, int y, String countryName) {
+	public Country(MainApplet parent, int x, int y, float initX, float initY, String countryName) {
 		this.parent = parent;
 		this.x = x;
-		this.initX = x; 
+		this.initX = initX; 
 		this.y = y;
-		this.initY = y;
+		this.initY = initY;
 		this.name = countryName.substring(0, countryName.length()-4);
 		img = parent.loadImage("Country/" + countryName);
 		width = img.width;
