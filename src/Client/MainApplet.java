@@ -1047,15 +1047,19 @@ public class MainApplet extends PApplet {
 
 	public void loadFood() {
 
+		float theta = 0;
 		food2 = new Food(this,countryLocked.name);
+		foodsX = new float[food2.getSize()];
+		foodsY = new float[food2.getSize()];
 		for(int i=0; i<food2.getSize(); i++) {
+			foodsX[i] = 500 + 380 * cos(theta);
+			foodsY[i] = 300 + 300 * sin(theta);
+			theta += (TWO_PI / food2.getSize());
 			foodImg = loadImage(food2.getFood(i));
 			food2.setImage(foodImg);
 			foods.add(food2);
 			food2 = new Food(this,countryLocked.name);
 		}
-		foodsX = new float[foods.size()];
-		foodsY = new float[foods.size()];
 	}
 
 	public void loadEatingAnimation() {
