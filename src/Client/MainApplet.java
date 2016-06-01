@@ -22,7 +22,7 @@ public class MainApplet extends PApplet {
 
 	int state;
 	String msg;
-	PImage img;
+	PImage img, bgState1;
 	private Ani ani;
 	BackGround bg;
 	Country country;
@@ -149,6 +149,7 @@ public class MainApplet extends PApplet {
 	
 	public void setup() {
 		size(1000,650);
+		bgState1 = loadImage("bgState1.jpg");
 		Ani.init(this);
 		bg = new BackGround(this, 1, 220);
 		loadCountry();
@@ -181,10 +182,8 @@ public class MainApplet extends PApplet {
 			bg.display();
 		}
 		else if(state == 1) {
-			background(255);
-			textSize(32);
-			fill(new Random().nextInt(255),new Random().nextInt(255),new Random().nextInt(255));
-			text("Press!!", 450, 325);
+			noTint();
+			image(bgState1, 0, 0);
 		}
 		else if(state == 2) {
 			Country c;
