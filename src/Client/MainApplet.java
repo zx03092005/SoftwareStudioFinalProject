@@ -43,7 +43,11 @@ public class MainApplet extends PApplet {
 	int xOffset = 0; 
 	int yOffset = 0;
 	Food food, usFood,food2 ;
+	Food overFoodAndNotPress = null;
 	ArrayList<Food> foods;
+	float[] foodsX ;
+	float[] foodsY ;
+	
 	Drink drink, usdrink;
 	Snack snack,ussnack;
 	PImage foodImg, snackImg, drinkImg;
@@ -911,12 +915,55 @@ public class MainApplet extends PApplet {
 
 			Food f;
 
-			f = foods.get(foodindex);
-			f.display();
-			foodindex++;
-			delay(1000);
-			System.out.println("Foodindex"+ foodindex);
+//			f = foods.get(foodindex);
+//			f.display();
+//			foodindex++;
+//			delay(1000);
+//			System.out.println("Foodindex"+ foodindex);
 			///123
+			stroke(4);
+			fill(127);
+			rect(490, 290, 220, 150, 20);
+			for(k=0; k<foods.size(); k++) {
+				f = foods.get(k);
+				fill(127);
+				stroke(0);
+				strokeWeight(5);
+				rect(foodsX[k]-10, foodsY[k]-10, f.width+20, f.height+20, 20);
+			}
+			if(!isDisplayed) {
+				for(k=0; k<foods.size(); k++) {
+					f = foods.get(k);
+					ani = Ani.to(f, (float)1.5, "x", foodsX[k]);
+					ani = Ani.to(f, (float)1.5, "y", foodsY[k]);
+				}
+				isDisplayed = true;
+			}
+			for(Food i : foods) i.display();
+			for(Food i : foods) {
+				if(isMouseInShape("RECT", i.x, i.y, i.width, i.height) && !mousePressed) {
+					noStroke();
+					fill(126, 32, 174);
+					rect(mouseX+10, mouseY-15, i.name.length()*14, 30, 100);
+					fill(255, 255, 0);
+					textSize(16);
+					text(i.name, mouseX+25, mouseY+5);
+					i.width = 220;
+					i.height = 143;
+					overFoodAndNotPress = i;
+				}
+				else {
+					i.width = 200;
+					i.height = 130;
+				}
+			}
+			for(Food i : foods) {
+				if(isMouseInShape("RECT", i.x, i.y, i.width, i.height)) {
+					isOver = true;
+					break;
+				}
+				else isOver = false;
+			}
 			
 		}
 		//feedback
@@ -1005,7 +1052,7 @@ public class MainApplet extends PApplet {
 
 		System.out.println("error111");
 		for(int i=0; i<food2.getSize(); i++) {
-			foodImg = loadImage(food2.getFood(0));
+			foodImg = loadImage(food2.getFood(i));
 			System.out.println("error222");
 			
 			food2.setImage(foodImg);
@@ -1014,6 +1061,8 @@ public class MainApplet extends PApplet {
 			foods.add(food2);
 			food2 = new Food(this,countryLocked.name);
 		}
+		foodsX = new float[foods.size()];
+		foodsY = new float[foods.size()];
 
 			System.out.println("error444");
 	}
