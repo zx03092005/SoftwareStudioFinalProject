@@ -243,18 +243,17 @@ public class MainApplet extends PApplet {
 				}
 				else isOver = false;
 			}
+			
+			//display animation
 			if (animationIndex==0){
 
 				loadAnimation("hellow_animation", 640, 320, 900, 500);
 			}
-
 			Animation a;
-
 			a = animations.get(animationIndex);
 			a.display();
 			animationIndex++;
-			delay(50);
-			
+			delay(50);	
 			if (animationIndex==animation.getSize()){
 				//
 				animationIndex = animation.getSize()-10;
@@ -861,6 +860,22 @@ public class MainApplet extends PApplet {
 					state = 4;
 				}*/
 			}
+
+			//display animation
+			if (animationIndex==0){
+
+				loadAnimation("waiting_animation", 640, 320, 900, 500);
+			}
+			Animation a;
+			a = animations.get(animationIndex);
+			a.display();
+			animationIndex++;
+			delay(50);	
+			if (animationIndex==animation.getSize()){
+				//
+				animationIndex = 0;
+				// end and calculate the score
+			}
 		}
 		//state 4 time's up animation
 		else if(state == 5) {
@@ -1119,6 +1134,7 @@ public class MainApplet extends PApplet {
 					loadDrink();
 					loaddata();
 					animationIndex=0;
+					animations.clear();
 					state = 4;
 				}
 			}
