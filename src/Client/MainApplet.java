@@ -648,7 +648,6 @@ public class MainApplet extends PApplet {
 					Meat m;
 					m = meats.get(selectedmeat);
 					m.display();
-					m.display();
 					ani = Ani.to(m, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
 				}
 				if (otherOK == 0){
