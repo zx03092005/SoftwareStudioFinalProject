@@ -17,7 +17,7 @@ public class Animation {
 	int x, y;
 	int width, height;
 	
-	public Animation(MainApplet parent, String fileName) {
+	public Animation(MainApplet parent, String fileName,int width, int height,int x,int y) {
 		AnimationList = new File(fileName).listFiles(new FilenameFilter() {
 	        @Override
 	        public boolean accept(File dir, String name) {
@@ -25,10 +25,10 @@ public class Animation {
 	        }
 	    });
 		this.parent = parent;
-		this.width = 1000;
-		this.height = 600;
-		this.x = 0;
-		this.y = 0;
+		this.width = width;
+		this.height = height;
+		this.x = x;
+		this.y = y;
 	}
 	
 	public String getEating(int index) {

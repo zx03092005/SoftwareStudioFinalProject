@@ -849,7 +849,7 @@ public class MainApplet extends PApplet {
 		else if(state == 5) {
 			if (animationIndex==0){
 
-				loadAnimation("hellow_animation");
+				loadAnimation("eating_animation",1680, 1024,0,0);
 			}
 
 
@@ -1047,13 +1047,13 @@ public class MainApplet extends PApplet {
 		}
 	}
 
-	public void loadAnimation(String fileName) {
-		animation = new Animation(this,fileName);
+	public void loadAnimation(String fileName,int width,int height,int x,int y) {
+		animation = new Animation(this,fileName,width, height,x,y);
 		for(int i=0; i<animation.getSize(); i++) {
 			animationImg = loadImage(animation.getEating(i));
 			animation.setImage(animationImg);
 			animations.add(animation);
-			animation = new Animation(this,fileName);
+			animation = new Animation(this,fileName,width, height,x,y);
 		}
 	}
 	
