@@ -65,8 +65,7 @@ public class Food {
 	public void foodRect() {
 		parent.stroke(0);
 		parent.strokeWeight(5);
-		if(isPassed) parent.fill(0, 255, 0);
-		else parent.fill(255, 0, 0);
+		parent.fill(0, 255, 0);
 		parent.rect(30, 40, 150, 100, 20);
 		parent.fill(0);
 		parent.text("Food", 60, 105);

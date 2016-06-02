@@ -51,10 +51,9 @@ public class Snack {
 	public void snackRect() {
 		parent.stroke(0);
 		parent.strokeWeight(5);
-		if(isPassed) parent.fill(0, 255, 0);
-		else parent.fill(255, 0, 0);
-		parent.rect(30, 240, 150, 100, 20);
+		parent.fill(0, 255, 0);
+		parent.rect(30, 40, 150, 100, 20);
 		parent.fill(0);
-		parent.text("Snack", 50, 305);
+		parent.text("Snack", 50, 105);
 	}
 }
