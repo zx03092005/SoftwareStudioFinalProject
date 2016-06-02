@@ -32,13 +32,14 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 	JDialog userLogin = new JDialog(this, "WELCOME!!!", true);
 	
 	JPasswordField regPassword = new JPasswordField();
+	JPasswordField regCheckPassword = new JPasswordField();
 	JTextField regAccount = new JTextField();
 	JLabel regAccountLabel = new JLabel("Account : ");
 	JLabel regPasswordLabel = new JLabel("Password : ");
+	JLabel regCheckPasswordLabel = new JLabel("Repeat Password : ");
 	JButton confirmButton = new JButton("Verify");
 	JButton cancelButton = new JButton("Cancel");
 	JDialog regLogin = new JDialog(this, "Register", true);
-	int loginState = 0;
 	
 	public LoginFrame(Socket socket) {
 		try {
@@ -48,9 +49,10 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 		dialogContent();
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void dialogContent() {
 		try {
-			accountLabel.setBounds(60, 30, 70, 50);
+			accountLabel.setBounds(63, 30, 70, 50);
 			account.setBounds(120, 40, 200, 30);
 			passwordLabel.setBounds(50, 70, 70, 50);
 			password.setBounds(120, 80, 200, 30);
@@ -67,7 +69,7 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 				account.setText("");
 				password.setText("");
 				regAccount.setText("");
-				regPassword.setText("");
+				regPassword.setText("");;
 				regLogin.setVisible(true);
 			});
 			userLogin.add(loginButton);
@@ -77,16 +79,29 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 			userLogin.add(passwordLabel);
 			userLogin.add(accountLabel);
 			
-			regAccountLabel.setBounds(60, 30, 70, 50);
-			regAccount.setBounds(120, 40, 200, 30);
-			regPasswordLabel.setBounds(50, 70, 70, 50);
-			regPassword.setBounds(120, 80, 200, 30);
+			regAccountLabel.setBounds(73, 30, 70, 50);
+			regAccount.setBounds(130, 40, 200, 30);
+			regPasswordLabel.setBounds(60, 70, 70, 50);
+			regPassword.setBounds(130, 80, 200, 30);
 			regPassword.setEchoChar('*');
-			confirmButton.setBounds(120, 130, 70, 30);
+			regCheckPasswordLabel.setBounds(17, 110, 150, 50);
+			regCheckPassword.setBounds(130, 120, 200, 30);
+			regCheckPassword.setEchoChar('*');
+			confirmButton.setBounds(120, 170, 70, 30);
 			confirmButton.addActionListener(e -> {
-				loginState = 0;
+				if(regPassword.getText().equals(regCheckPassword.getText())) {
+					writer.println("new@"+regAccount.getText());
+					writer.println("new@"+String.valueOf(regPassword.getPassword()));
+					writer.flush();
+					check();
+				}
+				else {
+					JOptionPane.showMessageDialog(regLogin, "Two passwords are not the same", "ERROR", JOptionPane.ERROR_MESSAGE);
+					regPassword.setText("");
+					regCheckPassword.setText("");
+				}
 			});
-			cancelButton.setBounds(200, 130, 70, 30);
+			cancelButton.setBounds(200, 170, 70, 30);
 			cancelButton.addActionListener(e -> {
 				regLogin.setVisible(false);
 			});
@@ -96,15 +111,17 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 			regLogin.add(cancelButton);
 			regLogin.add(regAccount);
 			regLogin.add(regPassword);
+			regLogin.add(regCheckPassword);
 			regLogin.add(regPasswordLabel);
 			regLogin.add(regAccountLabel);
+			regLogin.add(regCheckPasswordLabel);
 			
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 			SwingUtilities.updateComponentTreeUI(userLogin);
 			SwingUtilities.updateComponentTreeUI(regLogin);
 
 			regLogin.setLayout(null);
-			regLogin.setBounds(483, 255, 400, 220);
+			regLogin.setBounds(483, 255, 430, 260);
 			regLogin.setVisible(false);
 			
 			userLogin.setLayout(null);
@@ -117,14 +134,27 @@ public class LoginFrame extends JFrame /*implements Runnable */{
 	public void check() {
 		while(true) {
 			try {
-				String test = reader.readLine().replace("\n", "");
-				if(test.equals("LoginFailed")) {
+				String serverMessage = reader.readLine().replace("\n", "");
+				if(serverMessage.equals("LoginFailed")) {
 					password.setText("");
 					JOptionPane.showMessageDialog(userLogin, "Please Try Again", "ERROR", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
-				else if(test.equals("LoginSuccess")) {
+				else if(serverMessage.equals("LoginSuccess")) {
 					userLogin.setVisible(false);
+					break;
+				}
+				else if(serverMessage.equals("RegisterSuccess")) {
+					JOptionPane.showMessageDialog(regLogin, "Your account create successfully", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+					regLogin.setVisible(false);
+					break;
+				}
+				else if(serverMessage.equals("RegisterSpecial")) {
+					JOptionPane.showMessageDialog(regLogin, "Your account has specail character(s)", "ERROR", JOptionPane.ERROR_MESSAGE);
+					break;
+				}
+				else if(serverMessage.equals("RegisterRepeat")) {
+					JOptionPane.showMessageDialog(regLogin, "Your account has been registed", "ERROR", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 				

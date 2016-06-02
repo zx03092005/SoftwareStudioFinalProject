@@ -16,8 +16,9 @@ public class GameServer extends JFrame {
 	private TableWrite userData = new TableWrite(this);
 	JTextArea ta = new JTextArea();
 	String userAccount, userPassword;
-	
+	JScrollPane scrollPane;
 	public GameServer(int portNum) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		userData.init();
 		this.setResizable(false);
 		this.setBounds(970, 430, 400, 300);
@@ -26,7 +27,12 @@ public class GameServer extends JFrame {
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 			SwingUtilities.updateComponentTreeUI(this);
 		} catch(Exception e) {}
-		this.add(ta);
+
+	    //ta.setCaretPosition(ta.getDocument().getLength()); 
+		scrollPane = new JScrollPane(this.ta,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		this.add(scrollPane);
+	    //this.add(ta);
 		this.setVisible(true);
 	}
 	
@@ -67,7 +73,13 @@ public class GameServer extends JFrame {
 					GameServer.this.userAccount = this.reader.readLine();
 					GameServer.this.userPassword = this.reader.readLine();
 					//if(GameServer.this.isPasswordCorrect(GameServer.this.userAccount, GameServer.this.userPassword)) 
-					if(GameServer.this.userData.findUser(GameServer.this.userAccount, GameServer.this.userPassword)) {
+					if(GameServer.this.userAccount.contains("new@")) {
+						int check = GameServer.this.userData.newUser(GameServer.this.userAccount, GameServer.this.userPassword);
+						if(check == 1) sendMessage("RegisterSuccess");
+						else if(check == -1) sendMessage("RegisterSpecial");
+						else sendMessage("RegisterRepeat");
+					}
+					else if(GameServer.this.userData.findUser(GameServer.this.userAccount, GameServer.this.userPassword)) {
 						sendMessage("LoginSuccess");
 						ta.append("user : " + userAccount + " login successed\n");	
 					}
@@ -75,6 +87,7 @@ public class GameServer extends JFrame {
 						sendMessage("LoginFailed");
 						ta.append("user : " + userAccount + " login failed\n");
 					}
+
 				} catch (Exception e) {}
 			}
 		}
