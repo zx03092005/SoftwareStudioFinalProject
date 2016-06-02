@@ -103,8 +103,8 @@ public class MainApplet extends PApplet {
 	
 	//Snack snack;
 	ArrayList<Snack> snacks;
-	int[] snacksX = new int[5];
-	int[] snacksY = new int[5];
+	int[] snacksX = new int[8];
+	int[] snacksY = new int[8];
 	boolean snackisDisplayed = false;
 	//PImage snackImg;
 	int selectedsnack = -1;
@@ -113,8 +113,8 @@ public class MainApplet extends PApplet {
 	int snackOK = 0;
 	
 	ArrayList<Drink> drinks;
-	int[] drinksX = new int[5];
-	int[] drinksY = new int[5];
+	int[] drinksX = new int[8];
+	int[] drinksY = new int[8];
 	boolean drinkisDisplayed = false;
 	int selecteddrink = -1;
 	int focusdrink = -1;
@@ -1078,9 +1078,9 @@ public class MainApplet extends PApplet {
 	}
 	
 	public void loadSnack() {
-		for(int i=0; i<5; i++) {
-			snacksX[i] = 250+i*150;
-			if (i%3==1){
+		for(int i=0; i<8; i++) {
+			snacksX[i] = 250+(i%4)*150;
+			if (i < 4){
 				snacksY[i] = 100;
 			}
 			else {
@@ -1090,7 +1090,7 @@ public class MainApplet extends PApplet {
 			snack.y = snacksY[i];
 			snackImg = loadImage(snack.getSnack(i));
 			snack.setImage(snackImg);
-			snacks.add(snack);//
+			snacks.add(snack);
 		}
 	}
 
@@ -1122,9 +1122,9 @@ public class MainApplet extends PApplet {
 	}
 	
 	public void loadDrink() {
-		for(int i=0; i<5; i++) {
-			drinksX[i] = 250+i*150;
-			if (i%3==1){
+		for(int i=0; i<8; i++) {
+			drinksX[i] = 250+(i%4)*150;
+			if (i < 4){
 				drinksY[i] = 100;
 			}
 			else {

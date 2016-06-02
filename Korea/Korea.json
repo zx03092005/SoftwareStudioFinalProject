@@ -1,6 +1,9 @@
 {
   "drink": [
     {
+      "name": "1__Low_Fat_Milk_Jug"
+    },
+    {
       "name": "Baby_Chino"
     },
     {
@@ -8,6 +11,12 @@
     },
     {
       "name": "Green_Tea_Latte"
+    },
+    {
+      "name": "McCafe_Mocha"
+    },
+    {
+      "name": "Minute_Maid_Orange_Juice_Small_12_oz"
     },
     {
       "name": "Premium_Roast_Coffee"
@@ -156,13 +165,22 @@
       "name": "Chocolate_Cone"
     },
     {
+      "name": "Chocolate_Oreo_McFlurry"
+    },
+    {
       "name": "Churros"
+    },
+    {
+      "name": "Hotcakes"
     },
     {
       "name": "Oreo_Affogato"
     },
     {
       "name": "Pineapple"
+    },
+    {
+      "name": "Strawberry_Oreo_McFlurry"
     }
   ]
 }

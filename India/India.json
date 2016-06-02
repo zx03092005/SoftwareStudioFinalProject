@@ -135,8 +135,14 @@
     {
       "name": "Chilli_Paneer_Pockets"
     },
+     {
+      "name": "Fruit_'N_Yogurt_Parfait"
+    },
     {
       "name": "McSwirl_Butterscotch"
+    },
+     {
+      "name": "Premium_Bacon_Ranch_Salad_with_Grilled_Chicken"
     },
     {
       "name": "Soft_Serve"
@@ -146,6 +152,9 @@
     },
     {
       "name": "Walnut_Brownie_and_Hot_Fudge"
+    },
+     {
+      "name": "World_Famous_Fries"
     }
   ],
   "drink": [
@@ -156,7 +165,16 @@
       "name": "Fanta"
     },
     {
+      "name": "Fat_Free_Chocolate_Milk_Jug"
+    },
+    {
       "name": "Maaza"
+    },
+    {
+      "name": "McCafe_Blueberry_Pomegranate_Smoothie"
+    },
+    {
+      "name": "McCafe_Frappe_Chocolate_Chip"
     },
     {
       "name": "Tea"

@@ -7,6 +7,12 @@
       "name": "CalciYum_Wicked_Chocolate_Milk"
     },
     {
+      "name": "Coke_Zero"
+    },
+    {
+      "name": "Frozen_Coke"
+    },
+    {
       "name": "Frozen_Fanta_Sherbert_McFloat"
     },
     {
@@ -14,6 +20,9 @@
     },
     {
       "name": "Sprite_Zero"
+    },
+    {
+      "name": "White_Tea"
     }
   ],
   "food": [
@@ -150,13 +159,22 @@
   ],
   "dessert": [
     {
-      "name": "Georgie_Pie_Steak_Mince_N_Cheese"
+      "name": "100s_n_1000s_Salsa"
+    },
+    {
+      "name": "Bacon_Cheese_Sauce_Loaded_Fries"
+    },
+    {
+      "name": "Georgie_Pie_Bacon_N_Egg"
     },
     {
       "name": "Loaded_Fries_Guacamole_Salsa"
     },
     {
       "name": "Plain_Sundae"
+    },
+    {
+      "name": "Soft_Serve_with_Cadbury_Flake"
     },
     {
       "name": "Toasted_Bagel_with_Strawberry_Jam"

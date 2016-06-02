@@ -123,7 +123,13 @@
       "name": "Cheese_Bread"
     },
     {
+      "name": "Cuties"
+    },
+    {
       "name": "Danoninho"
+    },
+    {
+      "name": "Mccolosso"
     },
     {
       "name": "Pao_Na_Chapa"
@@ -133,6 +139,9 @@
     },
     {
       "name": "Tostado"
+    },
+    {
+      "name": "Tuna_Saland"
     }
   ],
   "drink": [
@@ -143,7 +152,16 @@
       "name": "Frappe_Mocha_Ovaltine"
     },
     {
+      "name": "McCafe_Coffee"
+    },
+    {
+      "name": "McCafe_Shamrock_Shake"
+    },
+    {
       "name": "Mineral_Water"
+    },
+    {
+      "name": "Minute_Maid_Apple_Juice_Box"
     },
     {
       "name": "Novo_McShake"

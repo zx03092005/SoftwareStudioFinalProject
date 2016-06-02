@@ -12,8 +12,17 @@
     {
       "name": "Iced_Fruit_Smoothies"
     },
+    {
+      "name": "McCafe_Hot_Chocolate"
+    },
+    {
+      "name": "McCafe_Iced_Coffee"
+    },
+    {
+      "name": "McCafe_Strawberry_Banana_Smoothie"
+    },
 	  {
-      "name": "Orange_Juice"
+      "name": "Minute_Maid_Orange_Juice_Small_12_oz"
     }
   ],
   "food": [
@@ -149,6 +158,9 @@
     }
   ],
   "dessert": [
+    {
+      "name": "Apple_Slices"
+    },
 	  {
       "name": "McFlurry_KitKat"
 	  },
@@ -161,8 +173,14 @@
 	  {
       "name": "Owocogurt"
 	  },
+    {
+      "name": "Soft_Baked_Chocolate_Chip_Cookie"
+    },
+    {
+      "name": "Strawberry_and_Creme_Pie"
+    },
 	  {
-      "name": "Winnie_Mus_Banana_Apple_Carrot"
+      "name": "Vanilla_Cone"
 	  }
   ]
 }
