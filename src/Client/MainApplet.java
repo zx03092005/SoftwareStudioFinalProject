@@ -130,7 +130,7 @@ public class MainApplet extends PApplet {
 	int foodindex = 0;
 	
 	public MainApplet(Socket socket) {
-		state = 5;
+		state = 2;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
@@ -242,6 +242,23 @@ public class MainApplet extends PApplet {
 					break;
 				}
 				else isOver = false;
+			}
+			if (animationIndex==0){
+
+				loadAnimation("hellow_animation", 640, 320, 900, 500);
+			}
+
+			Animation a;
+
+			a = animations.get(animationIndex);
+			a.display();
+			animationIndex++;
+			delay(50);
+			
+			if (animationIndex==animation.getSize()){
+				//
+				animationIndex = animation.getSize()-10;
+				// end and calculate the score
 			}
 		}
 		else if(state == 3) {
@@ -893,6 +910,7 @@ public class MainApplet extends PApplet {
 
 			if (animationIndex==animation.getSize()){
 				loadFood();
+				animationIndex=0;
 				state = 7;
 			}
 		}
@@ -1100,6 +1118,7 @@ public class MainApplet extends PApplet {
 					loadSnack();
 					loadDrink();
 					loaddata();
+					animationIndex=0;
 					state = 4;
 				}
 			}
