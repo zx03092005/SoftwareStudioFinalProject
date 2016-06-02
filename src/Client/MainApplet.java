@@ -893,7 +893,7 @@ public class MainApplet extends PApplet {
 
 			if (eatingindex==eating.getSize()){
 				loadFood();
-				state = 6;
+				state = 7;
 			}
 		}
 		// choose the favorite food and locate them in the 1st~3rd
