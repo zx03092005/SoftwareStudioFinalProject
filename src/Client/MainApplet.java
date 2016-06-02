@@ -122,6 +122,7 @@ public class MainApplet extends PApplet {
 	int drinkOK = 0;
 	PImage chooseimg;
 	
+	boolean materialisdisplayed = false;
 
 	Animation animation;
 	ArrayList<Animation> animations;
@@ -683,14 +684,16 @@ public class MainApplet extends PApplet {
 					food.isPassed = true;
 					playState = 2;
 				}*/
+				materialisdisplayed = false;
 			}
 			else if(playState == 2) {
-				if (breadOK == -1){
-					Bread b;
-					b = breads.get(selectedbread);
-					b.display();
+				Bread b;
+				b = breads.get(selectedbread);
+				if (!materialisdisplayed){
 					ani = Ani.to(b, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					materialisdisplayed = true;
 				}
+				b.display();
 				if (meatOK == -1){
 					Meat m;
 					m = meats.get(selectedmeat);
@@ -746,6 +749,13 @@ public class MainApplet extends PApplet {
 					f.x = 220;
 					f.y = 500;
 					f.display();*/
+				}
+				if (b.y == 1000){
+					food.x = 50;
+					food.y = 850;
+					food.width = 150;
+					food.height = 90;
+					food.display();
 				}
 				Snack s, sn;
 				if(!snackisDisplayed) {
