@@ -1,6 +1,7 @@
 package Client;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
@@ -22,7 +23,12 @@ public class Drink {
 	String name;
 	
 	public Drink(MainApplet parent, String country) {
-		drinkList = new File(country + "/drink").listFiles();
+		drinkList = new File(country + "/drink").listFiles(new FilenameFilter() {
+	        @Override
+	        public boolean accept(File dir, String name) {
+	            return !name.equals(".DS_Store");
+	        }
+	    });
 		isSelected = new boolean[drinkList.length];
 		Arrays.fill(isSelected, false);
 		isPassed = false;
