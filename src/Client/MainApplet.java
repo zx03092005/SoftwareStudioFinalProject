@@ -130,7 +130,7 @@ public class MainApplet extends PApplet {
 	int foodindex = 0;
 	
 	public MainApplet(Socket socket) {
-		state = 5;
+		state = 3;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
@@ -289,83 +289,16 @@ public class MainApplet extends PApplet {
 				if (breadOK == -1){
 					Bread b;
 					b = breads.get(selectedbread);
-					b.x = 220;
-					b.y = 50;
+					b.x = 60;
+					b.y = 150;
 					b.display();
 				}
 				if (meatOK == -1){
 					Meat m;
 					m = meats.get(selectedmeat);
-					m.x = 220;
-					m.y = 100;
+					m.x = 60;
+					m.y = 230;
 					m.display();
-				}
-				if (otherOK == 0){
-					int pos = 0;
-					OthersMaterial o;
-					if (selectedbacon == 1){
-						o = others.get(0);
-						o.x = 220;
-						o.y = 150+pos;
-						pos += 50;
-						o.display();
-					}
-					if (selectedcheese == 1){
-						o = others.get(1);
-						o.x = 220;
-						o.y = 150+pos;
-						pos += 50;
-						o.display();
-					}
-					if (selectedcucumber == 1){
-						o = others.get(2);
-						o.x = 220;
-						o.y = 150+pos;
-						pos += 50;
-						o.display();
-					}
-					if (selectedegg == 1){
-						o = others.get(3);
-						o.x = 220;
-						o.y = 150+pos;
-						pos += 50;
-						o.display();
-					}
-					if (selectedham == 1){
-						o = others.get(4);
-						o.x = 220;
-						o.y = 150+pos;
-						pos += 50;
-						o.display();
-					}
-					if (selectedlettuce == 1){
-						o = others.get(5);
-						o.x = 220;
-						o.y = 150+pos;
-						pos += 50;
-						o.display();
-					}
-					if (selectedonion == 1){
-						o = others.get(6);
-						o.x = 220;
-						o.y = 150+pos;
-						pos += 50;
-						o.display();
-					}
-					if (selectedtomato == 1){
-						o = others.get(7);
-						o.x = 220;
-						o.y = 150+pos;
-						pos += 50;
-						o.display();
-					}
-					delay(100);
-					/*
-					Food f;
-					f = foods.get(which);
-					f.x = 220;
-					f.y = 500;
-					f.display();*/
 				}
 				if (choosefoodState == 0){ 
 					choosefoodState = 1;
@@ -705,6 +638,69 @@ public class MainApplet extends PApplet {
 				}*/
 			}
 			else if(playState == 2) {
+				if (breadOK == -1){
+					Bread b;
+					b = breads.get(selectedbread);
+					b.display();
+					ani = Ani.to(b, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+				}
+				if (meatOK == -1){
+					Meat m;
+					m = meats.get(selectedmeat);
+					m.display();
+					m.display();
+					ani = Ani.to(m, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+				}
+				if (otherOK == 0){
+					int pos = 0;
+					OthersMaterial o;
+					if (selectedbacon == 1){
+						o = others.get(0);
+						o.display();
+						ani = Ani.to(o, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					}
+					if (selectedcheese == 1){
+						o = others.get(1);
+						o.display();
+						ani = Ani.to(o, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					}
+					if (selectedcucumber == 1){
+						o = others.get(2);
+						o.display();
+						ani = Ani.to(o, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					}
+					if (selectedegg == 1){
+						o = others.get(3);
+						o.display();
+						ani = Ani.to(o, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					}
+					if (selectedham == 1){
+						o = others.get(4);
+						o.display();
+						ani = Ani.to(o, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					}
+					if (selectedlettuce == 1){
+						o = others.get(5);
+						o.display();
+						ani = Ani.to(o, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					}
+					if (selectedonion == 1){
+						o = others.get(6);
+						o.display();
+						ani = Ani.to(o, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					}
+					if (selectedtomato == 1){
+						o = others.get(7);
+						o.display();
+						ani = Ani.to(o, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
+					}
+					/*
+					Food f;
+					f = foods.get(which);
+					f.x = 220;
+					f.y = 500;
+					f.display();*/
+				}
 				Snack s, sn;
 				if(!snackisDisplayed) {
 					for(k=0; k<snacks.size(); k++) {
@@ -1239,6 +1235,64 @@ public class MainApplet extends PApplet {
 				}
 				if (otherOK == 1){
 					otherOK = 0;
+					int pos = 0;
+					OthersMaterial o;
+					if (selectedbacon == 1){
+						o = others.get(0);
+						o.x = 60;
+						o.y = 310+pos;
+						pos += 80;
+						o.display();
+					}
+					if (selectedcheese == 1){
+						o = others.get(1);
+						o.x = 60;
+						o.y = 310+pos;
+						pos += 80;
+						o.display();
+					}
+					if (selectedcucumber == 1){
+						o = others.get(2);
+						o.x = 60;
+						o.y = 310+pos;
+						pos += 80;
+						o.display();
+					}
+					if (selectedegg == 1){
+						o = others.get(3);
+						o.x = 60;
+						o.y = 150+pos;
+						pos += 50;
+						o.display();
+					}
+					if (selectedham == 1){
+						o = others.get(4);
+						o.x = 60;
+						o.y = 310+pos;
+						pos += 80;
+						o.display();
+					}
+					if (selectedlettuce == 1){
+						o = others.get(5);
+						o.x = 60;
+						o.y = 310+pos;
+						pos += 80;
+						o.display();
+					}
+					if (selectedonion == 1){
+						o = others.get(6);
+						o.x = 60;
+						o.y = 310+pos;
+						pos += 80;
+						o.display();
+					}
+					if (selectedtomato == 1){
+						o = others.get(7);
+						o.x = 60;
+						o.y = 310+pos;
+						pos += 80;
+						o.display();
+					}
 					playState = 2;
 					food.isPassed = true;
 					if (selectedbacon == food.bacon){
