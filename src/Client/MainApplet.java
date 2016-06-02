@@ -130,7 +130,7 @@ public class MainApplet extends PApplet {
 	int foodindex = 0;
 	
 	public MainApplet(Socket socket) {
-		state = 0;
+		state = 5;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
@@ -862,29 +862,42 @@ public class MainApplet extends PApplet {
 			eatingindex++;
 			delay(50);
 			
-			if (eatingindex>=eating.getSize()-30){
-
+			if (eatingindex==eating.getSize()-30){
+				//
+				state = 6;
 				// end and calculate the score
-				int totalScore = 0; //add by qqhsuanwu
-				totalScore = score;
-				String msgTotalScore = String.valueOf(totalScore);
-				textSize(40);
-				text("Total Score = "+msgTotalScore, 80, 100);
-	
-				int totalMoney = 0; //add by qqhsuanwu
-				String msgTotalMoney = String.valueOf(totalMoney);
-				textSize(40);
-				text("Total Money = "+msgTotalMoney, 520, 100);
-			}
-			if (eatingindex==eating.getSize()){
-				loadFood();
-				state = 5;
 			}
 			
 		}
-		
-		// choose the favorite food and locate them in the 1st~3rd
+		//score animation
 		else if(state == 6) {
+			background(204, 230, 255);
+			fill(0);
+			EatingAnimation e;
+
+			e = eatings.get(eatingindex);
+			e.display();
+			eatingindex++;
+			delay(50);
+
+			int totalScore = 0; //add by qqhsuanwu
+			totalScore = score;
+			String msgTotalScore = String.valueOf(totalScore);
+			textSize(40);
+			text("Total Score = "+msgTotalScore, 80, 100);
+
+			int totalMoney = 0; //add by qqhsuanwu
+			String msgTotalMoney = String.valueOf(totalMoney);
+			textSize(40);
+			text("Total Money = "+msgTotalMoney, 520, 100);
+
+			if (eatingindex==eating.getSize()){
+				loadFood();
+				state = 6;
+			}
+		}
+		// choose the favorite food and locate them in the 1st~3rd
+		else if(state == 7) {
 			background(204, 230, 255);
 			fill(0);
 			textSize(50);
@@ -943,12 +956,6 @@ public class MainApplet extends PApplet {
 				else isOver = false;
 			}
 			
-		}
-		//feedback
-		// the end Animation and if you want to get more coin to unlocked 
-		// the new country you can type something like "Andy is nice person"
-		// And then Back to choose the next country you want to play
-		else if(state == 7) {
 			
 		}
 	}
