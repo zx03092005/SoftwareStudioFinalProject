@@ -123,21 +123,21 @@ public class MainApplet extends PApplet {
 	PImage chooseimg;
 	
 
-	EatingAnimation eating;
-	ArrayList<EatingAnimation> eatings;
-	PImage eatingImg;
-	int eatingindex = 0;
+	Animation animation;
+	ArrayList<Animation> animations;
+	PImage animationImg;
+	int animationIndex = 0;
 	int foodindex = 0;
 	
 	public MainApplet(Socket socket) {
-		state = 3;
+		state = 5;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
 		others = new ArrayList<OthersMaterial>();
 		snacks = new ArrayList<Snack>();
 		drinks = new ArrayList<Drink>();
-		eatings = new ArrayList<EatingAnimation>() ;
+		animations = new ArrayList<Animation>() ;
 		foods = new ArrayList<Food>();
 	}
 	
@@ -152,8 +152,8 @@ public class MainApplet extends PApplet {
 		loadOther();
 		chooseimg = loadImage("okay.png");
 		cp5 = new ControlP5(this);
-		smooth();
-		loadEatingAnimation();
+		smooth();			
+
 	}
 
 	public void draw() {
@@ -847,17 +847,22 @@ public class MainApplet extends PApplet {
 		}
 		//state 4 time's up animation
 		else if(state == 5) {
+			if (animationIndex==0){
+
+				loadAnimation("hellow_animation");
+			}
+
 
 			background(204, 230, 255);
 			fill(0);
-			EatingAnimation e;
+			Animation a;
 
-			e = eatings.get(eatingindex);
-			e.display();
-			eatingindex++;
+			a = animations.get(animationIndex);
+			a.display();
+			animationIndex++;
 			delay(50);
 			
-			if (eatingindex==eating.getSize()-30){
+			if (animationIndex==animation.getSize()-30){
 				//
 				state = 6;
 				// end and calculate the score
@@ -868,11 +873,11 @@ public class MainApplet extends PApplet {
 		else if(state == 6) {
 			background(204, 230, 255);
 			fill(0);
-			EatingAnimation e;
+			Animation a;
 
-			e = eatings.get(eatingindex);
-			e.display();
-			eatingindex++;
+			a = animations.get(animationIndex);
+			a.display();
+			animationIndex++;
 			delay(50);
 
 			int totalScore = 0; //add by qqhsuanwu
@@ -886,7 +891,7 @@ public class MainApplet extends PApplet {
 			textSize(40);
 			text("Total Money = "+msgTotalMoney, 520, 100);
 
-			if (eatingindex==eating.getSize()){
+			if (animationIndex==animation.getSize()){
 				loadFood();
 				state = 7;
 			}
@@ -1042,13 +1047,13 @@ public class MainApplet extends PApplet {
 		}
 	}
 
-	public void loadEatingAnimation() {
-		eating = new EatingAnimation(this);
-		for(int i=0; i<eating.getSize(); i++) {
-			eatingImg = loadImage(eating.getEating(i));
-			eating.setImage(eatingImg);
-			eatings.add(eating);
-			eating = new EatingAnimation(this);
+	public void loadAnimation(String fileName) {
+		animation = new Animation(this,fileName);
+		for(int i=0; i<animation.getSize(); i++) {
+			animationImg = loadImage(animation.getEating(i));
+			animation.setImage(animationImg);
+			animations.add(animation);
+			animation = new Animation(this,fileName);
 		}
 	}
 	

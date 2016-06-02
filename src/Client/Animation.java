@@ -6,19 +6,19 @@ import java.io.IOException;
 
 import processing.core.PImage;
 
-public class EatingAnimation {
+public class Animation {
 	/*
-	 * EatingAnimation
+	 * Animation
 	 */
-	private File[] eatingAnimationList;
+	private File[] AnimationList;
 	MainApplet parent;
 	String strMaterial;
 	private PImage image;
 	int x, y;
 	int width, height;
 	
-	public EatingAnimation(MainApplet parent) {
-		eatingAnimationList = new File("eating_animation").listFiles(new FilenameFilter() {
+	public Animation(MainApplet parent, String fileName) {
+		AnimationList = new File(fileName).listFiles(new FilenameFilter() {
 	        @Override
 	        public boolean accept(File dir, String name) {
 	            return !name.equals(".DS_Store");
@@ -34,7 +34,7 @@ public class EatingAnimation {
 	public String getEating(int index) {
 		//TODO return what is in the burger
 		try {
-			strMaterial = eatingAnimationList[index].getCanonicalPath();
+			strMaterial = AnimationList[index].getCanonicalPath();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class EatingAnimation {
 		parent.image(image, x, y, width, height);
 	}
 	public int getSize(){
-		return eatingAnimationList.length;
+		return AnimationList.length;
 	}
 
 }
