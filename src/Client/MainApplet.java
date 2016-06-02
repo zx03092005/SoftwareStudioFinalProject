@@ -128,6 +128,10 @@ public class MainApplet extends PApplet {
 	PImage animationImg;
 	int animationIndex = 0;
 	int foodindex = 0;
+	int plus10Flag = 0;
+	int plus3Flag = 0;
+	int minus3Flag = 0;
+	PlusScore plus10, plus3, minus3;
 	
 	public MainApplet(Socket socket) {
 		state = 2;
@@ -152,6 +156,9 @@ public class MainApplet extends PApplet {
 		loadOther();
 		chooseimg = loadImage("okay.png");
 		cp5 = new ControlP5(this);
+		plus10 = new PlusScore(this, 1, 255);
+		plus3 = new PlusScore(this, 2, 255);
+		minus3 = new PlusScore(this, 3, 255);
 		smooth();			
 
 	}
@@ -273,6 +280,30 @@ public class MainApplet extends PApplet {
 			background(204, 230, 255);
 			fill(0);
 			textSize(40);
+			if (plus10Flag == 1) {
+				plus10.initChroma();
+				plus10.display();
+				ani = Ani.to(plus10, (float)10.0, "chroma", 5);
+				ani = Ani.to(plus10, (float)10.0, "y", -10, Ani.BOUNCE_OUT);
+				plus10Flag = 0;
+				
+			}
+			if (plus3Flag == 1) {
+				plus3.initChroma();
+				plus3.display();
+				ani = Ani.to(plus3, (float)10.0, "chroma", 5);
+				ani = Ani.to(plus3, (float)10.0, "y", -10, Ani.BOUNCE_OUT);
+				plus3Flag = 0;
+				
+			}
+			if (minus3Flag == 1) {
+				minus3.initChroma();
+				minus3.display();
+				ani = Ani.to(minus3, (float)10.0, "chroma", 5);
+				ani = Ani.to(minus3, (float)10.0, "y", -10, Ani.BOUNCE_OUT);
+				minus3Flag = 0;
+			}
+
 			if (playState == 1) {
 				food.foodRect();
 			}
@@ -1160,6 +1191,7 @@ public class MainApplet extends PApplet {
 					choosefoodState = 2;
 					if (selectedbread == food.bread){
 						score += 10;
+						plus10Flag = 1;
 					}
 				}
 			}
@@ -1180,6 +1212,7 @@ public class MainApplet extends PApplet {
 					choosefoodState = 3;
 					if (selectedmeat == food.meat){
 						score += 10;
+						plus10Flag = 1;
 					}
 				}
 			}
@@ -1336,51 +1369,67 @@ public class MainApplet extends PApplet {
 					food.isPassed = true;
 					if (selectedbacon == food.bacon){
 						score += 3;
+						plus3Flag = 1;
 					}
 					else {
 						score -= 3;
+						minus3Flag = 1;
 					}
 					if (selectedcheese == food.cheese){
 						score += 3;
+						plus3Flag = 1;
 					}
 					else {
 						score -= 3;
+						minus3Flag = 1;
 					}
 					if (selectedcucumber == food.cucumber){
 						score += 3;
+						plus3Flag = 1;
 					}
 					else {
 						score -= 3;
+						minus3Flag = 1;
 					}
 					if (selectedegg == food.egg){
 						score += 3;
+						plus3Flag = 1;
 					}
 					else {
 						score -= 3;
+						minus3Flag = 1;
 					}
 					if (selectedham == food.ham){
 						score += 3;
+						plus3Flag = 1;
 					}
 					else {
 						score -= 3;
+						minus3Flag = 1;
 					}
 					if (selectedlettuce == food.lettuce){
 						score += 3;
+						plus3Flag = 1;
 					}
 					else {
 						score -= 3;
+						minus3Flag = 1;
 					}
 					if (selectedonion == food.onion){
 						score += 3;
+						plus3Flag = 1;
 					}
 					else {
 						score -= 3;
+						minus3Flag = 1;
 					}
 					if (selectedtomato == food.tamato){
 						score += 3;
+						plus3Flag = 1;
 					}
 					else {
 						score -= 3;
+						minus3Flag = 1;
 					}
 				}
 			}
