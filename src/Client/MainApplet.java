@@ -1297,26 +1297,50 @@ public class MainApplet extends PApplet {
 					if (selectedbacon == food.bacon){
 						score += 3;
 					}
+					else {
+						score -= 3;
+					}
 					if (selectedcheese == food.cheese){
 						score += 3;
+					}
+					else {
+						score -= 3;
 					}
 					if (selectedcucumber == food.cucumber){
 						score += 3;
 					}
+					else {
+						score -= 3;
+					}
 					if (selectedegg == food.egg){
 						score += 3;
+					}
+					else {
+						score -= 3;
 					}
 					if (selectedham == food.ham){
 						score += 3;
 					}
+					else {
+						score -= 3;
+					}
 					if (selectedlettuce == food.lettuce){
 						score += 3;
+					}
+					else {
+						score -= 3;
 					}
 					if (selectedonion == food.onion){
 						score += 3;
 					}
+					else {
+						score -= 3;
+					}
 					if (selectedtomato == food.tamato){
 						score += 3;
+					}
+					else {
+						score -= 3;
 					}
 				}
 			}
