@@ -864,7 +864,7 @@ public class MainApplet extends PApplet {
 			//display animation
 			if (animationIndex==0){
 
-				loadAnimation("waiting_animation", 640, 320, 900, 500);
+				loadAnimation("crying_animation", 640, 320, 900, 500);
 			}
 			Animation a;
 			a = animations.get(animationIndex);
@@ -873,7 +873,7 @@ public class MainApplet extends PApplet {
 			delay(50);	
 			if (animationIndex==animation.getSize()){
 				//
-				animationIndex = 0;
+				animationIndex = animation.getSize()-30;
 				// end and calculate the score
 			}
 		}
