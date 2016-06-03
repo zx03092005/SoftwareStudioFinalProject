@@ -123,6 +123,7 @@ public class MainApplet extends PApplet {
 	boolean materialisdisplayed_b = false;
 	boolean materialisdisplayed_m = false;
 	boolean materialisdisplayed_o = false;
+	boolean mealisdisplayed = false;
 
 	Animation animation;
 	ArrayList<Animation> animations;
@@ -670,6 +671,7 @@ public class MainApplet extends PApplet {
 							materialisdisplayed_b = false;
 							materialisdisplayed_m = false;
 							materialisdisplayed_o = false;
+							mealisdisplayed = false;
 						}
 					}
 					else {
@@ -734,10 +736,12 @@ public class MainApplet extends PApplet {
 				}
 				for (OthersMaterial k:o)k.display();
 				if (o.get(o.size()-1).y == 1000){
-					food.x = 50;
-					food.y = 850;
-					food.width = 150;
-					food.height = 90;
+					if (!mealisdisplayed){
+						ani = Ani.to(food, (float)1.0, "x", 1000);
+						mealisdisplayed = true;
+					}
+				}
+				if (o.get(o.size()-1).y == 1000&&food.x != 1000){
 					food.display();
 				}
 				Snack s, sn;
@@ -1299,6 +1303,10 @@ public class MainApplet extends PApplet {
 					}
 				}
 				if (otherOK == 1){
+					food.x = 50;
+					food.y = 850;
+					food.width = 150;
+					food.height = 90;
 					otherOK = -1;
 					int pos = 0;
 					OthersMaterial o;
