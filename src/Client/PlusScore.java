@@ -26,6 +26,9 @@ public class PlusScore {
 		else if (photo == 3) {
 			img = parent.loadImage("gogo.jpg");
 		}
+		else if (photo ==4){
+			img = parent.loadImage("delete.png");
+		}
 		
 		parent.tint(chroma,127);
 		parent.image(img, 700, 200, 300, 300);
