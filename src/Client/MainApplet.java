@@ -128,9 +128,10 @@ public class MainApplet extends PApplet {
 	int animationIndex = 0;
 	int foodindex = 0;
 	int plus10Flag = 0;
-	int plus3Flag = 0;
-	int minus3Flag = 0;
-	PlusScore plus10, plus3, minus3;
+	int goodFlag = 0;
+	int gogoFlag = 0;
+	PlusScore plus10, good, gogo;
+	int thisScore = 0;
 	
 	public MainApplet(Socket socket) {
 		state = 2;
@@ -156,8 +157,8 @@ public class MainApplet extends PApplet {
 		chooseimg = loadImage("okay.png");
 		cp5 = new ControlP5(this);
 		plus10 = new PlusScore(this, 1, 255);
-		plus3 = new PlusScore(this, 2, 255);
-		minus3 = new PlusScore(this, 3, 255);
+		good = new PlusScore(this, 2, 255);
+		gogo = new PlusScore(this, 3, 255);
 		smooth();			
 
 	}
@@ -279,6 +280,7 @@ public class MainApplet extends PApplet {
 			background(204, 230, 255);
 			fill(0);
 			textSize(40);
+			thisScore = 0;
 			if (plus10Flag == 1) {
 				plus10.initChroma();
 				plus10.display();
@@ -287,20 +289,19 @@ public class MainApplet extends PApplet {
 				plus10Flag = 0;
 				
 			}
-			if (plus3Flag == 1) {
-				plus3.initChroma();
-				plus3.display();
-				ani = Ani.to(plus3, (float)10.0, "chroma", 5);
-				ani = Ani.to(plus3, (float)10.0, "y", -10, Ani.BOUNCE_OUT);
-				plus3Flag = 0;
-				
+			if (goodFlag == 1) {
+				good.initChroma();
+				good.display();
+				ani = Ani.to(good, (float)10.0, "chroma", 5);
+				//ani = Ani.to(minus3, (float)10.0, "y", -10, Ani.BOUNCE_OUT);
+				goodFlag = 0;
 			}
-			if (minus3Flag == 1) {
-				minus3.initChroma();
-				minus3.display();
-				ani = Ani.to(minus3, (float)10.0, "chroma", 5);
-				ani = Ani.to(minus3, (float)10.0, "y", -10, Ani.BOUNCE_OUT);
-				minus3Flag = 0;
+			if (gogoFlag == 1) {
+				gogo.initChroma();
+				gogo.display();
+				ani = Ani.to(gogo, (float)10.0, "chroma", 5);
+				//ani = Ani.to(minus3, (float)10.0, "y", -10, Ani.BOUNCE_OUT);
+				gogoFlag = 0;
 			}
 
 			if (playState == 1) {
@@ -1374,67 +1375,73 @@ public class MainApplet extends PApplet {
 					food.isPassed = true;
 					if (selectedbacon == food.bacon){
 						score += 3;
-						plus3Flag = 1;
+						thisScore += 3;
 					}
 					else {
 						score -= 3;
-						minus3Flag = 1;
+						thisScore -= 3;
 					}
 					if (selectedcheese == food.cheese){
 						score += 3;
-						plus3Flag = 1;
+						thisScore += 3;
 					}
 					else {
 						score -= 3;
-						minus3Flag = 1;
+						thisScore -= 3;
 					}
 					if (selectedcucumber == food.cucumber){
 						score += 3;
-						plus3Flag = 1;
+						thisScore += 3;
 					}
 					else {
 						score -= 3;
-						minus3Flag = 1;
+						thisScore -= 3;
 					}
 					if (selectedegg == food.egg){
 						score += 3;
-						plus3Flag = 1;
+						thisScore += 3;
 					}
 					else {
 						score -= 3;
-						minus3Flag = 1;
+						thisScore -= 3;
 					}
 					if (selectedham == food.ham){
 						score += 3;
-						plus3Flag = 1;
+						thisScore += 3;
 					}
 					else {
 						score -= 3;
-						minus3Flag = 1;
+						thisScore -= 3;
 					}
 					if (selectedlettuce == food.lettuce){
 						score += 3;
-						plus3Flag = 1;
+						thisScore += 3;
 					}
 					else {
 						score -= 3;
-						minus3Flag = 1;
+						thisScore -= 3;
 					}
 					if (selectedonion == food.onion){
 						score += 3;
-						plus3Flag = 1;
+						thisScore += 3;
 					}
 					else {
 						score -= 3;
-						minus3Flag = 1;
+						thisScore -= 3;
 					}
 					if (selectedtomato == food.tamato){
 						score += 3;
-						plus3Flag = 1;
+						thisScore += 3;
 					}
 					else {
 						score -= 3;
-						minus3Flag = 1;
+						thisScore -= 3;
+					}
+					if (thisScore > 10) {
+						goodFlag = 1;
+					}
+					else {
+						gogoFlag = 1;
 					}
 				}
 			}

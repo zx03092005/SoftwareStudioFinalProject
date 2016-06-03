@@ -21,13 +21,14 @@ public class PlusScore {
 			img = parent.loadImage("+10.png");
 		}
 		else if (photo == 2) {
-			img = parent.loadImage("+3.png");
+			img = parent.loadImage("good.png");
 		}
 		else if (photo == 3) {
-			img = parent.loadImage("-3.png");
+			img = parent.loadImage("gogo.jpg");
 		}
+		
 		parent.tint(chroma,127);
-		parent.image(img, 600, 300, 500, 500);
+		parent.image(img, 700, 200, 300, 300);
 	}
 	
 	// initial chroma
