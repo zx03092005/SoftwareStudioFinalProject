@@ -61,9 +61,8 @@ public class MainApplet extends PApplet {
 	private Minim minim;
 	private AudioPlayer bgMusic;
 	
-	int choosefoodState = 0;
+	int choosefoodState = 1;
 	int accept = 0;
-	int orderState = 0;
 	int score = 0;
 	JSONObject data;
 	JSONArray data_food, data_dessert, data_drink;
@@ -98,7 +97,6 @@ public class MainApplet extends PApplet {
 	PImage otherImg;
 	int selectedbacon = -1, selectedcheese = -1, selectedcucumber = -1, selectedegg = -1, selectedham = -1, selectedlettuce = -1, selectedonion = -1, selectedtomato = -1;
 	int focusbacon = -1, focuscheese = -1, focuscucumber = -1, focusegg = -1, focusham = -1, focuslettuce = -1, focusonion = -1, focustomato = -1;
-	int prevbacon = -1, prevcheese = -1, prevcucumber = -1, prevegg = -1, prevham = -1, prevlettuce = -1, prevonion = -1, prevtomato = -1;
 	int otherOK = -1;
 	
 	//Snack snack;
@@ -348,16 +346,13 @@ public class MainApplet extends PApplet {
 					m.y = 230;
 					m.display();
 				}
-				if (choosefoodState == 0){ 
-					choosefoodState = 1;
-				}
-				else if (choosefoodState == 1){
+				if (choosefoodState == 1){
 					Bread b, br;
 					if(!breadisDisplayed) {
 						for(k=0; k<breads.size(); k++) {
 							b = breads.get(k);
 							b.width = 100;
-							b.height = 750;
+							b.height = 75;
 							b.x = 500;
 							b.y = 100;
 							ani = Ani.to(b, (float)1.0, "x", breadsX[k]);
@@ -700,7 +695,7 @@ public class MainApplet extends PApplet {
 					m.display();
 					ani = Ani.to(m, (float)0.5, "y", 1000, Ani.BOUNCE_OUT);
 				}
-				if (otherOK == 0){
+				if (otherOK == -1){
 					int pos = 0;
 					OthersMaterial o;
 					if (selectedbacon == 1){
@@ -1316,7 +1311,7 @@ public class MainApplet extends PApplet {
 					}
 				}
 				if (otherOK == 1){
-					otherOK = 0;
+					otherOK = -1;
 					int pos = 0;
 					OthersMaterial o;
 					if (selectedbacon == 1){
@@ -1491,9 +1486,8 @@ public class MainApplet extends PApplet {
 					}
 					foodSelected = false;
 					playState = 1;
-					choosefoodState = 0;
+					choosefoodState = 1;
 					accept = 0;
-					orderState = 0;
 					breadisDisplayed = false;
 					selectedbread = -1;
 					focusbread = -1;
@@ -1507,8 +1501,7 @@ public class MainApplet extends PApplet {
 					otherisDisplayed = false;
 					selectedbacon = -1; selectedcheese = -1; selectedcucumber = -1; selectedegg = -1; selectedham = -1; selectedlettuce = -1; selectedonion = -1; selectedtomato = -1;
 					focusbacon = -1; focuscheese = -1; focuscucumber = -1; focusegg = -1; focusham = -1; focuslettuce = -1; focusonion = -1; focustomato = -1;
-					prevbacon = -1; prevcheese = -1; prevcucumber = -1; prevegg = -1; prevham = -1; prevlettuce = -1; prevonion = -1; prevtomato = -1;
-					otherOK = -1;
+					otherOK = 0;
 					snackisDisplayed = false;
 					selectedsnack = -1;
 					focussnack = -1;
