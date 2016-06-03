@@ -160,9 +160,9 @@ public class MainApplet extends PApplet {
 		loadOther();
 		chooseimg = loadImage("okay.png");
 		cp5 = new ControlP5(this);
-		plus10 = new PlusScore(this, 1, 255);
-		good = new PlusScore(this, 2, 255);
-		gogo = new PlusScore(this, 3, 255);
+		plus10 = new PlusScore(this, 1, 100);
+		good = new PlusScore(this, 2, 100);
+		gogo = new PlusScore(this, 3, 100);
 		smooth();			
 
 	}
@@ -288,26 +288,24 @@ public class MainApplet extends PApplet {
 			
 			if (plus10Flag == 1) {
 				if (plus10display == 0) {
-					System.out.println("two"+plus10.chroma);
-					ani = Ani.to(plus10, (float)1.5, "chroma", 200);
+					ani = Ani.to(plus10, (float)1.0, "chroma", 240);
 					plus10display = 1;
 				}
-				if (plus10.chroma != 200) {
+				if (plus10.chroma != 240) {
 					plus10.display();
 				}
 				else {
 					plus10Flag = 0;
 					plus10.initChroma();
-					System.out.println("one"+plus10.chroma);
 					plus10display = 0;
 				}
 			}
 			if (goodFlag == 1) {
 				if (gooddisplay == 0) {
-					ani = Ani.to(good, (float)1.5, "chroma", 200);
+					ani = Ani.to(good, (float)1.0, "chroma", 240);
 					gooddisplay = 1;
 				}
-				if (good.chroma != 200) {
+				if (good.chroma != 240) {
 					good.display();
 				}
 				else {
@@ -319,10 +317,10 @@ public class MainApplet extends PApplet {
 			
 			if (gogoFlag == 1) {
 				if (gogodisplay == 0) {
-					ani = Ani.to(gogo, (float)1.5, "chroma", 200);
+					ani = Ani.to(gogo, (float)1.0, "chroma", 240);
 					gogodisplay = 1;
 				}
-				if (gogo.chroma != 200) {
+				if (gogo.chroma != 240) {
 					gogo.display();
 				}
 				else {
