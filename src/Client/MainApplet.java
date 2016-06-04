@@ -166,7 +166,6 @@ public class MainApplet extends PApplet {
 		good = new PlusScore(this, 2, 100);
 		gogo = new PlusScore(this, 3, 100);
 		smooth();			
-
 	}
 
 	public void draw() {
@@ -213,10 +212,10 @@ public class MainApplet extends PApplet {
 			cp5.hide();
 			Country c;
 			background(255,255,153);
-			image(money, 1150, 20);
-			fill(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
-			textSize(45);
-			text("x" + totalMoney, 1220, 70);
+			//image(money, 1150, 20);
+			//fill(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
+			//textSize(45);
+			//text("x" + totalMoney, 1220, 70);
 			stroke(4);
 			fill(127);
 			rect(490, 290, 220, 150, 20);
