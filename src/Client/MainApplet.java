@@ -25,7 +25,8 @@ public class MainApplet extends PApplet {
 
 	int state;
 	String msg;
-	PImage img, bgState1;
+	PImage img, bgState1,money;
+	int totalMoney = 1000;
 	private Ani ani;
 	BackGround bg;
 	Country country;
@@ -152,6 +153,7 @@ public class MainApplet extends PApplet {
 	public void setup() {
 		size(1000,650);
 		bgState1 = loadImage("bgState1.jpg");
+		money = loadImage("money.png");
 		Ani.init(this);
 		bg = new BackGround(this, 1, 255);
 		loadCountry();
@@ -211,6 +213,10 @@ public class MainApplet extends PApplet {
 			cp5.hide();
 			Country c;
 			background(255,255,153);
+			image(money, 1150, 20);
+			fill(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
+			textSize(45);
+			text("x" + totalMoney, 1220, 70);
 			stroke(4);
 			fill(127);
 			rect(490, 290, 220, 150, 20);
@@ -970,7 +976,7 @@ public class MainApplet extends PApplet {
 			textSize(40);
 			text("Total Score = "+msgTotalScore, 80, 100);
 
-			int totalMoney = 0; //add by qqhsuanwu
+			//add by qqhsuanwu
 			String msgTotalMoney = String.valueOf(totalMoney);
 			textSize(40);
 			text("Total Money = "+msgTotalMoney, 520, 100);
@@ -1051,7 +1057,10 @@ public class MainApplet extends PApplet {
 			countrysX[i] = 500 + 380 * cos(theta);
 			countrysY[i] = 300 + 300 * sin(theta);
 			theta += (TWO_PI / 6);
-			country = new Country(this, 400, 260, countrysX[i], countrysY[i], countryList[i].getName());
+			if(i%2 == 0)
+				country = new Country(this, 400, 260, countrysX[i], countrysY[i], countryList[i].getName(), false);
+			else
+				country = new Country(this, 400, 260, countrysX[i], countrysY[i], countryList[i].getName(), true);
 			countrys.add(country);
 		}
 	}
@@ -1160,10 +1169,13 @@ public class MainApplet extends PApplet {
 	}
 	
 	public void mousePressed() {
+		countryLocked = null;
 		if (isOver) {
-			countryLocked = overCountryAndNotPress;
-			xOffset = mouseX-countryLocked.x; 
-			yOffset = mouseY-countryLocked.y; 
+			if(!overCountryAndNotPress.isLocked) {
+				countryLocked = overCountryAndNotPress;
+				xOffset = mouseX-countryLocked.x; 
+				yOffset = mouseY-countryLocked.y; 
+			}
 		}	
 	}
 	
