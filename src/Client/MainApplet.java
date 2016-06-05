@@ -139,7 +139,7 @@ public class MainApplet extends PApplet {
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	
 	public MainApplet(Socket socket) {
-		state = 2;
+		state = 5;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
@@ -156,7 +156,7 @@ public class MainApplet extends PApplet {
 		money = loadImage("money.png");
 		Ani.init(this);
 		bg = new BackGround(this, 1, 255);
-		loadCountry();
+//		loadCountry();
 		loadBread();
 		loadMeat();
 		loadOther();
@@ -938,7 +938,7 @@ public class MainApplet extends PApplet {
 		else if(state == 5) {
 			if (animationIndex==0){
 
-				loadAnimation("eating_animation",1680, 1024,0,0);
+				loadAnimation("eating_animation",1366, 768,0,0);
 			}
 
 
