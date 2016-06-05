@@ -139,7 +139,7 @@ public class MainApplet extends PApplet {
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	
 	public MainApplet(Socket socket) {
-		state = 5;
+		state = 2;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
