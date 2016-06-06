@@ -389,7 +389,7 @@ public class MainApplet extends PApplet {
 				food.display(); 
 				fill(0);
 				textSize(25);
-				text(food.name, 500, 250);
+				text(food.name, 500, 280);
 				textSize(40);
 				if (breadOK == -1&&choosefoodState!=1){
 					Bread b;
@@ -409,7 +409,7 @@ public class MainApplet extends PApplet {
 					if (food.y == 80){
 						fill(0);
 						textSize(40);
-						text("Choose a bread", 500, 50);
+						text("Please choose bread", 300, 50);
 					}
 					Bread b, br;
 					if(!breadisDisplayed) {
@@ -461,9 +461,9 @@ public class MainApplet extends PApplet {
 						}
 					}
 					noStroke();
-					if (isMouseInShape("RECT",500,450,150,80) == true) {
+					if (isMouseInShape("RECT",500,590,150,80) == true) {
 						fill(51, 51, 255);
-						rect(500, 450, 150, 80, 20);
+						rect(500, 590, 150, 80, 20);
 						fill(255, 255, 255);
 						if (mousePressed&&selectedbread>=0) {
 							breadOK = 1;
@@ -471,11 +471,11 @@ public class MainApplet extends PApplet {
 					}
 					else {
 						fill(255, 153, 51);
-						rect(500, 450, 150, 80, 20);
+						rect(500, 590, 150, 80, 20);
 						fill(255, 255, 255);
 					}
 					textSize(50);
-					text("OK",540,510);
+					text("OK",540,650);
 					if (plus10Flag == 1){
 						if (plus10.chroma==239){
 							choosefoodState = 2;
@@ -488,6 +488,9 @@ public class MainApplet extends PApplet {
 					}
 				}
 				else if (choosefoodState == 2){
+					fill(0);
+					textSize(40);
+					text("Please choose meat", 300, 50);
 					Meat m, mr;
 					if(!meatisDisplayed) {
 						for(k=0; k<meats.size(); k++) {
@@ -538,9 +541,9 @@ public class MainApplet extends PApplet {
 						}
 					}
 					noStroke();
-					if (isMouseInShape("RECT",500,450,150,80) == true) {
+					if (isMouseInShape("RECT",500,590,150,80) == true) {
 						fill(51, 51, 255);
-						rect(500, 450, 150, 80, 20);
+						rect(500, 590, 150, 80, 20);
 						fill(255, 255, 255);
 						if (mousePressed&&selectedmeat>=0) {
 							meatOK = 1;
@@ -548,11 +551,11 @@ public class MainApplet extends PApplet {
 					}
 					else {
 						fill(255, 153, 51);
-						rect(500, 450, 150, 80, 20);
+						rect(500, 590, 150, 80, 20);
 						fill(255, 255, 255);
 					}
 					textSize(50);
-					text("OK",540,510);
+					text("OK",540,650);
 					if (plus10Flag == 1){
 						if (plus10.chroma==238){
 							choosefoodState = 3;
@@ -565,6 +568,9 @@ public class MainApplet extends PApplet {
 					}
 				}
 				else if (choosefoodState == 3){
+					fill(0);
+					textSize(40);
+					text("Please choose ingredients", 300, 50);
 					OthersMaterial o, ot;
 					if(!otherisDisplayed) {
 						for(k=0; k<others.size(); k++) {
@@ -743,9 +749,9 @@ public class MainApplet extends PApplet {
 						text("choosed",o.x,o.y);*/
 					}
 					noStroke();
-					if (isMouseInShape("RECT",500,500,150,80) == true) {
+					if (isMouseInShape("RECT",500,600,150,80) == true) {
 						fill(51, 51, 255);
-						rect(500, 500, 150, 80, 20);
+						rect(500, 600, 150, 80, 20);
 						fill(255, 255, 255);
 						if (mousePressed) {
 							otherOK = 1;
@@ -757,11 +763,11 @@ public class MainApplet extends PApplet {
 					}
 					else {
 						fill(255, 153, 51);
-						rect(500, 500, 150, 80, 20);
+						rect(500, 600, 150, 80, 20);
 						fill(255, 255, 255);
 					}
 					textSize(50);
-					text("OK",540,560);
+					text("OK",540,660);
 				}
 				/*if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					food.isPassed = true;
@@ -898,9 +904,9 @@ public class MainApplet extends PApplet {
 					}
 				}
 				noStroke();
-				if (isMouseInShape("RECT",500,450,150,80) == true) {
+				if (isMouseInShape("RECT",500,600,150,80) == true) {
 					fill(51, 51, 255);
-					rect(500, 450, 150, 80, 20);
+					rect(500, 600, 150, 80, 20);
 					fill(255, 255, 255);
 					if (mousePressed&&selectedsnack>=0) {
 						snackOK = 1;
@@ -908,11 +914,11 @@ public class MainApplet extends PApplet {
 				}
 				else {
 					fill(255, 153, 51);
-					rect(500, 450, 150, 80, 20);
+					rect(500, 600, 150, 80, 20);
 					fill(255, 255, 255);
 				}
 				textSize(50);
-				text("OK",540,510);
+				text("OK",540,660);
 				
 				/*if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					snack.isPassed = true;
@@ -980,9 +986,9 @@ public class MainApplet extends PApplet {
 					}
 				}
 				noStroke();
-				if (isMouseInShape("RECT",500,450,150,80) == true) {
+				if (isMouseInShape("RECT",500,600,150,80) == true) {
 					fill(51, 51, 255);
-					rect(500, 450, 150, 80, 20);
+					rect(500, 600, 150, 80, 20);
 					fill(255, 255, 255);
 					if (mousePressed&&selecteddrink>=0) {
 						drinkOK = 1;
@@ -990,11 +996,11 @@ public class MainApplet extends PApplet {
 				}
 				else {
 					fill(255, 153, 51);
-					rect(500, 450, 150, 80, 20);
+					rect(500, 600, 150, 80, 20);
 					fill(255, 255, 255);
 				}
 				textSize(50);
-				text("OK",540,510);
+				text("OK",540,660);
 					
 				/*if(dist(450, 500, mouseX, mouseY) < 30 && mousePressed) {
 					drink.isPassed = true;
@@ -1181,7 +1187,7 @@ public class MainApplet extends PApplet {
 	public void loadBread() {
 		for(int i=0; i<6; i++) {
 			breadsX[i] = 250+i*110;
-			breadsY[i] = (int)(350-0.3*(i-2.5)*(i-2.5)*80);
+			breadsY[i] = (int)(450-0.3*(i-2.5)*(i-2.5)*80);
 			bread = new Bread(this);
 			breadImg = loadImage(bread.getBread(i));
 			bread.setImage(breadImg);
@@ -1192,7 +1198,7 @@ public class MainApplet extends PApplet {
 	public void loadMeat() {
 		for(int i=0; i<6; i++) {
 			meatsX[i] = 250+i*110;
-			meatsY[i] = (int)(350-0.3*(i-2.5)*(i-2.5)*80);
+			meatsY[i] = (int)(450-0.3*(i-2.5)*(i-2.5)*80);
 			meat = new Meat(this);
 			meat.y = meatsY[i];
 			meatImg = loadImage(meat.getMeat(i));
@@ -1206,11 +1212,11 @@ public class MainApplet extends PApplet {
 		for(int i=0; i<8; i++) {
 			if (i<=3){
 				othersX[i] = 250+i*200;
-				othersY[i] = 300;
+				othersY[i] = 350;
 			}
 			else {
 				othersX[i] = 250+(i-4)*200;
-				othersY[i] = 400;
+				othersY[i] = 450;
 			}
 			other = new OthersMaterial(this);
 			other.y = othersY[i];
@@ -1222,12 +1228,15 @@ public class MainApplet extends PApplet {
 	
 	public void loadSnack() {
 		for(int i=0; i<8; i++) {
-			snacksX[i] = 250+(i%4)*150;
-			if (i < 4){
+			snacksX[i] = 250+(i%3)*300;
+			if (i < 3){
 				snacksY[i] = 100;
 			}
-			else {
+			else if (i < 6){
 				snacksY[i] = 250;
+			}
+			else {
+				snacksY[i] = 400;
 			}
 			snack = new Snack(this, countryLocked.name);
 			snack.y = snacksY[i];
@@ -1256,12 +1265,15 @@ public class MainApplet extends PApplet {
 	
 	public void loadDrink() {
 		for(int i=0; i<8; i++) {
-			drinksX[i] = 250+(i%4)*150;
-			if (i < 4){
+			drinksX[i] = 250+(i%3)*300;
+			if (i < 3){
 				drinksY[i] = 100;
 			}
-			else {
+			else if (i < 6){
 				drinksY[i] = 250;
+			}
+			else {
+				drinksY[i] = 400;
 			}
 			drink = new Drink(this, countryLocked.name);
 			drink.y = drinksY[i];

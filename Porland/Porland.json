@@ -4,30 +4,30 @@
       "name": "Apple_Juice"
     },
     {
-      "name": "Banana_Apple_Carrot"
+      "name": "Banana_Apple"
     },
 	  {
       "name": "Iced_Frappes"
     },
     {
-      "name": "Iced_Fruit_Smoothies"
+      "name": "Fruit_Smoothies"
     },
     {
-      "name": "McCafe_Hot_Chocolate"
+      "name": "Hot_Chocolate"
     },
     {
-      "name": "McCafe_Iced_Coffee"
+      "name": "Iced_Coffee"
     },
     {
-      "name": "McCafe_Strawberry_Banana_Smoothie"
+      "name": "Strawberry_Banana_Smoothie"
     },
 	  {
-      "name": "Minute_Maid_Orange_Juice_Small_12_oz"
+      "name": "Minute_Maid_Orange_Juice"
     }
   ],
   "food": [
 	  {
-      "name": "Breakfast _Sandwich_Egg_and_Bacon",
+      "name": "Breakfast_Sandwich_Egg_and_Bacon",
       "bread": "hamburger",
       "meat": "false",
       "vegetable": "false",
@@ -40,7 +40,7 @@
       "cheese": "true"
     },
 	  {
-      "name": "Breakfast _Sandwich_Pork _Deluxe",
+      "name": "Breakfast_Sandwich_Pork _Deluxe",
       "bread": "hamburger",
       "meat": "pork",
       "vegetable": "true",
@@ -174,10 +174,10 @@
       "name": "Owocogurt"
 	  },
     {
-      "name": "Soft_Baked_Chocolate_Chip_Cookie"
+      "name": "Chocolate_Chip_Cookie"
     },
     {
-      "name": "Strawberry_and_Creme_Pie"
+      "name": "Strawberry_Creme_Pie"
     },
 	  {
       "name": "Vanilla_Cone"

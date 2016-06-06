@@ -1,10 +1,10 @@
 {
   "drink": [
     {
-      "name": "Apple_Blackcurrant_Fruit_Drink"
+      "name": "Apple_Blackcurrant_Drink"
     },
     {
-      "name": "CalciYum_Wicked_Chocolate_Milk"
+      "name": "Chocolate_Milk"
     },
     {
       "name": "Coke_Zero"
@@ -13,10 +13,10 @@
       "name": "Frozen_Coke"
     },
     {
-      "name": "Frozen_Fanta_Sherbert_McFloat"
+      "name": "Frozen_Fanta"
     },
     {
-      "name": "Fuze_Tea_Peach_Flavoured"
+      "name": "Fuze_Tea_Peach"
     },
     {
       "name": "Sprite_Zero"
@@ -159,25 +159,25 @@
   ],
   "dessert": [
     {
-      "name": "100s_n_1000s_Salsa"
+      "name": "Salsa"
     },
     {
-      "name": "Bacon_Cheese_Sauce_Loaded_Fries"
+      "name": "Bacon_Cheese_Fries"
     },
     {
-      "name": "Georgie_Pie_Bacon_N_Egg"
+      "name": "Pie_Bacon_Egg"
     },
     {
-      "name": "Loaded_Fries_Guacamole_Salsa"
+      "name": "Fries_Guacamole_Salsa"
     },
     {
       "name": "Plain_Sundae"
     },
     {
-      "name": "Soft_Serve_with_Cadbury_Flake"
+      "name": "Soft_Cadbury_Flake"
     },
     {
-      "name": "Toasted_Bagel_with_Strawberry_Jam"
+      "name": "Toasted_Bagel_Strawberry"
     },
     {
       "name": "Warm_Chicken_Salad"

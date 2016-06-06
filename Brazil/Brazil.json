@@ -57,7 +57,7 @@
       "bread": "hamburger",
       "meat": "chicken",
       "vegetable": "true",
-      "bacon": "flase",
+      "bacon": "false",
       "ham": "false",
       "egg": "false",
       "onion": "true",
@@ -161,13 +161,13 @@
       "name": "Mineral_Water"
     },
     {
-      "name": "Minute_Maid_Apple_Juice_Box"
+      "name": "Minute_Maid_Apple"
     },
     {
       "name": "Novo_McShake"
     },
     {
-      "name": "Real_Fruits_Smoothies"
+      "name": "Fruits_Smoothies"
     }
   ]
 }
