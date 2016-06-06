@@ -24,6 +24,7 @@ public class Food {
 	int bread;
 	int meat;
 	int bacon, cheese, cucumber, egg, ham, lettuce, onion, tamato;
+	PImage[] allFood;
 	
 	public Food(MainApplet parent, String country) {
 		foodList = new File(country + "/food").listFiles();
@@ -35,6 +36,8 @@ public class Food {
 		this.height = 150;
 		this.x = 500;
 		this.y = -50;
+		allFood = new PImage[foodList.length];
+		for(int i=0; i<foodList.length; i++) allFood[i] = parent.loadImage(country + "/food" + foodList[i]);
 	}
 	
 	public String getFood() {

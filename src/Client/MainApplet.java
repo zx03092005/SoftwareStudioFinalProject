@@ -1123,8 +1123,24 @@ public class MainApplet extends PApplet {
 				}
 				else isOver = false;
 			}
-			
-			
+		}
+		else if(state == 9) {
+			background(255);
+			int sum = 0, i = 0, num = 10, result = 0;
+			for(i=0; i<food.allFood.length; i++) {
+				sum += 136-food.allFood.length*10;
+				image(food.allFood[i], sum, 550, 100, 80);
+				sum += 100;
+			}
+			sum = 0;
+			float theta = 0;
+			for(i=0; i<food.allFood.length; i++) {
+				fill(0, 255, (int)255/food.allFood.length);
+				sum += 136-food.allFood.length*10+20;
+				rect(sum, 490, 60, -((i+350)*abs(sin(theta))), 20);
+				theta += (TWO_PI / 9);
+				sum += 80;
+			}
 		}
 	}
 	
