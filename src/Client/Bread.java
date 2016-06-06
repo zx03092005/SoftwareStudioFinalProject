@@ -13,6 +13,7 @@ public class Bread {
 	private PImage image;
 	int x, y;
 	int width, height;
+	String name;
 	
 	public Bread(MainApplet parent) {
 		breadList = new File("material" + "/bread").listFiles();

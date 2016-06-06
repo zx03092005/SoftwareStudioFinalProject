@@ -853,7 +853,16 @@ public class MainApplet extends PApplet {
 					}
 					snackisDisplayed = true;
 				}
-				for(Snack i : snacks) i.display();
+				int k=0;
+				for(Snack i : snacks) {
+					JSONObject temp = data_dessert.getJSONObject(k++);
+					String name = temp.getString("name");
+					i.name = name;
+					i.display();
+					fill(0);
+					textSize(18);
+					text(i.name, i.x, i.y);
+				}
 				for(k=0; k<snacks.size(); k++) {
 					s = snacks.get(k);
 					if(isMouseInShape("RECT", s.x, s.y, s.width, s.height)) {
@@ -925,7 +934,16 @@ public class MainApplet extends PApplet {
 					}
 					drinkisDisplayed = true;
 				}
-				for(Drink i : drinks) i.display();
+				int k=0;
+				for(Drink i : drinks) {
+					JSONObject temp = data_drink.getJSONObject(k++);
+					String name = temp.getString("name");
+					i.name = name;
+					i.display();
+					fill(0);
+					textSize(18);
+					text(i.name, i.x, i.y);
+				}
 				for(k=0; k<drinks.size(); k++) {
 					d = drinks.get(k);
 					if(isMouseInShape("RECT", d.x, d.y, d.width, d.height)) {
@@ -1672,6 +1690,7 @@ public class MainApplet extends PApplet {
 		data_dessert = data.getJSONArray("dessert");
 		data_drink = data.getJSONArray("drink");
 	}
+	
 	public void loadfooddata(){
 		JSONObject temp = data_food.getJSONObject(food.getchoose());
 		String name = temp.getString("name");
