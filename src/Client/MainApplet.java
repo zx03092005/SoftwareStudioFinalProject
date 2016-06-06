@@ -139,7 +139,7 @@ public class MainApplet extends PApplet {
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	
 	int centSecond = 0, gameTime = 5;	
-	Animation hellow_animation, crying_animation, eating_animation;
+	Animation hellow_animation, crying_animation, eating_animation, waiting_animation;
 	public MainApplet(Socket socket) {
 		state = 2;
 		countrys = new ArrayList<Country>();
@@ -151,6 +151,7 @@ public class MainApplet extends PApplet {
 		foods = new ArrayList<Food>();
 	
 		hellow_animation = new Animation(this, "hellow_animation", 640, 320, 900, 500 ) ;
+		waiting_animation = new Animation(this, "waiting_animation", 960, 480, 750, 400 ) ;
 		crying_animation = new Animation(this, "crying_animation", 640, 320, 900, 500 ) ;
 		eating_animation = new Animation(this, "eating_animation", 1366, 768,0,0 ) ;
 	}
@@ -926,12 +927,12 @@ public class MainApplet extends PApplet {
 			}
 
 			//display animation
-			crying_animation.display(animationIndex);
+			waiting_animation.display(animationIndex);
 			animationIndex++;
 			delay(50);	
-			if (animationIndex==crying_animation.getSize()){
+			if (animationIndex==waiting_animation.getSize()){
 				//
-				animationIndex = crying_animation.getSize()-30;
+				animationIndex = 0;
 				// end and calculate the score
 			}
 			
