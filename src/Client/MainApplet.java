@@ -138,7 +138,7 @@ public class MainApplet extends PApplet {
 	int thisScore = 0;
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	
-	int centSecond = 0, gameTime = 5;	
+	int centSecond = 0, gameTime = 60,animationSec=0;	
 	Animation hellow_animation, crying_animation, eating_animation, waiting_animation;
 	public MainApplet(Socket socket) {
 		state = 2;
@@ -925,16 +925,28 @@ public class MainApplet extends PApplet {
 					state = 4;
 				}*/
 			}
+			animationSec=centSecond*17;
+			if (centSecond<=5*17){
 
-			//display animation
-			waiting_animation.display(animationIndex);
-			animationIndex++;
-			delay(50);	
-			if (animationIndex==waiting_animation.getSize()){
-				//
-				animationIndex = 0;
-				// end and calculate the score
+				waiting_animation.display(animationIndex);
+				animationIndex++;
+				if (animationIndex==waiting_animation.getSize()){
+					//
+					animationIndex = 0;
+					// end and calculate the score
+				}
+			}else {
+				crying_animation.display(animationIndex);
+				animationIndex++;
+				if (animationIndex==crying_animation.getSize()){
+					//
+					animationIndex = crying_animation.getSize()-30;
+					// end and calculate the score
+				}
 			}
+			//display animation
+			delay(50);	
+			
 			
 			if(centSecond++ == gameTime*17) {
 				state = 5;
