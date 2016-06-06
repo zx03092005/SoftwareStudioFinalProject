@@ -296,6 +296,8 @@ public class MainApplet extends PApplet {
 		else if(state == 4) {
 			
 			background(204, 230, 255);
+			//background(countryLocked.background);
+			image(countryLocked.background, 0, 0);
 			fill(0);
 			textSize(40);
 			thisScore = 0;

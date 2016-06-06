@@ -8,7 +8,7 @@ public class Country {
 	int x, y;
 	float initX, initY;
 	String name;
-	PImage img;
+	PImage img, background;
 	int width, height;
 	boolean inRect = false;
 	boolean isLocked;
@@ -23,6 +23,7 @@ public class Country {
 		this.isLocked = isLocked;
 		if(isLocked) img = parent.loadImage("CountryLocked/" + countryName);
 		else img = parent.loadImage("Country/" + countryName);
+		background = parent.loadImage("WorldMap/" + name + ".png");
 		width = img.width;
 		height = img.height;
 	}

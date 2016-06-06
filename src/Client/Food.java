@@ -36,8 +36,8 @@ public class Food {
 		this.height = 150;
 		this.x = 500;
 		this.y = -50;
-		allFood = new PImage[foodList.length];
-		for(int i=0; i<foodList.length; i++) allFood[i] = parent.loadImage(country + "/food" + foodList[i]);
+		//allFood = new PImage[foodList.length];
+		//for(int i=0; i<foodList.length; i++) allFood[i] = parent.loadImage(country + "/food" + foodList[i]);
 	}
 	
 	public String getFood() {
