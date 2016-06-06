@@ -16,9 +16,10 @@ public class Food {
 	Random rand = new Random();
 	MainApplet parent;
 	String strFood, strMaterial;
-	private PImage image;
+	PImage image;
 	int x, y;
 	int width, height;
+	boolean isLocked;
 	
 	String name;
 	int bread;
@@ -26,7 +27,7 @@ public class Food {
 	int bacon, cheese, cucumber, egg, ham, lettuce, onion, tamato;
 	PImage[] allFood;
 	
-	public Food(MainApplet parent, String country) {
+	public Food(MainApplet parent, String country, boolean isLocked) {
 		foodList = new File(country + "/food").listFiles();
 		isSelected = new boolean[foodList.length];
 		Arrays.fill(isSelected, false);
@@ -36,6 +37,7 @@ public class Food {
 		this.height = 150;
 		this.x = 500;
 		this.y = -50;
+		this.isLocked = isLocked;
 		//allFood = new PImage[foodList.length];
 		//for(int i=0; i<foodList.length; i++) allFood[i] = parent.loadImage(country + "/food" + foodList[i]);
 	}
@@ -82,7 +84,6 @@ public class Food {
 	}
 
 	public int getSize(){
-		System.out.println("foods size = "+foodList.length);
 		return foodList.length;
 	}
 }

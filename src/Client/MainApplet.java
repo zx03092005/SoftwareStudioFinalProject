@@ -47,10 +47,12 @@ public class MainApplet extends PApplet {
 	int xOffset = 0; 
 	int yOffset = 0;
 	Food food, food2 ;
-	Food overFoodAndNotPress = null;
+	Food overFoodAndNotPress = null, foodLocked=null;
 	ArrayList<Food> foods;
 	float[] foodsX ;
 	float[] foodsY ;
+
+	boolean foodisDisplayed = false;
 	ControlP5 cp5;
 	boolean addButton = false;
 	
@@ -140,7 +142,7 @@ public class MainApplet extends PApplet {
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	boolean wrongdisplay = false;
 	
-	int centSecond = 0, gameTime = 20,animationSec=0;	
+	int centSecond = 0, gameTime = 5,animationSec=0;	
 	Animation hellow_animation, crying_animation, eating_animation, waiting_animation, bigcrying_animation;
 	public MainApplet(Socket socket) {
 		state = 2;
@@ -1101,9 +1103,6 @@ public class MainApplet extends PApplet {
 		else if (state == 8){
 			background(204, 230, 255);
 			fill(0);
-			textSize(50);
-			text("State 5 ", 400, 420);
-
 			Food f;
 
 			stroke(4);
@@ -1116,26 +1115,24 @@ public class MainApplet extends PApplet {
 				strokeWeight(5);
 				rect(foodsX[k]-10, foodsY[k]-10, f.width+20, f.height+20, 20);
 			}
-			if(!isDisplayed) {
+			if(!foodisDisplayed) {
 				for(k=0; k<foods.size(); k++) {
 					f = foods.get(k);
 					ani = Ani.to(f, (float)1.5, "x", foodsX[k]);
 					ani = Ani.to(f, (float)1.5, "y", foodsY[k]);
 				}
-				isDisplayed = true;
+				foodisDisplayed = true;
 			}
 			for(Food i : foods) i.display();
 			for(Food i : foods) {
 				if(isMouseInShape("RECT", i.x, i.y, i.width, i.height) && !mousePressed) {
 					noStroke();
 					fill(126, 32, 174);
-					rect(mouseX+10, mouseY-15, i.name.length()*14, 30, 100);
-					fill(255, 255, 0);
-					textSize(16);
-					text(i.name, mouseX+25, mouseY+5);
+//					rect(mouseX+10, mouseY-15, 30, 100);
 					i.width = 220;
 					i.height = 143;
 					overFoodAndNotPress = i;
+					System.out.println("in");
 				}
 				else {
 					i.width = 200;
@@ -1248,18 +1245,24 @@ public class MainApplet extends PApplet {
 
 	public void loadFood() {
 
-		float theta = 0;
-		food2 = new Food(this,countryLocked.name);
+		food2 = new Food(this,countryLocked.name,false);
 		foodsX = new float[food2.getSize()];
 		foodsY = new float[food2.getSize()];
 		for(int i=0; i<food2.getSize(); i++) {
-			foodsX[i] = 500 + 380 * cos(theta);
-			foodsY[i] = 300 + 300 * sin(theta);
-			theta += (TWO_PI / food2.getSize());
+			if (i< food2.getSize()/2){
+
+				foodsX[i] = 100;
+				foodsY[i] = 30 + 140*i;
+			}
+			else {
+				foodsX[i] = 1000;
+				foodsY[i] = 30 + 140*(i-food2.getSize()/2);
+				
+			}
 			foodImg = loadImage(food2.getFood(i));
 			food2.setImage(foodImg);
 			foods.add(food2);
-			food2 = new Food(this,countryLocked.name);
+			food2 = new Food(this,countryLocked.name,false);
 		}
 	}
 	
@@ -1285,11 +1288,20 @@ public class MainApplet extends PApplet {
 	
 	public void mousePressed() {
 		countryLocked = null;
+		foodLocked = null;
 		if (isOver) {
 			if(!overCountryAndNotPress.isLocked) {
 				countryLocked = overCountryAndNotPress;
 				xOffset = mouseX-countryLocked.x; 
 				yOffset = mouseY-countryLocked.y; 
+			}
+			if (state==8){
+
+				if(!overFoodAndNotPress.isLocked) {
+					foodLocked = overFoodAndNotPress;
+					xOffset = mouseX-foodLocked.x; 
+					yOffset = mouseY-foodLocked.y; 
+				}
 			}
 		}
 		if (state==6){
@@ -1304,6 +1316,10 @@ public class MainApplet extends PApplet {
 			countryLocked.x = mouseX - xOffset;
 			countryLocked.y = mouseY - yOffset;
 		}
+		if (foodLocked != null) {
+			foodLocked.x = mouseX - xOffset;
+			foodLocked.y = mouseY - yOffset;
+		}
 	}
 	
 	public void mouseReleased() {
@@ -1313,7 +1329,7 @@ public class MainApplet extends PApplet {
 				countryLocked.x = 370;
 				countryLocked.y = 230;
 				if (accept == 0){
-					food = new Food(this, countryLocked.name);
+					food = new Food(this, countryLocked.name,false);
 					loadSnack();
 					loadDrink();
 					loaddata();
