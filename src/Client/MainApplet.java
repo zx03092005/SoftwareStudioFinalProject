@@ -134,9 +134,11 @@ public class MainApplet extends PApplet {
 	int plus10Flag = 0;
 	int goodFlag = 0;
 	int gogoFlag = 0;
-	PlusScore plus10, good, gogo;
+	int wrongFlag = 0;
+	PlusScore plus10, good, gogo, wrong;
 	int thisScore = 0;
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
+	boolean wrongdisplay = false;
 	
 	int centSecond = 0, gameTime = 20,animationSec=0;	
 	Animation hellow_animation, crying_animation, eating_animation, waiting_animation, bigcrying_animation;
@@ -172,6 +174,7 @@ public class MainApplet extends PApplet {
 		plus10 = new PlusScore(this, 1, 100);
 		good = new PlusScore(this, 2, 100);
 		gogo = new PlusScore(this, 3, 100);
+		wrong = new PlusScore(this,4,100);
 		smooth();			
 		time_up=loadImage("time_up.gif");
 	}
@@ -340,7 +343,21 @@ public class MainApplet extends PApplet {
 					gogodisplay = 0;
 				}
 			}
-
+			
+			if (wrongFlag == 1) {
+				if (!wrongdisplay) {
+					ani = Ani.to(wrong, (float)1.0, "chroma", 240);
+					wrongdisplay = true;
+				}
+				if (wrong.chroma != 240) {
+					wrong.display();
+				}
+				else {
+					wrongFlag = 0;
+					wrong.initChroma();
+					wrongdisplay = false;
+				}
+			}
 			if (playState == 1) {
 				food.foodRect();
 			}
@@ -358,6 +375,8 @@ public class MainApplet extends PApplet {
 				if(!foodSelected) {
 					food.x = 500;
 					food.y = -50;
+					food.width = 200;
+					food.height = 150;
 					foodImg = loadImage(food.getFood());
 					food.setImage(foodImg);
 					//ani = Ani.to(food, (float)1.0, "x", 500);
@@ -370,14 +389,14 @@ public class MainApplet extends PApplet {
 				textSize(25);
 				text(food.name, 500, 250);
 				textSize(40);
-				if (breadOK == -1){
+				if (breadOK == -1&&choosefoodState!=1){
 					Bread b;
 					b = breads.get(selectedbread);
 					b.x = 60;
 					b.y = 150;
 					b.display();
 				}
-				if (meatOK == -1){
+				if (meatOK == -1&&choosefoodState!=2){
 					Meat m;
 					m = meats.get(selectedmeat);
 					m.x = 60;
@@ -450,6 +469,16 @@ public class MainApplet extends PApplet {
 					}
 					textSize(50);
 					text("OK",540,510);
+					if (plus10Flag == 1){
+						if (plus10.chroma==239){
+							choosefoodState = 2;
+						}
+					}
+					else if (wrongFlag == 1){
+						if (wrong.chroma==239){
+							choosefoodState = 2;
+						}
+					}
 				}
 				else if (choosefoodState == 2){
 					Meat m, mr;
@@ -517,6 +546,16 @@ public class MainApplet extends PApplet {
 					}
 					textSize(50);
 					text("OK",540,510);
+					if (plus10Flag == 1){
+						if (plus10.chroma==238){
+							choosefoodState = 3;
+						}
+					}
+					else if (wrongFlag == 1){
+						if (wrong.chroma==238){
+							choosefoodState = 3;
+						}
+					}
 				}
 				else if (choosefoodState == 3){
 					OthersMaterial o, ot;
@@ -721,6 +760,16 @@ public class MainApplet extends PApplet {
 					food.isPassed = true;
 					playState = 2;
 				}*/
+				if (goodFlag == 1){
+					if (good.chroma==239){
+						playState = 2;
+					}
+				}
+				else if (gogoFlag == 1){
+					if (gogo.chroma==239){
+						playState = 2;
+					}
+				}
 			}
 			else if(playState == 2) {
 				Bread b;
@@ -1239,10 +1288,13 @@ public class MainApplet extends PApplet {
 				}
 				if (breadOK == 1){
 					breadOK = -1;
-					choosefoodState = 2;
+					//choosefoodState = 2;
 					if (selectedbread == food.bread){
 						score += 10;
 						plus10Flag = 1;
+					}
+					else {
+						wrongFlag = 1;
 					}
 				}
 			}
@@ -1260,10 +1312,13 @@ public class MainApplet extends PApplet {
 				}
 				if (meatOK == 1){
 					meatOK = -1;
-					choosefoodState = 3;
+					//choosefoodState = 3;
 					if (selectedmeat == food.meat){
 						score += 10;
 						plus10Flag = 1;
+					}
+					else {
+						wrongFlag = 1;
 					}
 				}
 			}
