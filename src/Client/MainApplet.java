@@ -380,7 +380,7 @@ public class MainApplet extends PApplet {
 					foodImg = loadImage(food.getFood());
 					food.setImage(foodImg);
 					//ani = Ani.to(food, (float)1.0, "x", 500);
-					ani = Ani.to(food, (float)1.0, "y", 50,Ani.BOUNCE_OUT);
+					ani = Ani.to(food, (float)1.0, "y", 80,Ani.BOUNCE_OUT);
 					foodSelected = true;
 				}
 				loadfooddata();
@@ -404,6 +404,11 @@ public class MainApplet extends PApplet {
 					m.display();
 				}
 				if (choosefoodState == 1){
+					if (food.y == 80){
+						fill(0);
+						textSize(40);
+						text("Choose a bread", 500, 50);
+					}
 					Bread b, br;
 					if(!breadisDisplayed) {
 						for(k=0; k<breads.size(); k++) {
