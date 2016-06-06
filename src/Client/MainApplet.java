@@ -138,6 +138,8 @@ public class MainApplet extends PApplet {
 	int thisScore = 0;
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	
+	int centSecond = 0, gameTime = 5;	
+	Animation hellow_animation, crying_animation, eating_animation;
 	public MainApplet(Socket socket) {
 		state = 2;
 		countrys = new ArrayList<Country>();
@@ -146,8 +148,11 @@ public class MainApplet extends PApplet {
 		others = new ArrayList<OthersMaterial>();
 		snacks = new ArrayList<Snack>();
 		drinks = new ArrayList<Drink>();
-		animations = new ArrayList<Animation>() ;
 		foods = new ArrayList<Food>();
+	
+		hellow_animation = new Animation(this, "hellow_animation", 640, 320, 900, 500 ) ;
+		crying_animation = new Animation(this, "crying_animation", 640, 320, 900, 500 ) ;
+		eating_animation = new Animation(this, "eating_animation", 1366, 768,0,0 ) ;
 	}
 	
 	public void setup() {
@@ -169,6 +174,8 @@ public class MainApplet extends PApplet {
 	}
 
 	public void draw() {
+
+		
 		if(state == 0) {
 			if(bg.chroma > 5 && bg.photo == 1) ani = Ani.to(bg, (float)10.0, "chroma", 5);
 			if(bg.chroma < 6 && bg.photo == 1) { 
@@ -260,19 +267,14 @@ public class MainApplet extends PApplet {
 				else isOver = false;
 			}
 			
+			
 			//display animation
-			if (animationIndex==0){
-
-				loadAnimation("hellow_animation", 640, 320, 900, 500);
-			}
-			Animation a;
-			a = animations.get(animationIndex);
-			a.display();
+			hellow_animation.display(animationIndex);
 			animationIndex++;
 			delay(50);	
-			if (animationIndex==animation.getSize()){
+			if (animationIndex==hellow_animation.getSize()){
 				//
-				animationIndex = animation.getSize()-10;
+				animationIndex = hellow_animation.getSize()-10;
 				// end and calculate the score
 			}
 		}
@@ -286,6 +288,7 @@ public class MainApplet extends PApplet {
 			bg.display();
 		}
 		else if(state == 4) {
+			
 			background(204, 230, 255);
 			fill(0);
 			textSize(40);
@@ -923,39 +926,37 @@ public class MainApplet extends PApplet {
 			}
 
 			//display animation
-			if (animationIndex==0){
-
-				loadAnimation("crying_animation", 640, 320, 900, 500);
-			}
-			Animation a;
-			a = animations.get(animationIndex);
-			a.display();
+			crying_animation.display(animationIndex);
 			animationIndex++;
 			delay(50);	
-			if (animationIndex==animation.getSize()){
+			if (animationIndex==crying_animation.getSize()){
 				//
-				animationIndex = animation.getSize()-30;
+				animationIndex = crying_animation.getSize()-30;
 				// end and calculate the score
 			}
+			
+			if(centSecond++ == gameTime*17) {
+				state = 5;
+				animationIndex = 0;
+				background(0);
+
+			}
+			
 		}
 		//state 4 time's up animation
 		else if(state == 5) {
-			if (animationIndex==0){
-
-				loadAnimation("eating_animation",1366, 768,0,0);
-			}
-
+			
+			
 
 			background(204, 230, 255);
 			fill(0);
 			Animation a;
 
-			a = animations.get(animationIndex);
-			a.display();
+			eating_animation.display(animationIndex);
 			animationIndex++;
 			delay(50);
 			
-			if (animationIndex==animation.getSize()-30){
+			if (animationIndex==eating_animation.getSize()-30){
 				//
 				state = 6;
 				// end and calculate the score
@@ -966,10 +967,7 @@ public class MainApplet extends PApplet {
 		else if(state == 6) {
 			background(204, 230, 255);
 			fill(0);
-			Animation a;
-
-			a = animations.get(animationIndex);
-			a.display();
+			eating_animation.display(animationIndex);
 			animationIndex++;
 			delay(50);
 
@@ -984,7 +982,7 @@ public class MainApplet extends PApplet {
 			textSize(40);
 			text("Total Money = "+msgTotalMoney, 520, 100);
 
-			if (animationIndex==animation.getSize()){
+			if (animationIndex==eating_animation.getSize()){
 				loadFood();
 				animationIndex=0;
 				state = 7;
@@ -1143,16 +1141,6 @@ public class MainApplet extends PApplet {
 			food2 = new Food(this,countryLocked.name);
 		}
 	}
-
-	public void loadAnimation(String fileName,int width,int height,int x,int y) {
-		animation = new Animation(this,fileName,width, height,x,y);
-		for(int i=0; i<animation.getSize(); i++) {
-			animationImg = loadImage(animation.getEating(i));
-			animation.setImage(animationImg);
-			animations.add(animation);
-			animation = new Animation(this,fileName,width, height,x,y);
-		}
-	}
 	
 	public void loadDrink() {
 		for(int i=0; i<8; i++) {
@@ -1201,7 +1189,7 @@ public class MainApplet extends PApplet {
 					loadDrink();
 					loaddata();
 					animationIndex=0;
-					animations.clear();
+					//animations.clear();
 					state = 4;
 				}
 			}
