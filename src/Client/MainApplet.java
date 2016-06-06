@@ -721,16 +721,16 @@ public class MainApplet extends PApplet {
 				Meat m;
 				b = breads.get(selectedbread);
 				if (!materialisdisplayed_b){
-					ani = Ani.to(b, (float)1.0, "y", 1000, Ani.BOUNCE_OUT);
+					ani = Ani.to(b, (float)1.0, "y", 600, Ani.BOUNCE_OUT);
 					materialisdisplayed_b = true;
 				}
-				b.display();
+				
 				m = meats.get(selectedmeat);
 				if (!materialisdisplayed_m){
-					ani = Ani.to(m, (float)1.0, "y", 1000, Ani.BOUNCE_OUT);
+					ani = Ani.to(m, (float)1.0, "y", 600, Ani.BOUNCE_OUT);
 					materialisdisplayed_m = true;
 				}
-				m.display();
+				
 				ArrayList<OthersMaterial> o;
 				o = new ArrayList<OthersMaterial>();
 				if (selectedbacon == 1){
@@ -759,18 +759,22 @@ public class MainApplet extends PApplet {
 				}
 				if (!materialisdisplayed_o){
 					for (OthersMaterial os : o){
-						ani = Ani.to(os, (float)1.0, "y", 1000, Ani.BOUNCE_OUT);
+						ani = Ani.to(os, (float)1.0, "y", 600, Ani.BOUNCE_OUT);
 					}
 					materialisdisplayed_o = true;
 				}
-				for (OthersMaterial k:o)k.display();
-				if (o.get(o.size()-1).y == 1000){
+				if (o.get(o.size()-1).y != 600){
+					b.display();
+					m.display();
+					for (OthersMaterial k:o)k.display();
+				}
+				if (o.get(o.size()-1).y == 600){
 					if (!mealisdisplayed){
 						ani = Ani.to(food, (float)1.0, "x", 1000);
 						mealisdisplayed = true;
 					}
 				}
-				if (o.get(o.size()-1).y == 1000&&food.x != 1000){
+				if (o.get(o.size()-1).y == 600&&food.x != 1000){
 					food.display();
 				}
 				Snack s, sn;
@@ -1339,7 +1343,7 @@ public class MainApplet extends PApplet {
 				}
 				if (otherOK == 1){
 					food.x = 50;
-					food.y = 850;
+					food.y = 600;
 					food.width = 150;
 					food.height = 90;
 					otherOK = -1;
@@ -1607,16 +1611,16 @@ public class MainApplet extends PApplet {
 		else if (meat.equals("beef")){
 			food.meat = 1;
 		}
-		else if (bread.equals("chicken")){
+		else if (meat.equals("chicken")){
 			food.meat = 2;
 		}
-		else if (bread.equals("fish")){
+		else if (meat.equals("fish")){
 			food.meat = 3;
 		}
-		else if (bread.equals("pork")){
+		else if (meat.equals("pork")){
 			food.meat = 4;
 		}
-		else if (bread.equals("shrimp")){
+		else if (meat.equals("shrimp")){
 			food.meat = 5;
 		}
 		//others
