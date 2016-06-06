@@ -38,5 +38,6 @@ public class MyWindow extends JFrame {
 			socket = new Socket(ip, port);
 		} catch (Exception e) {}
 	}
-
+	 
+	
 }

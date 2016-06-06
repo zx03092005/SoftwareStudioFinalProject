@@ -1,5 +1,8 @@
 package Client;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -143,9 +146,11 @@ public class MainApplet extends PApplet {
 	boolean wrongdisplay = false;
 	
 	int centSecond = 0, gameTime = 5,animationSec=0;	
+	float timeRate = 0;
 	Animation hellow_animation, crying_animation, eating_animation, waiting_animation, bigcrying_animation;
 	public MainApplet(Socket socket) {
-		state = 2;
+		
+		state = 0;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
@@ -154,15 +159,11 @@ public class MainApplet extends PApplet {
 		drinks = new ArrayList<Drink>();
 		foods = new ArrayList<Food>();
 	
-		hellow_animation = new Animation(this, "hellow_animation", 640, 320, 900, 500 ) ;
-		waiting_animation = new Animation(this, "waiting_animation", 960, 480, 750, 400 ) ;
-		crying_animation = new Animation(this, "crying_animation", 640, 320, 900, 500 ) ;
-		bigcrying_animation = new Animation(this, "bigcrying_animation", 640, 320, 900, 500 ) ;
-		eating_animation = new Animation(this, "eating_animation", 1366, 768,0,0 ) ;
 	}
 	
 	public void setup() {
 		size(1000,650);
+		
 		bgState1 = loadImage("bgState1.jpg");
 		money = loadImage("money.png");
 		Ani.init(this);
@@ -171,6 +172,7 @@ public class MainApplet extends PApplet {
 		loadBread();
 		loadMeat();
 		loadOther();
+		loadAnimation();
 		chooseimg = loadImage("okay.png");
 		cp5 = new ControlP5(this);
 		plus10 = new PlusScore(this, 1, 100);
@@ -180,6 +182,8 @@ public class MainApplet extends PApplet {
 		smooth();			
 		time_up=loadImage("time_up.gif");
 	}
+
+	
 
 	public void draw() {
 
@@ -1010,7 +1014,7 @@ public class MainApplet extends PApplet {
 				}*/
 			}
 			animationSec=centSecond;
-			if (animationSec<5*17){
+			if (animationSec<gameTime/3*17){
 
 				waiting_animation.display(animationIndex);
 				animationIndex++;
@@ -1020,7 +1024,7 @@ public class MainApplet extends PApplet {
 					// end and calculate the score
 				}
 			}
-			else if (animationSec<10*17){
+			else if (animationSec<gameTime*2/3*17){
 				crying_animation.display(animationIndex);
 				animationIndex++;
 				if (animationIndex==crying_animation.getSize()){
@@ -1028,7 +1032,7 @@ public class MainApplet extends PApplet {
 					animationIndex = crying_animation.getSize()-30;
 					// end and calculate the score
 				}
-				if(animationSec==10*17-1) animationIndex=0;
+				if(animationSec==gameTime*2/3*17-1) animationIndex=0;
 			}
 			else {
 				bigcrying_animation.display(animationIndex);
@@ -1042,12 +1046,20 @@ public class MainApplet extends PApplet {
 			//display animation
 			delay(50);	
 			
+			timeRate = (float)(100-(100*centSecond/(gameTime*17)))/100;
+			if(timeRate > 0.5)
+				fill(255, 255, 0);
+			else if(timeRate > 0.25)
+				fill(255, 128, 0);
+			else 
+				fill(255, 0, 0);
 			
-			if(centSecond++ == gameTime*17) {
+			rect(this.getWidth()-20, 0, 20, timeRate*this.getHeight());
+			
+			if(centSecond++ >= gameTime*17) {
 				state = 5;
 				animationIndex = 0;
 				background(0);
-
 			}
 			
 		}
@@ -1698,6 +1710,13 @@ public class MainApplet extends PApplet {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
+	public void keyPressed() {
+		if(keyEvent.getKeyCode() == KeyEvent.VK_F1) {
+			totalMoney += 1000;
+		}
+	}
+	
 	public boolean isMouseInShape(String shape, int posX, int posY, int width, int height) {
 		if(shape.equals("RECT")) {
 			if(mouseX < posX+width && mouseX > posX && mouseY < posY+height && mouseY > posY) 
@@ -1821,6 +1840,16 @@ public class MainApplet extends PApplet {
 			food.tamato = 1;
 		}
 	}
+	
+	private void loadAnimation() {
+		hellow_animation = new Animation(this, "hellow_animation", 640, 320, 900, 500 ) ;
+		waiting_animation = new Animation(this, "waiting_animation", 960, 480, 750, 400 ) ;
+		crying_animation = new Animation(this, "crying_animation", 640, 320, 900, 500 ) ;
+		bigcrying_animation = new Animation(this, "bigcrying_animation", 640, 320, 900, 500 ) ;
+		eating_animation = new Animation(this, "eating_animation", 1366, 768,0,0 ) ;
+		
+	}
+	
 	public void buttonA() {
 		this.state = 2;
 	}
