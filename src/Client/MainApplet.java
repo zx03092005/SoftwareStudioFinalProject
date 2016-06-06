@@ -25,7 +25,7 @@ public class MainApplet extends PApplet {
 
 	int state;
 	String msg;
-	PImage img, bgState1,money;
+	PImage img, bgState1,money,time_up;
 	int totalMoney = 1000;
 	private Ani ani;
 	BackGround bg;
@@ -138,7 +138,7 @@ public class MainApplet extends PApplet {
 	int thisScore = 0;
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	
-	int centSecond = 0, gameTime = 60,animationSec=0;	
+	int centSecond = 0, gameTime = 20,animationSec=0;	
 	Animation hellow_animation, crying_animation, eating_animation, waiting_animation, bigcrying_animation;
 	public MainApplet(Socket socket) {
 		state = 2;
@@ -173,6 +173,7 @@ public class MainApplet extends PApplet {
 		good = new PlusScore(this, 2, 100);
 		gogo = new PlusScore(this, 3, 100);
 		smooth();			
+		time_up=loadImage("time_up.gif");
 	}
 
 	public void draw() {
@@ -969,9 +970,15 @@ public class MainApplet extends PApplet {
 			
 		}
 		//state 4 time's up animation
-		else if(state == 5) {
+		else if(state == 5) {			
+			background(204, 230, 255);
+
+
+			image(time_up,0, 0, 1366, 768);
 			
-			
+		}
+		//score animation
+		else if(state == 6) {
 
 			background(204, 230, 255);
 			fill(0);
@@ -983,52 +990,42 @@ public class MainApplet extends PApplet {
 			
 			if (animationIndex==eating_animation.getSize()-30){
 				//
-				state = 6;
-				// end and calculate the score
-			}
-			
-		}
-		//score animation
-		else if(state == 6) {
-			background(204, 230, 255);
-			fill(0);
-			eating_animation.display(animationIndex);
-			animationIndex++;
-			delay(50);
-
-			int totalScore = 0; //add by qqhsuanwu
-			totalScore = score;
-			String msgTotalScore = String.valueOf(totalScore);
-			textSize(40);
-			text("Total Score = "+msgTotalScore, 80, 100);
-
-			//add by qqhsuanwu
-			String msgTotalMoney = String.valueOf(totalMoney);
-			textSize(40);
-			text("Total Money = "+msgTotalMoney, 520, 100);
-
-			if (animationIndex==eating_animation.getSize()){
-				loadFood();
-				animationIndex=0;
 				state = 7;
+				// end and calculate the score
 			}
 		}
 		// choose the favorite food and locate them in the 1st~3rd
 		else if(state == 7) {
 			background(204, 230, 255);
 			fill(0);
+			eating_animation.display(animationIndex);
+			animationIndex++;
+			delay(50);
+
+			String msgTotalScore = String.valueOf(score);
+			textSize(40);
+			text("Total Score = "+msgTotalScore, 80, 100);
+
+			//add by qqhsuanwu
+			String msgTotalMoney = String.valueOf(score * 2 + 50);
+			textSize(40);
+			text("Total Money = "+msgTotalMoney, 520, 100);
+
+			if (animationIndex==eating_animation.getSize()){
+				loadFood();
+				animationIndex=0;
+				state = 8;
+			}
+			
+		}
+		else if (state == 8){
+			background(204, 230, 255);
+			fill(0);
 			textSize(50);
 			text("State 5 ", 400, 420);
-			System.out.println(foods.size()+"  hi");
 
 			Food f;
 
-//			f = foods.get(foodindex);
-//			f.display();
-//			foodindex++;
-//			delay(1000);
-//			System.out.println("Foodindex"+ foodindex);
-			///123
 			stroke(4);
 			fill(127);
 			rect(490, 290, 220, 150, 20);
@@ -1192,7 +1189,12 @@ public class MainApplet extends PApplet {
 				xOffset = mouseX-countryLocked.x; 
 				yOffset = mouseY-countryLocked.y; 
 			}
-		}	
+		}
+		if (state==6){
+			state=7;
+			animationIndex=eating_animation.getSize()-30;
+		}
+		if (state==5) state=6;
 	}
 	
 	public void mouseDragged() {
