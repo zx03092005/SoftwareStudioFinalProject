@@ -156,7 +156,7 @@ public class MainApplet extends PApplet {
 		money = loadImage("money.png");
 		Ani.init(this);
 		bg = new BackGround(this, 1, 255);
-//		loadCountry();
+		loadCountry();
 		loadBread();
 		loadMeat();
 		loadOther();
