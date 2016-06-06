@@ -139,7 +139,7 @@ public class MainApplet extends PApplet {
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	
 	int centSecond = 0, gameTime = 60,animationSec=0;	
-	Animation hellow_animation, crying_animation, eating_animation, waiting_animation;
+	Animation hellow_animation, crying_animation, eating_animation, waiting_animation, bigcrying_animation;
 	public MainApplet(Socket socket) {
 		state = 2;
 		countrys = new ArrayList<Country>();
@@ -153,6 +153,7 @@ public class MainApplet extends PApplet {
 		hellow_animation = new Animation(this, "hellow_animation", 640, 320, 900, 500 ) ;
 		waiting_animation = new Animation(this, "waiting_animation", 960, 480, 750, 400 ) ;
 		crying_animation = new Animation(this, "crying_animation", 640, 320, 900, 500 ) ;
+		bigcrying_animation = new Animation(this, "bigcrying_animation", 640, 320, 900, 500 ) ;
 		eating_animation = new Animation(this, "eating_animation", 1366, 768,0,0 ) ;
 	}
 	
@@ -925,8 +926,8 @@ public class MainApplet extends PApplet {
 					state = 4;
 				}*/
 			}
-			animationSec=centSecond*17;
-			if (centSecond<=5*17){
+			animationSec=centSecond;
+			if (animationSec<5*17){
 
 				waiting_animation.display(animationIndex);
 				animationIndex++;
@@ -935,12 +936,23 @@ public class MainApplet extends PApplet {
 					animationIndex = 0;
 					// end and calculate the score
 				}
-			}else {
+			}
+			else if (animationSec<10*17){
 				crying_animation.display(animationIndex);
 				animationIndex++;
 				if (animationIndex==crying_animation.getSize()){
 					//
 					animationIndex = crying_animation.getSize()-30;
+					// end and calculate the score
+				}
+				if(animationSec==10*17-1) animationIndex=0;
+			}
+			else {
+				bigcrying_animation.display(animationIndex);
+				animationIndex++;
+				if (animationIndex==bigcrying_animation.getSize()){
+					//
+					animationIndex = 0;
 					// end and calculate the score
 				}
 			}
