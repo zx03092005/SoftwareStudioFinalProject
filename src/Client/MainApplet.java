@@ -857,7 +857,7 @@ public class MainApplet extends PApplet {
 				for(Snack i : snacks) {
 					JSONObject temp = data_dessert.getJSONObject(k++);
 					String name = temp.getString("name");
-					i.name = name;
+					i.name = name.replace("_", " ");
 					i.display();
 					fill(0);
 					textSize(18);
@@ -938,7 +938,7 @@ public class MainApplet extends PApplet {
 				for(Drink i : drinks) {
 					JSONObject temp = data_drink.getJSONObject(k++);
 					String name = temp.getString("name");
-					i.name = name;
+					i.name = name.replace("_", " ");
 					i.display();
 					fill(0);
 					textSize(18);
