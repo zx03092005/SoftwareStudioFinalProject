@@ -59,6 +59,7 @@ public class MainApplet extends PApplet {
 	ControlP5 cp5;
 	boolean addButton = false;
 	boolean addButtonC = false;
+	boolean isAdded = false;
 	
 	Drink drink;
 	Snack snack;
@@ -1067,7 +1068,6 @@ public class MainApplet extends PApplet {
 			
 			if(centSecond++ >= gameTime*17) {
 				state = 5;
-				totalMoney += (score + 200);
 				animationIndex = 0;
 				background(0);
 			}
@@ -1077,7 +1077,7 @@ public class MainApplet extends PApplet {
 		else if(state == 5) {			
 			background(204, 230, 255);
 
-
+			if(!isAdded) totalMoney += (score + 200);
 			image(time_up,0, 0, 1366, 768);
 			
 		}
