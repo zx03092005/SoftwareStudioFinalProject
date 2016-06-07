@@ -238,10 +238,10 @@ public class MainApplet extends PApplet {
 			cp5.hide();
 			Country c;
 			background(255,255,153);
-			//image(money, 1150, 20);
-			//fill(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
-			//textSize(45);
-			//text("x" + totalMoney, 1220, 70);
+			image(money, 1150, 20);
+			fill(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
+			textSize(45);
+			text("x" + totalMoney, 1220, 70);
 			stroke(4);
 			fill(127);
 			rect(490, 290, 220, 150, 20);
@@ -1767,10 +1767,18 @@ public class MainApplet extends PApplet {
 		if(keyEvent.getKeyCode() == KeyEvent.VK_F1) {
 			totalMoney += 1000;
 		} 
-		if(keyEvent.getKeyCode() == KeyEvent.VK_F2) {
+		if(keyEvent.getKeyCode() == KeyEvent.VK_F4) {
 			if(state == 3 || state == 4) {
 				state = 5;
 			}
+		}
+		if(keyEvent.getKeyCode() == KeyEvent.VK_F3) {
+			if(state == 0) {
+				state = 1;
+			}
+		}
+		if(keyEvent.getKeyCode() == KeyEvent.VK_F2) {
+			gameTime = 9999;
 		}
 	}
 	
