@@ -29,7 +29,7 @@ public class MainApplet extends PApplet {
 	int state;
 	String msg;
 	PImage img, bgState1,money,time_up,rankings;
-	int totalMoney = 1000;
+	int totalMoney = 0;
 	private Ani ani;
 	BackGround bg;
 	Country country;
@@ -224,8 +224,8 @@ public class MainApplet extends PApplet {
 			image(bgState1, 0, 0, 1360, 760);
 			if(!addButton) {
 				//create button
-				cp5.addButton("buttonA").setLabel("Start").setPosition(300,550).setSize(200,50);
-				cp5.addButton("buttonB").setLabel("How").setPosition(700,550).setSize(200,50);
+				cp5.addButton("buttonA").setLabel("Start").setPosition(380,550).setSize(200,50);
+				cp5.addButton("buttonB").setLabel("How").setPosition(780,550).setSize(200,50);
 				// set the Font of word in the button
 				ControlFont font = new ControlFont(createFont("Consolas",20,true),241);
 				cp5.getController("buttonA").getCaptionLabel().setFont(font).setSize(24);
@@ -1169,7 +1169,7 @@ public class MainApplet extends PApplet {
 			}				
 			if (!addButtonC){
 
-				cp5.addButton("buttonC").setLabel("Finish").setPosition(350,600).setSize(250,80);
+				cp5.addButton("buttonC").setLabel("Result").setPosition(350,600).setSize(250,80);
 				ControlFont font = new ControlFont(createFont("Consolas",20,true),241);
 				cp5.getController("buttonC").getCaptionLabel().setFont(font).setSize(36);
 				cp5.addButton("buttonD").setLabel("Play Again").setPosition(750,600).setSize(250,80);
@@ -1185,7 +1185,6 @@ public class MainApplet extends PApplet {
 		}
 		else if(state == 9) {
 			cp5.hide();
-			totalMoney += (score*2+50);
 			background(204, 230, 255);
 			int sum = 0, i = 0, num = 10, result = 0;
 			for(i=0; i<food.allFood.length; i++) {
