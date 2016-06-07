@@ -1067,6 +1067,7 @@ public class MainApplet extends PApplet {
 			
 			if(centSecond++ >= gameTime*17) {
 				state = 5;
+				totalMoney += (score + 200);
 				animationIndex = 0;
 				background(0);
 			}
@@ -1093,6 +1094,7 @@ public class MainApplet extends PApplet {
 			
 			if (animationIndex==eating_animation.getSize()-30){
 				//
+				
 				state = 7;
 				// end and calculate the score
 			}
@@ -1113,7 +1115,6 @@ public class MainApplet extends PApplet {
 			String msgTotalMoney = String.valueOf(score + 200);
 			textSize(40);
 			text("Total Money = "+msgTotalMoney, 520, 100);
-			totalMoney += (score + 200);
 			if (animationIndex==eating_animation.getSize()){
 				loadFood();
 				animationIndex=0;
