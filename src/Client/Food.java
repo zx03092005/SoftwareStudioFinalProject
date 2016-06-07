@@ -20,6 +20,8 @@ public class Food {
 	int x, y;
 	int width, height;
 	boolean isLocked;
+	boolean inRect = false;
+	int initX, initY;
 	
 	String name;
 	int bread;

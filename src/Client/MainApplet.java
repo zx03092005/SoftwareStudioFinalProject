@@ -28,7 +28,7 @@ public class MainApplet extends PApplet {
 
 	int state;
 	String msg;
-	PImage img, bgState1,money,time_up;
+	PImage img, bgState1,money,time_up,rankings;
 	int totalMoney = 1000;
 	private Ani ani;
 	BackGround bg;
@@ -150,7 +150,7 @@ public class MainApplet extends PApplet {
 	Animation hellow_animation, crying_animation, eating_animation, waiting_animation, bigcrying_animation;
 	public MainApplet(Socket socket) {
 		
-		state = 0;
+		state = 2;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
@@ -181,6 +181,7 @@ public class MainApplet extends PApplet {
 		wrong = new PlusScore(this,4,100);
 		smooth();			
 		time_up=loadImage("time_up.gif");
+		rankings=loadImage("rankings.png");
 	}
 
 	
@@ -1117,15 +1118,17 @@ public class MainApplet extends PApplet {
 			fill(0);
 			Food f;
 
+			image(rankings ,355, 190,650,379);
+			
 			stroke(4);
 			fill(127);
-			rect(490, 290, 220, 150, 20);
+//			rect(490, 290, 220, 150, 20);
 			for(k=0; k<foods.size(); k++) {
 				f = foods.get(k);
 				fill(127);
 				stroke(0);
 				strokeWeight(5);
-				rect(foodsX[k]-10, foodsY[k]-10, f.width+20, f.height+20, 20);
+//				rect(foodsX[k]-10, foodsY[k]-10, f.width+20, f.height+20, 20);
 			}
 			if(!foodisDisplayed) {
 				for(k=0; k<foods.size(); k++) {
@@ -1144,7 +1147,7 @@ public class MainApplet extends PApplet {
 					i.width = 220;
 					i.height = 143;
 					overFoodAndNotPress = i;
-					System.out.println("in");
+//					System.out.println("in");
 				}
 				else {
 					i.width = 200;
@@ -1265,10 +1268,14 @@ public class MainApplet extends PApplet {
 
 				foodsX[i] = 100;
 				foodsY[i] = 30 + 140*i;
+				food2.initX=100;
+				food2.initY=30 + 140*i;
 			}
 			else {
-				foodsX[i] = 1000;
+				foodsX[i] = 1100;
 				foodsY[i] = 30 + 140*(i-food2.getSize()/2);
+				food2.initX=1100;
+				food2.initY=30 + 140*(i-food2.getSize()/2);
 				
 			}
 			foodImg = loadImage(food2.getFood(i));
@@ -1335,6 +1342,21 @@ public class MainApplet extends PApplet {
 	}
 	
 	public void mouseReleased() {
+		if (state==8 && foodLocked!=null){
+			if(isMouseInShape("RECT", 490, 290, 220, 150)) {
+				foodLocked.inRect = true;
+				foodLocked.x = 370;
+				foodLocked.y = 230;
+				if (accept == 0){
+					food = new Food(this, countryLocked.name,false);
+					//animations.clear();
+					state = 6;
+				}
+			}else {
+				ani = Ani.to(foodLocked, 1.0f, "x", foodLocked.initX);
+				ani = Ani.to(foodLocked, 1.0f, "y", foodLocked.initY);
+			}
+		}
 		if(countryLocked != null) {
 			if(isMouseInShape("RECT", 490, 290, 220, 150)&&state == 2) {
 				countryLocked.inRect = true;
