@@ -40,8 +40,8 @@ public class Food {
 		this.x = 500;
 		this.y = -50;
 		this.isLocked = isLocked;
-		//allFood = new PImage[foodList.length];
-		//for(int i=0; i<foodList.length; i++) allFood[i] = parent.loadImage(country + "/food" + foodList[i]);
+		allFood = new PImage[foodList.length];
+		for(int i=0; i<foodList.length; i++) allFood[i] = parent.loadImage(foodList[i].getPath());
 	}
 	
 	public String getFood() {

@@ -146,9 +146,12 @@ public class MainApplet extends PApplet {
 	int gooddisplay = 0, gogodisplay = 0, plus10display = 0;
 	boolean wrongdisplay = false;
 	
-	int centSecond = 0, gameTime = 5,animationSec=0;	
+	int centSecond = 0, gameTime = 100,animationSec=0;	
 	float timeRate = 0;
 	Animation hellow_animation, crying_animation, eating_animation, waiting_animation, bigcrying_animation;
+	
+	AudioPlayer bgm;
+
 	public MainApplet(Socket socket) {
 		
 		state = 2;
@@ -164,7 +167,9 @@ public class MainApplet extends PApplet {
 	
 	public void setup() {
 		size(1000,650);
-		
+		minim = new Minim(this);
+		bgm = minim.loadFile("song.mp3");
+		bgm.play();
 		bgState1 = loadImage("bgState1.jpg");
 		money = loadImage("money.png");
 		Ani.init(this);
@@ -1175,7 +1180,8 @@ public class MainApplet extends PApplet {
 
 		}
 		else if(state == 9) {
-			background(255);
+			cp5.hide();
+			background(204, 230, 255);
 			int sum = 0, i = 0, num = 10, result = 0;
 			for(i=0; i<food.allFood.length; i++) {
 				sum += 136-food.allFood.length*10;
@@ -1340,6 +1346,7 @@ public class MainApplet extends PApplet {
 			animationIndex=eating_animation.getSize()-30;
 		}
 		if (state==5) state=6;
+		if (state==9) state=2;
 	}
 	
 	public void mouseDragged() {
@@ -1754,6 +1761,11 @@ public class MainApplet extends PApplet {
 	public void keyPressed() {
 		if(keyEvent.getKeyCode() == KeyEvent.VK_F1) {
 			totalMoney += 1000;
+		} 
+		if(keyEvent.getKeyCode() == KeyEvent.VK_F2) {
+			if(state == 3 || state == 4) {
+				state = 5;
+			}
 		}
 	}
 	
