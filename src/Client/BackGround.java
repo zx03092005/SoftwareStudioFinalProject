@@ -20,27 +20,27 @@ public class BackGround {
 		if(photo == 1) {
 			img = parent.loadImage("photo1.jpg");
 			parent.tint(chroma,127);
-			parent.image(img, 0, 0);
+			parent.image(img, 0, 0, 1360, 760);
 		}
 		else if(photo == 2) {
 			img = parent.loadImage("photo2.jpg");
 			parent.tint(chroma,127);
-			parent.image(img, 0, 0);
+			parent.image(img, 0, 0, 1360, 760);
 		}
 		else if(photo == 3) {
 			img = parent.loadImage("photo3.jpg");
 			parent.tint(chroma,127);
-			parent.image(img, 0, 0);
+			parent.image(img, 0, 0, 1360, 760);
 		}
 		else if(photo == 4) {
 			img = parent.loadImage("photo4.jpg");
 			parent.tint(chroma,127);
-			parent.image(img, 0, 0);
+			parent.image(img, 0, 0, 1360, 760);
 		}
 		else if(photo == 5) {
 			img = parent.loadImage("explain.jpg");
 			parent.tint(chroma,127);
-			parent.image(img, 0, 0);
+			parent.image(img, 0, 0, 1360, 760);
 		}
 	}
 	// initial chroma

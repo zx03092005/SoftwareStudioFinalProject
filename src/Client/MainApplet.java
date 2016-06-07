@@ -154,7 +154,7 @@ public class MainApplet extends PApplet {
 
 	public MainApplet(Socket socket) {
 		
-		state = 2;
+		state = 0;
 		countrys = new ArrayList<Country>();
 		breads = new ArrayList<Bread>();
 		meats = new ArrayList<Meat>();
@@ -221,7 +221,7 @@ public class MainApplet extends PApplet {
 		}
 		else if(state == 1) {
 			noTint();
-			image(bgState1, 0, 0);
+			image(bgState1, 0, 0, 1360, 760);
 			if(!addButton) {
 				//create button
 				cp5.addButton("buttonA").setLabel("Start").setPosition(300,550).setSize(200,50);
@@ -1176,11 +1176,16 @@ public class MainApplet extends PApplet {
 				cp5.getController("buttonD").getCaptionLabel().setFont(font).setSize(36);
 				addButtonC=true;
 			}
-			else cp5.show();
+			else {
+				cp5.show();
+				cp5.remove("buttonA");
+				cp5.remove("buttonB");
+			}
 
 		}
 		else if(state == 9) {
 			cp5.hide();
+			totalMoney += (score*2+50);
 			background(204, 230, 255);
 			int sum = 0, i = 0, num = 10, result = 0;
 			for(i=0; i<food.allFood.length; i++) {
