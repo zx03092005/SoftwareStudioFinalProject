@@ -1110,10 +1110,10 @@ public class MainApplet extends PApplet {
 			text("Total Score = "+msgTotalScore, 80, 100);
 
 			//add by qqhsuanwu
-			String msgTotalMoney = String.valueOf(score * 2 + 50);
+			String msgTotalMoney = String.valueOf(score + 200);
 			textSize(40);
 			text("Total Money = "+msgTotalMoney, 520, 100);
-
+			totalMoney += (score + 200);
 			if (animationIndex==eating_animation.getSize()){
 				loadFood();
 				animationIndex=0;
@@ -1336,6 +1336,12 @@ public class MainApplet extends PApplet {
 				countryLocked = overCountryAndNotPress;
 				xOffset = mouseX-countryLocked.x; 
 				yOffset = mouseY-countryLocked.y; 
+			}
+			else {
+				if(totalMoney > 500) {
+					totalMoney -= 500;
+					overCountryAndNotPress.isLocked = false;
+				}
 			}
 			if (state==8){
 

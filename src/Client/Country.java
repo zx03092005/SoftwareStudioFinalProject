@@ -9,9 +9,10 @@ public class Country {
 	float initX, initY;
 	String name;
 	PImage img, background;
-	int width, height;
+	int width = 200, height = 130;
 	boolean inRect = false;
 	boolean isLocked;
+	String countryName;
 	
 	public Country(MainApplet parent, int x, int y, float initX, float initY, String countryName, boolean isLocked) {
 		this.parent = parent;
@@ -21,15 +22,14 @@ public class Country {
 		this.initY = initY;
 		this.name = countryName.substring(0, countryName.length()-4);
 		this.isLocked = isLocked;
-		if(isLocked) img = parent.loadImage("CountryLocked/" + countryName);
-		else img = parent.loadImage("Country/" + countryName);
+		this.countryName = countryName;
 		background = parent.loadImage("WorldMap/" + name + ".png");
-		width = img.width;
-		height = img.height;
 	}
 	
 	public void display() {
 		parent.noTint();
+		if(isLocked) img = parent.loadImage("CountryLocked/" + countryName);
+		else img = parent.loadImage("Country/" + countryName);
 		parent.image(img, x, y, width, height);
 	}
 	
