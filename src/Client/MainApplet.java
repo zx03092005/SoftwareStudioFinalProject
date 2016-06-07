@@ -310,64 +310,7 @@ public class MainApplet extends PApplet {
 			textSize(40);
 			thisScore = 0;
 			
-			if (plus10Flag == 1) {
-				if (plus10display == 0) {
-					ani = Ani.to(plus10, (float)1.0, "chroma", 240);
-					plus10display = 1;
-				}
-				if (plus10.chroma != 240) {
-					plus10.display();
-				}
-				else {
-					plus10Flag = 0;
-					plus10.initChroma();
-					plus10display = 0;
-				}
-			}
-			if (goodFlag == 1) {
-				if (gooddisplay == 0) {
-					ani = Ani.to(good, (float)1.0, "chroma", 240);
-					gooddisplay = 1;
-				}
-				if (good.chroma != 240) {
-					good.display();
-				}
-				else {
-					goodFlag = 0;
-					good.initChroma();
-					gooddisplay = 0;
-				}
-			}
 			
-			if (gogoFlag == 1) {
-				if (gogodisplay == 0) {
-					ani = Ani.to(gogo, (float)1.0, "chroma", 240);
-					gogodisplay = 1;
-				}
-				if (gogo.chroma != 240) {
-					gogo.display();
-				}
-				else {
-					gogoFlag = 0;
-					gogo.initChroma();
-					gogodisplay = 0;
-				}
-			}
-			
-			if (wrongFlag == 1) {
-				if (!wrongdisplay) {
-					ani = Ani.to(wrong, (float)1.0, "chroma", 240);
-					wrongdisplay = true;
-				}
-				if (wrong.chroma != 240) {
-					wrong.display();
-				}
-				else {
-					wrongFlag = 0;
-					wrong.initChroma();
-					wrongdisplay = false;
-				}
-			}
 			if (playState == 1) {
 				food.foodRect();
 			}
@@ -1015,6 +958,65 @@ public class MainApplet extends PApplet {
 					state = 4;
 				}*/
 			}
+			if (plus10Flag == 1) {
+				if (plus10display == 0) {
+					ani = Ani.to(plus10, (float)0.7, "chroma", 240);
+					plus10display = 1;
+				}
+				if (plus10.chroma != 240) {
+					plus10.display();
+				}
+				else {
+					plus10Flag = 0;
+					plus10.initChroma();
+					plus10display = 0;
+				}
+			}
+			if (goodFlag == 1) {
+				if (gooddisplay == 0) {
+					ani = Ani.to(good, (float)0.7, "chroma", 240);
+					gooddisplay = 1;
+				}
+				if (good.chroma != 240) {
+					good.display();
+				}
+				else {
+					goodFlag = 0;
+					good.initChroma();
+					gooddisplay = 0;
+				}
+			}
+			
+			if (gogoFlag == 1) {
+				if (gogodisplay == 0) {
+					ani = Ani.to(gogo, (float)0.7, "chroma", 240);
+					gogodisplay = 1;
+				}
+				if (gogo.chroma != 240) {
+					gogo.display();
+				}
+				else {
+					gogoFlag = 0;
+					gogo.initChroma();
+					gogodisplay = 0;
+				}
+			}
+			
+			if (wrongFlag == 1) {
+				if (!wrongdisplay) {
+					ani = Ani.to(wrong, (float)0.7, "chroma", 240);
+					wrongdisplay = true;
+				}
+				if (wrong.chroma != 240) {
+					wrong.display();
+				}
+				else {
+					wrongFlag = 0;
+					wrong.initChroma();
+					wrongdisplay = false;
+				}
+			}
+			
 			animationSec=centSecond;
 			if (animationSec<gameTime/3*17){
 
@@ -1779,7 +1781,7 @@ public class MainApplet extends PApplet {
 	public void loadfooddata(){
 		JSONObject temp = data_food.getJSONObject(food.getchoose());
 		String name = temp.getString("name");
-		food.name = name;
+		food.name = name.replace("_", " ");
 		//bread
 		String bread = temp.getString("bread");
 		if (bread.equals("bagel")){

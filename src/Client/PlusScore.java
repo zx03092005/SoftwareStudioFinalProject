@@ -30,7 +30,7 @@ public class PlusScore {
 			img = parent.loadImage("delete.png");
 		}
 		
-		parent.tint(chroma,127);
+		parent.tint(chroma,200);
 		parent.image(img, 700, 200, 300, 300);
 	}
 	
