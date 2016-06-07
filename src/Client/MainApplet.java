@@ -58,6 +58,7 @@ public class MainApplet extends PApplet {
 	boolean foodisDisplayed = false;
 	ControlP5 cp5;
 	boolean addButton = false;
+	boolean addButtonC = false;
 	
 	Drink drink;
 	Snack snack;
@@ -1118,7 +1119,7 @@ public class MainApplet extends PApplet {
 			fill(0);
 			Food f;
 
-			image(rankings ,355, 190,650,379);
+			image(rankings ,247, 77,866,505);
 			
 			stroke(4);
 			fill(127);
@@ -1143,11 +1144,9 @@ public class MainApplet extends PApplet {
 				if(isMouseInShape("RECT", i.x, i.y, i.width, i.height) && !mousePressed) {
 					noStroke();
 					fill(126, 32, 174);
-//					rect(mouseX+10, mouseY-15, 30, 100);
 					i.width = 220;
 					i.height = 143;
 					overFoodAndNotPress = i;
-//					System.out.println("in");
 				}
 				else {
 					i.width = 200;
@@ -1160,7 +1159,18 @@ public class MainApplet extends PApplet {
 					break;
 				}
 				else isOver = false;
+			}				
+			if (!addButtonC){
+
+				cp5.addButton("buttonC").setLabel("Finish").setPosition(350,600).setSize(250,80);
+				ControlFont font = new ControlFont(createFont("Consolas",20,true),241);
+				cp5.getController("buttonC").getCaptionLabel().setFont(font).setSize(36);
+				cp5.addButton("buttonD").setLabel("Play Again").setPosition(750,600).setSize(250,80);
+				cp5.getController("buttonD").getCaptionLabel().setFont(font).setSize(36);
+				addButtonC=true;
 			}
+			else cp5.show();
+
 		}
 		else if(state == 9) {
 			background(255);
@@ -1266,7 +1276,7 @@ public class MainApplet extends PApplet {
 		for(int i=0; i<food2.getSize(); i++) {
 			if (i< food2.getSize()/2){
 
-				foodsX[i] = 100;
+				foodsX[i] = 70;
 				foodsY[i] = 30 + 140*i;
 				food2.initX=100;
 				food2.initY=30 + 140*i;
@@ -1343,16 +1353,22 @@ public class MainApplet extends PApplet {
 	
 	public void mouseReleased() {
 		if (state==8 && foodLocked!=null){
-			if(isMouseInShape("RECT", 490, 290, 220, 150)) {
+			if(isMouseInShape("RECT", 300, 150, 220, 150)) {
 				foodLocked.inRect = true;
-				foodLocked.x = 370;
-				foodLocked.y = 230;
-				if (accept == 0){
-					food = new Food(this, countryLocked.name,false);
-					//animations.clear();
-					state = 6;
-				}
-			}else {
+				foodLocked.x = 300;
+				foodLocked.y = 150;
+			}
+			else if (isMouseInShape("RECT", 575, 150, 220, 150)) {
+				foodLocked.inRect = true;
+				foodLocked.x = 575;
+				foodLocked.y = 150;
+			}
+			else if (isMouseInShape("RECT", 850, 150, 220, 150)) {
+				foodLocked.inRect = true;
+				foodLocked.x = 850;
+				foodLocked.y = 150;
+			}
+			else {
 				ani = Ani.to(foodLocked, 1.0f, "x", foodLocked.initX);
 				ani = Ani.to(foodLocked, 1.0f, "y", foodLocked.initY);
 			}
@@ -1878,5 +1894,11 @@ public class MainApplet extends PApplet {
 	// if press the buttonB(CLEAR) remove each node from the big circle
 	public void buttonB() {
 		this.state = 3;
+	}
+	public void buttonC() {
+		this.state = 9;
+	}
+	public void buttonD() {
+		this.state = 2;
 	}
 }
